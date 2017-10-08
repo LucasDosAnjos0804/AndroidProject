@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aedes.economize.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/etemail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="45dp"
+            android:text="@string/tv_login" />
+
+        <EditText
+            android:id="@+id/etemail"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/etsenha"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="77dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="@string/et_email"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/etsenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/etemail"
+            android:layout_marginBottom="111dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="@string/et_password"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:elevation="0dp"
+            android:text="@string/tv_login" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
