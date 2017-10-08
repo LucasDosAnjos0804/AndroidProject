@@ -14,8 +14,4 @@
         completions."
     </string>
     <string name="title_activity_login">Entrar</string>
-    <string name="tv_login">Entrar</string>
-    <string name="et_email">Email</string>
-    <string name="et_password">Senha</string>
-
 </resources>
