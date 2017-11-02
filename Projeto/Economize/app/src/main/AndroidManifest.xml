@@ -23,10 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SingUpActivity" />
-        <activity
-            android:name=".activity_pos_logagem"
-            android:label="@string/title_activity_pos_logagem"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
