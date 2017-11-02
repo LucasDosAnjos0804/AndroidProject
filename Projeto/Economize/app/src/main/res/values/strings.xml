@@ -14,6 +14,7 @@
         completions."
     </string>
     <!-- Strings Login Em PT -->
+    <string name="titulo_boas_vindas">Bem vindo ao Economize!</string>
     <string name="title_activity_login">Entrar</string>
     <string name="ac_entrar">Entrar</string>
     <string name="pr_nome">Nome</string>
