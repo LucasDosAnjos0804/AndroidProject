@@ -49,6 +49,7 @@
 
     <Button
         android:id="@+id/btnentrar"
+        android:onClick="logar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
