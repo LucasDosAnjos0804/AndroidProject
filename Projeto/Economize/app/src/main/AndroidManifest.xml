@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".SingUpActivity" />
         <activity
-            android:name=".acivity_pos_logagem"
+            android:name=".Activity_pos_logagem"
             android:label="@string/title_activity_acivity_pos_logagem"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

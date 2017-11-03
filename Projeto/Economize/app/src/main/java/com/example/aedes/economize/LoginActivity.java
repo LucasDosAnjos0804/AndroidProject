@@ -18,5 +18,10 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void logar(View v){
+        Intent intent = new Intent(this, Activity_pos_logagem.class);
+        startActivity(intent);
+    }
+
 
 }

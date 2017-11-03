@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.aedes.economize.acivity_pos_logagem"
+    tools:context="com.example.aedes.economize.Activity_pos_logagem"
     tools:showIn="@layout/app_bar_acivity_pos_logagem">
 
 
