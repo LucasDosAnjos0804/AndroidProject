@@ -24,15 +24,6 @@ public class Activity_pos_logagem extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -84,9 +75,9 @@ public class Activity_pos_logagem extends AppCompatActivity
        if (id == R.id.nav_historico) {
            fm.beginTransaction().replace(R.id.content_frame, new historico_fragment()).commit();
         } else if (id == R.id.nav_addtrans) {
-           fm.beginTransaction().replace(R.id.content_frame, new addtrans_fragment()).commit();
+
         } else if (id == R.id.nav_addcat) {
-           fm.beginTransaction().replace(R.id.content_frame, new addcat_fragment()).commit();
+
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
