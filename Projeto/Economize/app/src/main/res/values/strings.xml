@@ -14,6 +14,7 @@
         completions."
     </string>
     <!-- Strings Login Em PT -->
+    <string name="titulo_boas_vindas">Bem vindo ao Economize!</string>
     <string name="title_activity_login">Entrar</string>
     <string name="ac_entrar">Entrar</string>
     <string name="pr_nome">Nome</string>
@@ -21,6 +22,7 @@
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="ac_cadastrese">Cadastre-se</string>
     <string name="ac_cadastrarse">Cadastrar-se</string>
+ 
     <string name="title_activity_pos_logagem">activity_pos_logagem</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
@@ -31,5 +33,23 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- frag Nova Transação -->
+    <string name="pr_valor">Valor</string>
+    <string name="rdb_ganho">Lucro</string>
+    <string name="rdb_despesa">Despesa</string>
+    <string name="chb_tipo_de_pagamento">Pagamento recorrente</string>
+    <string name="pr_titulo">Título</string>
+    <string name="pr_descricao">Descrição</string>
+    <!-- frag transição não recorrente-->
+    <string name="dt_ocorrencia">Data de ocorrencia</string>
+    <!-- frag transição recorrente-->
+    <string name="dt_inicio">Data de início</string>
+    <string name="dt_fim">Data de fim</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
