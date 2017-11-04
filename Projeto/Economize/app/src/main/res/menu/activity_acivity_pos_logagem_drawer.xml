@@ -5,30 +5,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_historico"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Histórico" />
+            android:id="@+id/nav_orc"
+            android:icon="@drawable/budget"
+            android:title="Adicionar Orçamento" />
         <item
             android:id="@+id/nav_addtrans"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/transaction"
             android:title="Adicionar Transação" />
         <item
             android:id="@+id/nav_addcat"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/category"
             android:title="Adicionar Categoria" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+    <item
+
+
+        android:title="_________________________" />
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_historico"
+            android:icon="@drawable/history"
+            android:title="Histórico" />
+
+    </group>
 
 </menu>

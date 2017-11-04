@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * Created by Eu II on 02/11/2017.
  */
 
-public class historico_fragment extends Fragment {
+public class FragHistorico extends Fragment {
     View view;
 
     @Nullable
