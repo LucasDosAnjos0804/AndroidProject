@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bokeh"
+    android:background="@drawable/bokeh2"
     tools:context="com.example.aedes.economize.LoginActivity">
 
     <TextView
@@ -14,6 +14,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/ac_entrar"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -51,6 +54,7 @@
             android:backgroundTint="@android:color/background_light"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textColor="#ffffff"
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="271dp" />
     </LinearLayout>
@@ -86,6 +90,7 @@
             android:backgroundTint="@android:color/background_light"
             android:ems="10"
             android:inputType="textPassword"
+            android:textColor="#ffffff"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="352dp" />
     </LinearLayout>
@@ -96,9 +101,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/mybotao"
+        android:onClick="logar"
         android:text="@string/ac_entrar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
