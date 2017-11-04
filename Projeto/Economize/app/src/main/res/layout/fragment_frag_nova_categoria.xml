@@ -100,8 +100,10 @@
             android:layout_weight="1"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout11"
-            tools:layout_editor_absoluteX="52dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
 
             <TextView
                 android:id="@+id/textView18"
@@ -127,8 +129,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/fltb_"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
-            tools:layout_editor_absoluteX="52dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
             <TextView
                 android:id="@+id/textView17"
