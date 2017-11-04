@@ -142,7 +142,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/fltb-adicionar"
+            app:layout_constraintBottom_toTopOf="@+id/fltb_adicionar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +168,7 @@
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fltb-adicionar"
+            android:id="@+id/fltb_adicionar"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"
@@ -179,7 +179,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fltb-cancelar"
+            android:id="@+id/fltb_cancelar"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"

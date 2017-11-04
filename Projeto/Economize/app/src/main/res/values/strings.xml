@@ -44,15 +44,20 @@
     <string name="chb_tipo_de_pagamento">Pagamento recorrente</string>
     <string name="pr_titulo">Título</string>
     <string name="pr_descricao">Descrição</string>
-    <string name="pr_descricao_exemplo">Sua descrição aquí</string>
-    <!-- frag transição não recorrente-->
+    <string name="pr_descricao_exemplo">sua descrição aquí</string>
+    <!-- frag transação não recorrente-->
     <string name="dt_ocorrencia">Data de ocorrencia</string>
     <string name="dt_ocorrencia_exemplo">DD/MM/AAAA</string>
-    <!-- frag transição recorrente-->
+    <!-- frag transação recorrente-->
     <string name="dt_inicio">Data de início</string>
     <string name="dt_inicio_exemplo">DD/MM/AAAA</string>
     <string name="dt_fim">Data de fim</string>
     <string name="dt_fim_exemplo">DD/MM/AAAA</string>
     <string name="spnn_ocorrencia">Ocorrencia</string>
+    <!-- frag nova categoria -->
+    <string name="spnn_categoria">Categoria</string>
+    <string name="pr_tipo_de_operacao">Tipo de operação padrão</string>
+    <string name="pr_tipo_de_operacao_ex">defina o tipo de operação</string>
+
 
 </resources>
