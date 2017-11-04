@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bokeh"
     tools:context="com.example.aedes.economize.LoginActivity">
 
     <TextView
@@ -37,15 +38,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/pr_nome" />
+            android:text="@string/pr_nome"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/et_nome_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/background_light"
             android:ems="10"
-            android:hint="@string/pr_nome"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="271dp" />
@@ -69,15 +73,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/pr_senha" />
+            android:text="@string/pr_senha"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/et_senha_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/background_light"
             android:ems="10"
-            android:hint="@string/pr_senha_exemplo"
             android:inputType="textPassword"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="352dp" />

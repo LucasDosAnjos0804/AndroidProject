@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0f444bb-c06b-47c3-9799-6c87c41a8cca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/.idea/gradle.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/.idea/misc.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/.idea/modules.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/.idea/runConfigurations.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/.idea/vcs.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_camera.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_camera.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_gallery.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_gallery.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_manage.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_manage.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_send.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_send.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_share.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_share.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_slideshow.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/ic_menu_slideshow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/side_nav_bar.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/drawable/side_nav_bar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/layout/activity_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/layout/activity_sing_up.xml" afterPath="$PROJECT_DIR$/Projeto/Economize/app/src/main/res/layout/activity_sing_up.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -199,7 +192,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1102" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1102" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
