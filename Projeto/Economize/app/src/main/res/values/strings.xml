@@ -58,6 +58,8 @@
     <string name="spnn_categoria">Categoria</string>
     <string name="pr_tipo_de_operacao">Tipo de operação padrão</string>
     <string name="pr_tipo_de_operacao_ex">defina o tipo de operação</string>
+    <!-- frag novo orçamento -->
+    <string name="spnn_abrangencia">Abrangência</string>
 
 
 </resources>
