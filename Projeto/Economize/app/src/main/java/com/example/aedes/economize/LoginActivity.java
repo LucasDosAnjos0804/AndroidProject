@@ -1,7 +1,6 @@
 package com.example.aedes.economize;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void logar(View v){
-        usuarioDbHandler udb = new usuarioDbHandler(this,null,null,1);
+        /*usuarioDbHandler udb = new usuarioDbHandler(this,null,null,1);
         Cursor usuarios = udb.getDb();
         usuarios.moveToFirst();
         while(!usuarios.isAfterLast()){
@@ -30,10 +29,14 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, Activity_pos_logagem.class);
                 startActivity(intent);
                 break;
+            }else{
+                Toast.makeText(this,"Usuário ou senha incorretos", Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
+
         Intent intent = new Intent(this, Activity_pos_logagem.class);
         startActivity(intent);
+
     }
 
 
