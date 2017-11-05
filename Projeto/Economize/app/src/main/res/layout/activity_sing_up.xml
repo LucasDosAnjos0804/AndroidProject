@@ -28,6 +28,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@drawable/ic_logo_economize" />
 
     <TextView
@@ -48,12 +49,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout7"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,17 +85,86 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout18"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pr_email"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#ffffff"
+            android:ems="10"
+            android:hint="@string/pr_email_ex"
+            android:inputType="textEmailAddress"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="299dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout18">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pr_senha"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_senha_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#ffffff"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="361dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
         <TextView
             android:id="@+id/textView14"
@@ -107,14 +177,16 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_senha"
+            android:id="@+id/et_senha_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#ffffff"
             android:ems="10"
+            android:hint="@string/pr_repita_senha"
             android:inputType="textPassword"
             android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             tools:layout_editor_absoluteX="153dp"
             tools:layout_editor_absoluteY="361dp" />
     </LinearLayout>
