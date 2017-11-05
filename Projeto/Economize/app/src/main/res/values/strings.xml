@@ -59,7 +59,11 @@
     <string name="pr_tipo_de_operacao">Tipo de operação padrão</string>
     <string name="pr_tipo_de_operacao_ex">defina o tipo de operação</string>
     <!-- frag novo orçamento -->
-    <string name="spnn_abrangencia">Abrangência</string>
+    <string name="spnn_abrangencia">Abrangência</string>e
+    <!-- view sing-up -->
+    <string name="pr_email">Email</string>
+    <string name="pr_email_ex">email@exemplo.com</string>
+    <string name="pr_repita_senha">reipita a senha</string>
 
 
 </resources>
