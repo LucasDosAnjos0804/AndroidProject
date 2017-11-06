@@ -17,9 +17,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout14"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout14"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout14"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -31,12 +31,13 @@
 
             <EditText
                 android:id="@+id/te_nome"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/pr_nome"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -45,9 +46,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout16"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout16"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout15">
 
             <TextView
@@ -59,12 +60,13 @@
 
             <EditText
                 android:id="@+id/et_valor"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/pr_valor_exemplo"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -73,9 +75,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout17"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout17"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout17"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
 
             <TextView
@@ -112,12 +114,13 @@
 
             <EditText
                 android:id="@+id/et_descricao"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/pr_descricao_exemplo"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
