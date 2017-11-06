@@ -11,17 +11,19 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class usuarioDbHandler extends SQLiteOpenHelper{
-    private static final int dv_version = 1;
+    private static final int db_version = 1;
     private static final String db_name = "EconomizeDB.db";
     private static final String nomeTabela = "Usuario";
     private static final String colNome="nome" ,colEmail="email",colSenha="senha";
 
+
+
     public usuarioDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context,db_name, factory, db_version);
     }
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE IF NOT EXISTS" + nomeTabela + " ("+ colNome + " TEXT, " + colEmail + " TEXT, " + colSenha + " TEXT);";
+        String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabela + " ("+ colNome + " TEXT, " + colEmail + " TEXT, " + colSenha + " TEXT);";
         sqLiteDatabase.execSQL(sql);
     }
 
