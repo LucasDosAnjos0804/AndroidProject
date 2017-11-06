@@ -77,6 +77,12 @@ public class Activity_pos_logagem extends AppCompatActivity
            fm.beginTransaction().replace(R.id.content_frame, new FragNovaCategoria()).commit();
         }else if (id == R.id.nav_orc) {
            fm.beginTransaction().replace(R.id.content_frame, new FragNovoOrcamento()).commit();
+       }else if (id == R.id.nav_listaCat) {
+           fm.beginTransaction().replace(R.id.content_frame, new FragListaCategorias()).commit();
+       }else if (id == R.id.nav_listaTrans) {
+           fm.beginTransaction().replace(R.id.content_frame,  new FragHistoricoTransacoes()).commit();
+       }else if (id == R.id.nav_listaOrc) {
+           fm.beginTransaction().replace(R.id.content_frame,new FragHistoricoOrcamentos()).commit();
        }
 
 
