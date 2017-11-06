@@ -13,16 +13,16 @@
         android:layout_height="158dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/entrar_login"
+        app:layout_constraintEnd_toEndOf="@+id/entrar_login"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/entrar_login"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo_economize"
         tools:ignore="ContentDescription"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/entrar_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ac_entrar"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/entrar_login">
 
         <TextView
             android:id="@+id/textView11"

@@ -51,7 +51,7 @@
         android:layout_width="167dp"
         android:layout_height="70dp"
         android:background="@drawable/mybotao"
-        android:onClick="entrar"
+        android:onClick="singUp"
         android:text="@string/ac_cadastrese"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

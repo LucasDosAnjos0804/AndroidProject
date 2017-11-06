@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etEmailLogin, etSenhaLogin;
     TextView etEntrar;
     usuarioDbHandler udb;
-    String usuarios = "";
+    String s = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +21,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         etEmailLogin = (EditText) findViewById(R.id.et_email_login);
         etSenhaLogin = (EditText) findViewById(R.id.et_senha_login);
-        etEntrar = (TextView) findViewById(R.id.entrarLogin);
+        etEntrar = (TextView) findViewById(R.id.entrar_login);
         Cursor c = new usuarioDbHandler(this, null, null, 1).getDb();
         c.moveToFirst();
         while (!c.isAfterLast()) {
-            usuarios += c.getString(c.getColumnIndex("nome")) + "\n";
+            s += c.getString(c.getColumnIndex("nome")) + "\n";
             c.moveToNext();
         }
 
-        etEntrar.setText(usuarios);
+        etEntrar.setText(s);
     }
 
     public void voltar(View v) {
