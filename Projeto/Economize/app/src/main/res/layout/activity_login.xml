@@ -7,33 +7,45 @@
     android:background="@drawable/bokeh2"
     tools:context="com.example.aedes.economize.LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="140dp"
+        android:layout_height="158dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo_economize"
+        tools:ignore="ContentDescription"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Entrar"
+        android:text="@string/ac_entrar"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TextView
@@ -41,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@+id/et_email_login"
             android:text="@string/prompt_email"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="#ffffff"
@@ -53,7 +66,10 @@
             android:layout_weight="1"
             android:backgroundTint="@android:color/background_light"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:hint="@string/pr_email_ex"
+            android:inputType="textEmailAddress"
+            android:labelFor="@+id/textView12"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="271dp" />
@@ -61,15 +77,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_entrar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_entrar"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btn_entrar"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <TextView
@@ -77,6 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@+id/et_senha_login"
             android:text="@string/pr_senha"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="#ffffff"
@@ -90,6 +107,7 @@
             android:backgroundTint="@android:color/background_light"
             android:ems="10"
             android:inputType="textPassword"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="352dp" />
@@ -103,24 +121,11 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/mybotao"
         android:onClick="logar"
-        android:text="Logar"
+        android:text="@string/btn_login_action"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="140dp"
-        android:layout_height="158dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo_economize" />
 
 
     <ImageButton

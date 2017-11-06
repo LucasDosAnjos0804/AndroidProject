@@ -13,6 +13,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="btn_login_action">Logar</string>
     <!-- Strings Login Em PT -->
     <string name="titulo_boas_vindas">Bem vindo ao Economize!</string>
     <string name="title_activity_login">Entrar</string>
@@ -50,14 +51,13 @@
     <string name="dt_ocorrencia_exemplo">DD/MM/AAAA</string>
     <!-- frag transação recorrente-->
     <string name="dt_inicio">Data de início</string>
-    <string name="dt_inicio_exemplo">DD/MM/AAAA</string>
     <string name="dt_fim">Data de fim</string>
-    <string name="dt_fim_exemplo">DD/MM/AAAA</string>
+    <string name="dt_exemplo">DD/MM/AAAA</string>
     <string name="spnn_ocorrencia">Ocorrencia</string>
     <!-- frag nova categoria -->
     <string name="spnn_categoria">Categoria</string>
-    <string name="pr_tipo_de_operacao">Tipo de operação padrão</string>
     <string name="pr_tipo_de_operacao_ex">defina o tipo de operação</string>
+    <string name="pr_tipo_de_operacao">Tipo de operação</string>
     <!-- frag novo orçamento -->
     <string name="spnn_abrangencia">Abrangência</string>e
     <!-- view sing-up -->

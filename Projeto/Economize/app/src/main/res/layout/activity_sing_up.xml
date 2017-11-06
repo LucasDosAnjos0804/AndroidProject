@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bokeh2"
-    tools:context="com.example.aedes.economize.SingUpActivity">
+    tools:context="com.example.aedes.economize.SingUpActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageButton
         android:id="@+id/btn_voltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?android:attr/homeAsUpIndicator"
         tools:ignore="ContentDescription,RtlHardcoded" />
 
@@ -21,43 +20,38 @@
         android:id="@+id/imageView3"
         android:layout_width="140dp"
         android:layout_height="158dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_voltar"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:srcCompat="@drawable/ic_logo_economize" />
+        app:srcCompat="@drawable/ic_logo_economize"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:text="@string/ac_cadastrese"
         android:textAppearance="@android:style/TextAppearance.Medium"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout7"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout7"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <LinearLayout
         android:id="@+id/linearLayout7"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout18"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout18"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout18"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <TextView
@@ -65,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@+id/et_nome"
             android:text="@string/pr_nome"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="#ffffff"
@@ -78,6 +73,7 @@
             android:backgroundTint="#ffffff"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             tools:layout_editor_absoluteX="153dp"
@@ -86,13 +82,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout18"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout9"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout9"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
         <TextView
@@ -114,6 +110,7 @@
             android:ems="10"
             android:hint="@string/pr_email_ex"
             android:inputType="textEmailAddress"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             tools:layout_editor_absoluteX="153dp"
@@ -122,13 +119,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout9"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout8"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout18">
 
         <TextView
@@ -136,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:labelFor="@+id/et_senha_1"
             android:text="@string/pr_senha"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="#ffffff"
@@ -149,6 +147,7 @@
             android:backgroundTint="#ffffff"
             android:ems="10"
             android:inputType="textPassword"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             tools:layout_editor_absoluteX="153dp"
@@ -157,13 +156,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout8"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_entrar"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_entrar"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btn_entrar"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
         <TextView
@@ -185,6 +184,7 @@
             android:ems="10"
             android:hint="@string/pr_repita_senha"
             android:inputType="textPassword"
+            android:textAlignment="center"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
             tools:layout_editor_absoluteX="153dp"
@@ -195,14 +195,12 @@
         android:id="@+id/btn_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:background="@drawable/mybotao"
         android:text="@string/ac_cadastrarse"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
 
 </android.support.constraint.ConstraintLayout>
