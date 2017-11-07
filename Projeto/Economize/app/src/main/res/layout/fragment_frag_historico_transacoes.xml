@@ -9,6 +9,5 @@
     <ListView
         android:id="@+id/listv_his_transacoes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:entries="fdfdfd" />
+        android:layout_height="match_parent" />
 </FrameLayout>
