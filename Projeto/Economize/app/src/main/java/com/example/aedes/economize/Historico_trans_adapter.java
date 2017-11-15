@@ -33,10 +33,12 @@ public class Historico_trans_adapter extends ArrayAdapter<Transacao> {
         TextView transTit = (TextView) view.findViewById(R.id.txtTituloTrans);
         TextView transData = (TextView)view.findViewById(R.id.txtDataTrans);
         TextView transValor= (TextView)view.findViewById(R.id.txtValorTrans);
+        TextView transCategoria = (TextView)view.findViewById(R.id.txtCatTrans);
 
         transTit.setText( t.getTitulo());
         transData.setText( t.getDtInicio());
         transValor.setText( String.valueOf(t.getValor()));
+        transCategoria.setText("Indeterminado");
         return view;
     }
 }

@@ -31,7 +31,7 @@
                 android:text="@string/dt_fim" />
 
             <EditText
-                android:id="@+id/dt_fim"
+                android:id="@+id/et_transDtFim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -62,7 +62,7 @@
                 android:text="@string/spnn_ocorrencia" />
 
             <Spinner
-                android:id="@+id/spnn_ocorrencia"
+                android:id="@+id/spnn_transOcorrencia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -87,7 +87,7 @@
                 android:text="@string/dt_inicio" />
 
             <EditText
-                android:id="@+id/dt_inicio"
+                android:id="@+id/et_transDtInicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

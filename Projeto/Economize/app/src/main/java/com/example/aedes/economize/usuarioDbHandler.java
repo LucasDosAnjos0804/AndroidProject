@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Eu II on 04/11/2017.
  */
@@ -49,8 +52,17 @@ public class usuarioDbHandler extends SQLiteOpenHelper{
 
     }
 
-    public Cursor getDb(){
+    public List<Usuario> getListaUsuarios(){
         Cursor c = getWritableDatabase().rawQuery("SELECT * FROM " + nomeTabela + ";",null);
-        return c;
+        List<Usuario> usuarios = new ArrayList<>();
+        while(c.moveToNext()){
+            Usuario u = new Usuario();
+            u.setEmail(c.getString(c.getColumnIndex("email")));
+            u.setNome(c.getString(c.getColumnIndex("nome")));
+            u.setSenha(c.getString(c.getColumnIndex("senha")));
+            usuarios.add(u);
+        }
+
+        return usuarios;
     }
 }

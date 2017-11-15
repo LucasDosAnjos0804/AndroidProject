@@ -70,7 +70,7 @@ public class T_recorrente extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_t_recorrente, container, false);
-        spnnOcorrencia = (Spinner)v.findViewById(R.id.spnn_ocorrencia);
+        spnnOcorrencia = (Spinner)v.findViewById(R.id.spnn_transOcorrencia);
         ArrayAdapter<String> listaOcorrencias =  new ArrayAdapter<String>(this.getActivity(),R.layout.fragment_t_recorrente,valOcorrencias);
         listaOcorrencias.setDropDownViewResource(R.layout.fragment_t_recorrente);
         spnnOcorrencia.setAdapter(listaOcorrencias);

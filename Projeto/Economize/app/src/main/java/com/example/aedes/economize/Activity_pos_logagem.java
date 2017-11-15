@@ -80,10 +80,9 @@ public class Activity_pos_logagem extends AppCompatActivity
        }else if (id == R.id.nav_listaCat) {
            fm.beginTransaction().replace(R.id.content_frame, new FragListaCategorias()).commit();
        }else if (id == R.id.nav_listaTrans) {
-           FragHistoricoTransacoes f = new FragHistoricoTransacoes();
-           f.setContext(Activity_pos_logagem.this);
 
-           fm.beginTransaction().replace(R.id.content_frame,  f).commit();
+
+           fm.beginTransaction().replace(R.id.content_frame, new FragHistoricoTransacoes()).commit();
 
        }else if (id == R.id.nav_listaOrc) {
 

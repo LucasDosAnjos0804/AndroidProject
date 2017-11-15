@@ -38,8 +38,8 @@ public class Transacao {
         return recorrente;
     }
 
-    public void setRecorrente(boolean recorrente) {
-        this.recorrente = recorrente;
+    public void setRecorrente(int recorrente) {
+        this.recorrente = recorrente>0;
     }
 
     public int getCatId() {
@@ -105,4 +105,6 @@ public class Transacao {
     public void setFrequencia(String frequencia) {
         this.frequencia = frequencia;
     }
+
+
 }

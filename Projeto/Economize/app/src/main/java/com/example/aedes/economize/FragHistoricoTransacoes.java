@@ -1,7 +1,6 @@
 package com.example.aedes.economize;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +12,27 @@ import java.util.ArrayList;
 
 public class FragHistoricoTransacoes extends Fragment {
 
-    public Context context;
 
-    public void setContext(Context con){
-        context = con;
-    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_frag_historico_transacoes, container, false);
-        ArrayList<Transacao> transacaos= new ArrayList<>();
+
+        transacaoDbHandler t = new transacaoDbHandler(getContext(),null,null,1);
+        ArrayList<Transacao> transacoes = t.getListaTransacoes();
+        Historico_trans_adapter hta = new Historico_trans_adapter(getContext(),transacoes);
+        ListView l = (ListView)view.findViewById(R.id.listv_his_transacoes);
+
+        l.setAdapter(hta);
+
+
+
+
+
+
+
+        /*  ArrayList<Transacao> transacaos= new ArrayList<>();
 
         Transacao t1 = new Transacao();
 
@@ -51,7 +60,7 @@ public class FragHistoricoTransacoes extends Fragment {
         ListView l = (ListView)view.findViewById(R.id.listv_his_transacoes);
 
         l.setAdapter(hta);
-
+*/
 
         return view;
     }
