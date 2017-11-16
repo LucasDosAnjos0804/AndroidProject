@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.aedes.economize.Historico_trans_adapter;
+import com.example.aedes.economize.Historico_Transacoes_ArrayAdapter;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class FragHistoricoTransacoes extends Fragment {
 
         TransacaoDbHandler t = new TransacaoDbHandler(getContext(),null,null,1);
         ArrayList<Transacao> transacoes = t.getListaTransacoes();
-        Historico_trans_adapter hta = new Historico_trans_adapter(getContext(),transacoes);
+        Historico_Transacoes_ArrayAdapter hta = new Historico_Transacoes_ArrayAdapter(getContext(),transacoes);
         ListView l = (ListView)view.findViewById(R.id.listv_his_transacoes);
 
         l.setAdapter(hta);
@@ -62,7 +62,7 @@ public class FragHistoricoTransacoes extends Fragment {
         transacaos.add(t2);
         transacaos.add(t3);
 
-        Historico_trans_adapter hta = new Historico_trans_adapter(getContext(),transacaos);
+        Historico_Transacoes_ArrayAdapter hta = new Historico_Transacoes_ArrayAdapter(getContext(),transacaos);
         ListView l = (ListView)view.findViewById(R.id.listv_his_transacoes);
 
         l.setAdapter(hta);

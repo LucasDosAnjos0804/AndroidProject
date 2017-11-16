@@ -1,5 +1,6 @@
 package DbHandlers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -40,8 +41,15 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
 
     }
 
-    public void adicionarAoBd(){
-
+    public void adicionarAoBd(Orcamento o){
+        ContentValues valores = new ContentValues();
+        valores.put(colNome,o.getNome());
+        valores.put(colDescricao,o.getDescricao());
+        valores.put(colValor,o.getValor());
+        valores.put(colAbrangencia,o.getAbrangencia());
+        valores.put(colUsuEmail,o.getUsuEmail());
+        valores.put(colCategoria,o.getCatId());
+        getWritableDatabase().insert(TABLE_NAME,null,valores);
     }
 
     public void removerDoBd(){

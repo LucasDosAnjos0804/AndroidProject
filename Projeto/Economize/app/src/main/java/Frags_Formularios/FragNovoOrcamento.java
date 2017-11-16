@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.aedes.economize.R;
 
@@ -56,8 +57,12 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener{
        o.setNome(et_nome.getText().toString());
        o.setValor(Double.parseDouble(et_valor.getText().toString()));
        o.setAbrangencia(spnn_abrangencia.getSelectedItem().toString());
-       
-        OrcamentoDbHandler odbh = new OrcamentoDbHandler(this.getContext(),null,null,1);
+       o.setDescricao(et_descricao.getText().toString());
+       o.setUsuEmail("none");
+       o.setCatId(0);
+       OrcamentoDbHandler odbh = new OrcamentoDbHandler(this.getContext(),null,null,1);
+        odbh.adicionarAoBd(o);
+        Toast.makeText(this.getContext(),"Orcamento cadastrado com sucesso!",Toast.LENGTH_SHORT).show();
     }
 
     @Override

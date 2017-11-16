@@ -18,9 +18,9 @@ import Classes_Modelo.Transacao;
  histórico de transações
  */
 
-public class Historico_trans_adapter extends ArrayAdapter<Transacao> {
+public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
 
-    public Historico_trans_adapter(@NonNull Context context, @NonNull ArrayList<Transacao> objects) {
+    public Historico_Transacoes_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Transacao> objects) {
         super(context, R.layout.item_historico_transacoes, objects);
     }
 
