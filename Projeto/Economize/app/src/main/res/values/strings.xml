@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Economize</string>
+    <string name="app_name_user">Usurário Economize</string>
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -39,7 +41,7 @@
 
     <!-- frag Nova Transação -->
     <string name="pr_valor">Valor</string>
-    <string name="pr_valor_exemplo">valor R$</string>
+    <string name="pr_valor_exemplo">valor[R$ 00,0]</string>
     <string name="rdb_ganho">Lucro</string>
     <string name="rdb_despesa">Despesa</string>
     <string name="chb_tipo_de_pagamento">Pagamento recorrente</string>

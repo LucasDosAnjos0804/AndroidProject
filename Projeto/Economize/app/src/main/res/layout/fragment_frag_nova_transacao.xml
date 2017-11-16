@@ -12,97 +12,15 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/pr_valor" />
-
-            <EditText
-                android:id="@+id/et_transValor"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/pr_valor"
-                android:inputType="numberDecimal"
-                android:textAlignment="center"
-                tools:layout_editor_absoluteX="131dp"
-                tools:layout_editor_absoluteY="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/chb_trans_paga_recorrente"
-            app:layout_constraintEnd_toEndOf="@+id/chb_trans_paga_recorrente"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/chb_trans_paga_recorrente"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-            <RadioButton
-                android:id="@+id/rd_transLucro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rdb_ganho"
-                tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="78dp" />
-
-            <RadioButton
-                android:id="@+id/rd_transDespesa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="false"
-                android:duplicateParentState="false"
-                android:text="@string/rdb_despesa"
-                tools:layout_editor_absoluteX="237dp"
-                tools:layout_editor_absoluteY="78dp" />
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/chb_trans_paga_recorrente"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:text="@string/chb_tipo_de_pagamento"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-        <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/include_tr_tnr"
-            app:layout_constraintEnd_toEndOf="@+id/include_tr_tnr"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/include_tr_tnr"
-            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente">
+            app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView9"
@@ -124,27 +42,126 @@
                 tools:layout_editor_absoluteY="170dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pr_valor" />
+
+            <EditText
+                android:id="@+id/et_transValor"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/pr_valor_exemplo"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="16dp" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout23"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout23"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout23"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+            <RadioButton
+                android:id="@+id/rd_transLucro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/rdb_ganho"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="78dp" />
+
+            <RadioButton
+                android:id="@+id/rd_transDespesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:duplicateParentState="false"
+                android:text="@string/rdb_despesa"
+                tools:layout_editor_absoluteX="237dp"
+                tools:layout_editor_absoluteY="78dp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/linearLayout23"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/chb_trans_paga_recorrente"
+            app:layout_constraintEnd_toEndOf="@+id/chb_trans_paga_recorrente"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/chb_trans_paga_recorrente"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/spnn_categoria" />
+
+            <Spinner
+                android:id="@+id/et_transCategoria"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/chb_trans_paga_recorrente"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="@string/chb_tipo_de_pagamento"
+            app:layout_constraintBottom_toTopOf="@+id/include_tr_tnr"
+            app:layout_constraintEnd_toEndOf="@+id/include_tr_tnr"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/include_tr_tnr"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout23" />
+
         <include
             android:id="@+id/include_tr_tnr"
             layout="@layout/fragment_nt_recorente"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="48dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout23"
+            app:layout_constraintBottom_toTopOf="@+id/fltb_adicionar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/include_tr_tnr">
 
@@ -168,48 +185,17 @@
                 tools:layout_editor_absoluteY="0dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout23"
-            android:layout_width="280dp"
-            android:layout_height="20dp"
-            android:layout_marginBottom="112dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.55"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Categoria" />
-
-            <Spinner
-                android:id="@+id/et_transCategoria"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fltb_adicionar"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
             android:clickable="true"
             android:focusable="true"
             android:src="@android:drawable/ic_input_add"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout23"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fltb_cancelar"
@@ -222,7 +208,6 @@
             android:src="@android:drawable/ic_menu_close_clear_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
 
     </android.support.constraint.ConstraintLayout>
