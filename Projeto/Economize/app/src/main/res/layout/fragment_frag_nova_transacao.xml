@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aedes.economize.FragNovaTransacao">
+    tools:context="com.example.aedes.economize.Frags_Formularios.FragNovaTransacao">
 
     <!-- TODO: Update blank fragment layout -->
 

@@ -10,10 +10,13 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import Classes_Modelo.Usuario;
+import DbHandlers.UsuarioDbHandler;
+
 public class LoginActivity extends AppCompatActivity {
     EditText etEmailLogin, etSenhaLogin;
     TextView etEntrar;
-    usuarioDbHandler udb;
+    UsuarioDbHandler udb;
 
 
     @Override
@@ -33,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public String getNomesCadastrados(){
         String s = "";
-        List<Usuario> l = new usuarioDbHandler(this, null, null, 1).getListaUsuarios();
+        List<Usuario> l = new UsuarioDbHandler(this, null, null, 1).getListaUsuarios();
         for(Usuario u : l){
             s += u.getNome() + "\n";
         }
@@ -49,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void logar(View v) {
         boolean usuarioExiste = false;
-        udb = new usuarioDbHandler(this, null, null, 1);
+        udb = new UsuarioDbHandler(this, null, null, 1);
         List<Usuario> usuarios = udb.getListaUsuarios();
 
         for(Usuario u : usuarios){

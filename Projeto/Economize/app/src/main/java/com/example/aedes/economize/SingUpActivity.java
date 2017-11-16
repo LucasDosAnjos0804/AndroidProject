@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import Classes_Modelo.Usuario;
+import DbHandlers.UsuarioDbHandler;
+
 public class SingUpActivity extends AppCompatActivity {
     EditText etNome,etEmail,etSenha1,etSenha2;
     String nome,email,senha1,senha2;
-    usuarioDbHandler udb;
+    UsuarioDbHandler udb;
     boolean temErros;
     @Override
 
@@ -18,7 +21,7 @@ public class SingUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
-        udb = new usuarioDbHandler(this,null,null,1);
+        udb = new UsuarioDbHandler(this,null,null,1);
     }
 
     public void cadastrar(View view) {

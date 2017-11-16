@@ -1,10 +1,12 @@
-package com.example.aedes.economize;
+package Frags_Listas_Historicos;
 
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.aedes.economize.R;
 
 public class FragListaCategorias extends Fragment {
     @Override

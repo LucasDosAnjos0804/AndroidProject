@@ -1,4 +1,4 @@
-package com.example.aedes.economize;
+package DbHandlers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,11 +9,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import Classes_Modelo.Usuario;
+
 /**
  * Created by Eu II on 04/11/2017.
  */
 
-public class usuarioDbHandler extends SQLiteOpenHelper{
+public class UsuarioDbHandler extends SQLiteOpenHelper{
     private static final int db_version = 1;
     private static final String db_name = "EconomizeDB.db";
     private static final String nomeTabela = "Usuario";
@@ -21,7 +23,7 @@ public class usuarioDbHandler extends SQLiteOpenHelper{
 
 
 
-    public usuarioDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public UsuarioDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context,db_name, factory, db_version);
     }
 

@@ -11,6 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import Frags_Formularios.FragNovaCategoria;
+import Frags_Formularios.FragNovaTransacao;
+import Frags_Formularios.FragNovoOrcamento;
+import Frags_Listas_Historicos.FragHistoricoOrcamentos;
+import Frags_Listas_Historicos.FragHistoricoTransacoes;
+import Frags_Listas_Historicos.FragListaCategorias;
+
 public class Activity_pos_logagem extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -69,9 +76,7 @@ public class Activity_pos_logagem extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         FragmentManager fm = getFragmentManager();
-       if (id == R.id.nav_historico) {
-           fm.beginTransaction().replace(R.id.content_frame, new FragHistorico()).commit();
-        } else if (id == R.id.nav_addtrans) {
+       if (id == R.id.nav_addtrans) {
            fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
         } else if (id == R.id.nav_addcat) {
            fm.beginTransaction().replace(R.id.content_frame, new FragNovaCategoria()).commit();

@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import Classes_Modelo.Transacao;
+
 /**
  Classe ArrayAdapter para adaptar tuplas de Transações do bd na ListView do
  histórico de transações

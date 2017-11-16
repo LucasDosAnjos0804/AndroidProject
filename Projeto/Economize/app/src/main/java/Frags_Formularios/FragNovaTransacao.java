@@ -1,4 +1,4 @@
-package com.example.aedes.economize;
+package Frags_Formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -11,6 +11,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.aedes.economize.R;
+
+import Classes_Modelo.Transacao;
+import DbHandlers.TransacaoDbHandler;
 
 
 public class FragNovaTransacao extends Fragment{
@@ -83,7 +88,7 @@ public class FragNovaTransacao extends Fragment{
     }
 
     public void adicionarTransacao(Transacao t){
-        transacaoDbHandler tdbh = new transacaoDbHandler(this.getContext(),null,null,1);
+        TransacaoDbHandler tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
         tdbh.adicionarAoBd(t);
 
     }

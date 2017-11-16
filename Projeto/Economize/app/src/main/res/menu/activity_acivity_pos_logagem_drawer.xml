@@ -25,10 +25,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_historico"
-            android:icon="@drawable/history"
-            android:title="Histórico" />
-        <item
             android:id="@+id/nav_listaCat"
             android:icon="@drawable/list"
             android:title="Categorias" />

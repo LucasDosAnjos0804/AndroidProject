@@ -1,4 +1,4 @@
-package com.example.aedes.economize;
+package Frags_Formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.example.aedes.economize.R;
 
 import java.util.ArrayList;
 import java.util.List;

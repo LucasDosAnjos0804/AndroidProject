@@ -1,4 +1,4 @@
-package com.example.aedes.economize;
+package Frags_Listas_Historicos;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,7 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.example.aedes.economize.Historico_trans_adapter;
+import com.example.aedes.economize.R;
+
 import java.util.ArrayList;
+
+import Classes_Modelo.Transacao;
+import DbHandlers.TransacaoDbHandler;
 
 
 public class FragHistoricoTransacoes extends Fragment {
@@ -19,7 +25,7 @@ public class FragHistoricoTransacoes extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_frag_historico_transacoes, container, false);
 
-        transacaoDbHandler t = new transacaoDbHandler(getContext(),null,null,1);
+        TransacaoDbHandler t = new TransacaoDbHandler(getContext(),null,null,1);
         ArrayList<Transacao> transacoes = t.getListaTransacoes();
         Historico_trans_adapter hta = new Historico_trans_adapter(getContext(),transacoes);
         ListView l = (ListView)view.findViewById(R.id.listv_his_transacoes);

@@ -1,4 +1,4 @@
-package com.example.aedes.economize;
+package DbHandlers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,21 +8,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import Classes_Modelo.Transacao;
+
 /**
  * Created by Eu II on 02/11/2017.
  */
 
-public class transacaoDbHandler extends SQLiteOpenHelper{
+public class TransacaoDbHandler extends SQLiteOpenHelper{
     SQLiteDatabase db;
     private static final int db_version = 1;
-    private static final String DATABASE_NAME = "EconomizeDB.db";
+    private static final String db_name = "EconomizeDB.db";
     private static final String TABLE_NAME = "Transacao";
 
     private static final String  catId = "catId", tipoOperacao = "tipoOperacao",valor = "valor",recorrente="recorrente";
     private static final String dtInicio="dtInicio",dtFim="dtFim", titulo="titulo", usuEmail="usuEmail", descricao="descricao", frequencia="frequencia";
 
-    public transacaoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, db_version);
+    public TransacaoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, db_name, factory, db_version);
         onCreate(getWritableDatabase());
     }
 
