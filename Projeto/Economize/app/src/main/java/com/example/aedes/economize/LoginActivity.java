@@ -28,10 +28,6 @@ public class LoginActivity extends AppCompatActivity {
         etEntrar = (TextView) findViewById(R.id.entrar_login);
         String s = getNomesCadastrados();
         etEntrar.setText(s);
-
-
-
-
     }
 
     public String getNomesCadastrados(){
@@ -40,9 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         for(Usuario u : l){
             s += u.getNome() + "\n";
         }
-
         return s;
-
     }
 
     public void voltar(View v) {

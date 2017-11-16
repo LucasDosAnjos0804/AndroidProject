@@ -68,7 +68,7 @@ public class FragNovaTransacao extends Fragment{
         }
 
         if(i==0){
-            Toast.makeText(this.getContext(),"Tipo de Operação Lucro/Despesa não selecionado.",Toast.LENGTH_SHORT);
+            Toast.makeText(this.getContext(),"Tipo de Operação Lucro/Despesa não selecionado.",Toast.LENGTH_SHORT).show();
             return;
         }else{
             transacao = new Transacao();
@@ -82,12 +82,12 @@ public class FragNovaTransacao extends Fragment{
             transacao.setFrequencia(null);
             transacao.setRecorrente(0);
             transacao.setUsuEmail(null);
-            adicionarTransacao(transacao);
-            Toast.makeText(this.getContext(),"Transacao adicionada com sucesso!",Toast.LENGTH_SHORT);
+            cadastrarTransacao(transacao);
+            Toast.makeText(this.getContext(),"Transacao adicionada com sucesso!",Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void adicionarTransacao(Transacao t){
+    public void cadastrarTransacao(Transacao t){
         TransacaoDbHandler tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
         tdbh.adicionarAoBd(t);
 
