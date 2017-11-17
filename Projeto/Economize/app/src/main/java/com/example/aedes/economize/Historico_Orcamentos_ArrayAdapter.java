@@ -7,21 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+
+import com.example.aedes.economize.Classes_Modelo.Orcamento;
 
 import java.util.ArrayList;
-
-import com.example.aedes.economize.Classes_Modelo.Transacao;
 
 /**
  Classe ArrayAdapter para adaptar tuplas de Transações do bd na ListView do
  histórico de transações
  */
 
-public class Historico_Orcamentos_ArrayAdapter extends ArrayAdapter<Transacao> {
+public class Historico_Orcamentos_ArrayAdapter extends ArrayAdapter<Orcamento> {
 
-    public Historico_Orcamentos_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Transacao> objects) {
-        super(context, R.layout.item_historico_transacoes, objects);
+    public Historico_Orcamentos_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Orcamento> objects) {
+        super(context, R.layout.item_lista_orcamentos, objects);
     }
 
     @NonNull
@@ -30,17 +29,8 @@ public class Historico_Orcamentos_ArrayAdapter extends ArrayAdapter<Transacao> {
         LayoutInflater histTransInflater;
         histTransInflater = LayoutInflater.from(getContext());
         View view = histTransInflater.inflate(R.layout.item_historico_transacoes,parent,false);
-        Transacao t = getItem(position);
+        Orcamento o = getItem(position);
 
-        TextView transTit = (TextView) view.findViewById(R.id.txtTituloTrans);
-        TextView transData = (TextView)view.findViewById(R.id.txtDataTrans);
-        TextView transValor= (TextView)view.findViewById(R.id.txtValorTrans);
-        TextView transCategoria = (TextView)view.findViewById(R.id.txtCatTrans);
-
-        transTit.setText( t.getTitulo());
-        transData.setText( t.getDtInicio());
-        transValor.setText( String.valueOf(t.getValor()));
-        transCategoria.setText("Indeterminado");
         return view;
     }
 }

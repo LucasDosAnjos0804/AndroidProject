@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-
 import com.example.aedes.economize.Classes_Modelo.Orcamento;
+
+import java.util.ArrayList;
 
 /**
  * Created by Eu II on 15/11/2017.
@@ -22,6 +22,7 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
     private static final String colNome = "nome", colDescricao= "descricao", colAbrangencia= "abrangencia", colValor = "valor",colUsuEmail = "email_criador", colCategoria = "categoria";
     public OrcamentoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_name, factory, db_version);
+        onCreate(getWritableDatabase());
     }
 
     @Override
