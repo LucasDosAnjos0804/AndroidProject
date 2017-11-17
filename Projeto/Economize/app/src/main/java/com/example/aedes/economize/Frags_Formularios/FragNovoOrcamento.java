@@ -1,4 +1,4 @@
-package Frags_Formularios;
+package com.example.aedes.economize.Frags_Formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import com.example.aedes.economize.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import Classes_Modelo.Orcamento;
-import DbHandlers.OrcamentoDbHandler;
+import com.example.aedes.economize.Classes_Modelo.Orcamento;
+import com.example.aedes.economize.DbHandlers.OrcamentoDbHandler;
 
 
 public class FragNovoOrcamento extends Fragment implements View.OnClickListener{

@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import Classes_Modelo.Usuario;
-import DbHandlers.UsuarioDbHandler;
+import com.example.aedes.economize.Classes_Modelo.Usuario;
+import com.example.aedes.economize.DbHandlers.UsuarioDbHandler;
 
 public class SingUpActivity extends AppCompatActivity {
     EditText etNome,etEmail,etSenha1,etSenha2;

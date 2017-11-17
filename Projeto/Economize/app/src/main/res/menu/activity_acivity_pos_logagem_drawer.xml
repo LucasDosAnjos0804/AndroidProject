@@ -18,10 +18,7 @@
             android:title="Adicionar Categoria" />
     </group>
 
-    <item
-
-
-        android:title="_________________________" />
+    <item android:title="_________________________" />
 
     <group android:checkableBehavior="single">
         <item
@@ -37,6 +34,15 @@
             android:icon="@drawable/list"
             android:title="Transações" />
 
+    </group>
+
+    <item android:title="_________________________" />
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_graph_first"
+            android:icon="@drawable/graphs"
+            android:title="Primeiro Gráfico"/>
     </group>
 
 </menu>

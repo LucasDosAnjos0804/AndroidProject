@@ -1,4 +1,4 @@
-package Frags_Listas_Historicos;
+package com.example.aedes.economize.Frags_Listas_Historicos;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import com.example.aedes.economize.R;
 
 import java.util.ArrayList;
 
-import Classes_Modelo.Transacao;
-import DbHandlers.TransacaoDbHandler;
+import com.example.aedes.economize.Classes_Modelo.Transacao;
+import com.example.aedes.economize.DbHandlers.TransacaoDbHandler;
 
 
 public class FragHistoricoTransacoes extends Fragment {

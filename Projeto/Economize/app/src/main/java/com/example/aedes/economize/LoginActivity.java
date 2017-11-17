@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import Classes_Modelo.Usuario;
-import DbHandlers.UsuarioDbHandler;
+import com.example.aedes.economize.Classes_Modelo.Usuario;
+import com.example.aedes.economize.DbHandlers.UsuarioDbHandler;
 
 public class LoginActivity extends AppCompatActivity {
     EditText etEmailLogin, etSenhaLogin;

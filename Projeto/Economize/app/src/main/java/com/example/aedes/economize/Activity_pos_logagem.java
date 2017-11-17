@@ -11,12 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import Frags_Formularios.FragNovaCategoria;
-import Frags_Formularios.FragNovaTransacao;
-import Frags_Formularios.FragNovoOrcamento;
-import Frags_Listas_Historicos.FragHistoricoOrcamentos;
-import Frags_Listas_Historicos.FragHistoricoTransacoes;
-import Frags_Listas_Historicos.FragListaCategorias;
+import com.example.aedes.economize.Frags_Formularios.FragNovaCategoria;
+import com.example.aedes.economize.Frags_Formularios.FragNovaTransacao;
+import com.example.aedes.economize.Frags_Formularios.FragNovoOrcamento;
+import com.example.aedes.economize.Frags_Graficos.FragGrafico_first;
+import com.example.aedes.economize.Frags_Listas_Historicos.FragHistoricoOrcamentos;
+import com.example.aedes.economize.Frags_Listas_Historicos.FragHistoricoTransacoes;
+import com.example.aedes.economize.Frags_Listas_Historicos.FragListaCategorias;
 
 public class Activity_pos_logagem extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,20 +86,12 @@ public class Activity_pos_logagem extends AppCompatActivity
        }else if (id == R.id.nav_listaCat) {
            fm.beginTransaction().replace(R.id.content_frame, new FragListaCategorias()).commit();
        }else if (id == R.id.nav_listaTrans) {
-
-
            fm.beginTransaction().replace(R.id.content_frame, new FragHistoricoTransacoes()).commit();
-
        }else if (id == R.id.nav_listaOrc) {
-
            fm.beginTransaction().replace(R.id.content_frame,new FragHistoricoOrcamentos()).commit();
-
-
-
-
+       }else if (id == R.id.nav_graph_first){
+           fm.beginTransaction().replace(R.id.content_frame,new FragGrafico_first()).commit();
        }
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

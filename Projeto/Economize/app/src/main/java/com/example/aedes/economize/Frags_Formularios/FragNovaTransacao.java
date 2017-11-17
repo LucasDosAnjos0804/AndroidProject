@@ -1,4 +1,4 @@
-package Frags_Formularios;
+package com.example.aedes.economize.Frags_Formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.example.aedes.economize.R;
 
-import Classes_Modelo.Transacao;
-import DbHandlers.TransacaoDbHandler;
+import com.example.aedes.economize.Classes_Modelo.Transacao;
+import com.example.aedes.economize.DbHandlers.TransacaoDbHandler;
 
 
 public class FragNovaTransacao extends Fragment{

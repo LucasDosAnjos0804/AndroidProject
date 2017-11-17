@@ -1,4 +1,4 @@
-package DbHandlers;
+package com.example.aedes.economize.DbHandlers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-import Classes_Modelo.Orcamento;
+import com.example.aedes.economize.Classes_Modelo.Orcamento;
 
 /**
  * Created by Eu II on 15/11/2017.
