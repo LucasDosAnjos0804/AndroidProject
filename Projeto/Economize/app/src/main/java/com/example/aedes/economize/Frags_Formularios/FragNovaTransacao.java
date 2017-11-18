@@ -47,7 +47,7 @@ public class FragNovaTransacao extends Fragment{
         chb_recorrente = (CheckBox)view.findViewById(R.id.chb_trans_paga_recorrente);
         spn_ocorrencia = (Spinner)view.findViewById(R.id.spnn_transOcorrencia);
         fltb_adicionar = (FloatingActionButton)view.findViewById(R.id.fltb_adicionar);
-        fltb_cancelar = (FloatingActionButton)view.findViewById(R.id.fltb_cancelar);
+        fltb_cancelar = (FloatingActionButton)view.findViewById(R.id.fltb_deletar);
         fltb_adicionar.setOnClickListener(new View.OnClickListener(){
 
             @Override

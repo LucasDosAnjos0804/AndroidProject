@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.example.aedes.economize.Classes_Modelo.Transacao;
 
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 
 public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
 
+    private TextView txtTitulo,txtCat,txtValor, txtData;
+
     public Historico_Transacoes_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Transacao> objects) {
         super(context, R.layout.item_historico_transacoes, objects);
     }
@@ -30,8 +33,19 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
         histTransInflater = LayoutInflater.from(getContext());
         View view = histTransInflater.inflate(R.layout.item_historico_transacoes,parent,false);
         Transacao t = getItem(position);
-
+        instanciarCampos(view);
+        txtTitulo.setText(t.getTitulo());
+        txtValor.setText(String.valueOf(t.getValor()));
+        txtData.setText(t.getDtInicio());
+        txtCat.setText(String.valueOf(t.getCatId()));
 
         return view;
+    }
+
+    public void instanciarCampos(View v){
+        txtTitulo =(TextView)v.findViewById(R.id.txtHistTituloTrans);
+        txtValor=(TextView)v.findViewById(R.id.txtHistValorTrans);
+        txtData=(TextView)v.findViewById(R.id.txtHistDataTrans);
+        txtCat=(TextView)v.findViewById(R.id.txtHIstCatTrans);
     }
 }

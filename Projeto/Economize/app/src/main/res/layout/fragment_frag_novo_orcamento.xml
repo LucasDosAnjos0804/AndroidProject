@@ -96,12 +96,15 @@
 
         <LinearLayout
             android:id="@+id/linearLayout17"
-            android:layout_width="280dp"
+            android:layout_width="284dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="36dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-            tools:layout_editor_absoluteX="52dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/textView22"
@@ -133,7 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fltb_cancelar"
+            android:id="@+id/fltb_deletar"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"
@@ -147,7 +150,7 @@
             android:id="@+id/linearLayout3"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:orientation="horizontal"
@@ -160,9 +163,10 @@
                 android:layout_width="167dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Abrangência" />
+                android:text="Categoria" />
 
             <Spinner
+                android:id="@+id/et_OrcCategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />

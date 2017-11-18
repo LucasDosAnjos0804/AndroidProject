@@ -30,6 +30,7 @@ public class FragHistoricoOrcamentos extends Fragment {
         OrcamentoDbHandler odbh = new OrcamentoDbHandler(this.getContext(),null,null,1);
         orcamentos = odbh.getListaOrcamentos();
         hoad = new Historico_Orcamentos_ArrayAdapter(this.getContext(),orcamentos);
+        listaOrcamentos.setAdapter(hoad);
         return view;
     }
 
