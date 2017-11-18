@@ -36,6 +36,17 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_acivity_pos_logagem">acivity_pos_logagem</string>
 
+    <!-- TÍTULOS DO DRAWER -->
+    <string name="drw_linha">_________________________</string>
+    <string name="drw_title_add_orcamento">Adicionar Orçamento</string>
+    <string name="drw_title_add_transacao">Adicionar Transação</string>
+    <string name="drw_title_add_categoria">Adicionar Categoria</string>
+    <string name="drw_title_categorias">Categorias</string>
+    <string name="drw_title_orcamentos">Orçamentos</string>
+    <string name="drw_title_transacoes">Transações</string>
+    <string name="drw_title_grafico_primeiro">Primeiro gráfico</string>
+
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

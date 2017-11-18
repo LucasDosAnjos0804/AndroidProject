@@ -7,42 +7,42 @@
         <item
             android:id="@+id/nav_orc"
             android:icon="@drawable/budget"
-            android:title="Adicionar Orçamento" />
+            android:title="@string/drw_title_add_orcamento" />
         <item
             android:id="@+id/nav_addtrans"
             android:icon="@drawable/transaction"
-            android:title="Adicionar Transação" />
+            android:title="@string/drw_title_add_transacao" />
         <item
             android:id="@+id/nav_addcat"
             android:icon="@drawable/category"
-            android:title="Adicionar Categoria" />
+            android:title="@string/drw_title_add_categoria" />
     </group>
 
-    <item android:title="_________________________" />
+    <item android:title="@string/drw_linha" />
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_listaCat"
             android:icon="@drawable/list"
-            android:title="Categorias" />
+            android:title="@string/drw_title_categorias" />
         <item
             android:id="@+id/nav_listaOrc"
             android:icon="@drawable/list"
-            android:title="Orçamentos" />
+            android:title="@string/drw_title_orcamentos" />
         <item
             android:id="@+id/nav_listaTrans"
             android:icon="@drawable/list"
-            android:title="Transações" />
+            android:title="@string/drw_title_transacoes" />
 
     </group>
 
-    <item android:title="_________________________" />
+    <item android:title="@string/drw_linha" />
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_graph_first"
             android:icon="@drawable/graphs"
-            android:title="Primeiro Gráfico"/>
+            android:title="@string/drw_title_grafico_primeiro" />
     </group>
 
 </menu>
