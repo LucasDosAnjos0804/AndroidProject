@@ -27,7 +27,7 @@ public class SingUpActivity extends AppCompatActivity {
     public void cadastrar(View view) {
        temErros=false;
 
-        etNome = (EditText)findViewById(R.id.et_nome);
+        etNome = (EditText)findViewById(R.id.et_CatNome);
         etEmail = (EditText)findViewById(R.id.et_email);
         etSenha1 = (EditText)findViewById(R.id.et_senha_1);
         etSenha2 = (EditText)findViewById(R.id.et_senha_2);

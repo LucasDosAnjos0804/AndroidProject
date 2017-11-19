@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import com.example.aedes.economize.Classes_Modelo.Usuario;
 import com.example.aedes.economize.DbHandlers.UsuarioDbHandler;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     EditText etEmailLogin, etSenhaLogin;
@@ -54,26 +54,12 @@ public class LoginActivity extends AppCompatActivity {
                     && u.getSenha().equals(etSenhaLogin.getText().toString())){
                 usuarioExiste = true;
                 Intent intent = new Intent(this, Activity_pos_logagem.class);
+                intent.putExtra("usuarioAtual",u.getEmail());
                 startActivity(intent);
                 break;
             }
         }
 
-
-        /*Cursor usuarios = udb.getDatabase();
-        usuarios.moveToFirst();
-        while (!usuarios.isAfterLast()) {
-            if (usuarios.getString(usuarios.getColumnIndex("email")).equals(etEmailLogin.getText().toString())
-                    && usuarios.getString(usuarios.getColumnIndex("senha")).equals(etSenhaLogin.getText().toString())) {
-                usuarioExiste = true;
-                Intent intent = new Intent(this, Activity_pos_logagem.class);
-                startActivity(intent);
-                break;
-            }
-
-            usuarios.moveToNext();
-
-        }*/
 
         if (usuarioExiste == false) {
             Toast.makeText(this, "E-mail ou senha incorretos", Toast.LENGTH_SHORT).show();

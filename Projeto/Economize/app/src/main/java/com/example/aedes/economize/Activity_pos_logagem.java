@@ -22,10 +22,12 @@ import com.example.aedes.economize.Frags_Listas_Historicos.FragListaCategorias;
 public class Activity_pos_logagem extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String usuarioAtual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acivity_pos_logagem);
+        usuarioAtual = getIntent().getStringExtra("usuarioAtual");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -96,5 +98,9 @@ public class Activity_pos_logagem extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public String getUsuarioAtual(){
+        return usuarioAtual;
     }
 }

@@ -41,7 +41,6 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
         valAbrangencia.add("Mensal");
         valAbrangencia.add("Anual");
         valAbrangencia.add("Personalizado");
-
         spnn_abrangencia = (Spinner) v.findViewById(R.id.spnn_OrcAbrangencia);
         ArrayAdapter<String> listaAbrangencia = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_spinner_item, valAbrangencia);
         listaAbrangencia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

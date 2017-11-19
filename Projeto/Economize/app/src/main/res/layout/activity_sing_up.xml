@@ -59,14 +59,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:labelFor="@+id/et_nome"
+            android:labelFor="@+id/et_CatNome"
             android:text="@string/pr_nome"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_nome"
+            android:id="@+id/et_CatNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

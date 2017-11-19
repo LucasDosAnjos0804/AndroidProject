@@ -38,7 +38,6 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
         txtValor.setText(String.valueOf(t.getValor()));
         txtData.setText(t.getDtInicio());
         txtCat.setText(String.valueOf(t.getCatId()));
-
         return view;
     }
 

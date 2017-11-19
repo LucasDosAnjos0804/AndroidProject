@@ -16,10 +16,10 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
-            app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
+            app:layout_constraintBottom_toTopOf="@+id/novaCatRadioGroup"
+            app:layout_constraintEnd_toEndOf="@+id/novaCatRadioGroup"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/radioGroup2"
+            app:layout_constraintStart_toStartOf="@+id/novaCatRadioGroup"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -30,7 +30,7 @@
                 android:text="@string/pr_nome" />
 
             <EditText
-                android:id="@+id/et_nome"
+                android:id="@+id/et_CatNome"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -43,25 +43,25 @@
         </LinearLayout>
 
         <RadioGroup
-            android:id="@+id/radioGroup2"
+            android:id="@+id/novaCatRadioGroup"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout11"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout11"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/linearLayout11"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
 
             <RadioButton
-                android:id="@+id/rbtn_despesa"
+                android:id="@+id/rbtn_CatDespesa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/rdb_despesa" />
 
             <RadioButton
-                android:id="@+id/rbtn_lucro"
+                android:id="@+id/rbtn_CatLucro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,13 +71,16 @@
         <LinearLayout
             android:id="@+id/linearLayout11"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout13"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout13"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout13"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/novaCatRadioGroup">
 
             <TextView
                 android:id="@+id/textView16"
@@ -87,7 +90,7 @@
                 android:text="@string/spnn_categoria" />
 
             <Spinner
-                android:id="@+id/spnn_categoria"
+                android:id="@+id/spnn_CatCategoria"
                 android:layout_width="139dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -95,44 +98,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout13"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout12"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout12"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/pr_tipo_de_operacao" />
-
-            <EditText
-                android:id="@+id/et_tipo_operacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/pr_tipo_de_operacao_ex"
-                android:inputType="textPersonName"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/linearLayout12"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
+            android:layout_marginBottom="72dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/fltb_"
+            app:layout_constraintBottom_toTopOf="@+id/fltb_adicionar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
@@ -144,7 +116,7 @@
                 android:text="@string/pr_descricao" />
 
             <EditText
-                android:id="@+id/et_descricao"
+                android:id="@+id/et_CatDescricao"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -155,7 +127,7 @@
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fltb_"
+            android:id="@+id/fltb_adicionar"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"
@@ -166,7 +138,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fltb_cancelar"
+            android:id="@+id/fltb_deletar"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginBottom="16dp"
