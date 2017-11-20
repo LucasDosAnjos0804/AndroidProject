@@ -39,7 +39,7 @@ public class CategoriaDbHandler extends SQLiteOpenHelper {
         Categoria domesticos = new Categoria ("Domésticos", null, 0, "Despesas relacionadas ao ambiente doméstico, como gastos com eletricidade, gás, televisão, aquecimento, refrigeração, etc.","admin");
         Categoria roupas = new Categoria ("Roupas",null,0,"Representa despesas com vestimentas em geral", "admin");
         Categoria saude = new Categoria("Saúde", null,0,"Categoria reservada para transações relacionadas á saúde, como planos, medicamentos e cosméticos","admin");
-        Categoria  trabalhoEstudos = new Categoria("Trabalho_Estudos",null,0,"Ganhos e despesas relativas a trabalho e studos, como mensalidade escolar ,salário, bônus, etc.","admin");
+        Categoria  trabalhoEstudos = new Categoria("Trabalho/Estudos",null,0,"Ganhos e despesas relativas a trabalho e studos, como mensalidade escolar ,salário, bônus, etc.","admin");
 
         adicionarAoBd(transportes);
         adicionarAoBd(alimentacao);

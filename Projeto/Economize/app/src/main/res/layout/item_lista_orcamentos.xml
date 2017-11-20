@@ -10,34 +10,32 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txtHistOrcTitulo"
+            android:id="@+id/txtListaOrcTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="13dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/txtHistOrcAbrangencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/txtHistOrcTitulo"
-            android:layout_below="@+id/txtHistOrcTitulo"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="14dp"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/txtHistOrcValor"
+            android:id="@+id/txtListaOrcAbrangencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/txtHistOrcTitulo"
-            android:layout_alignBottom="@+id/txtHistOrcTitulo"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="65dp"
+            android:layout_alignEnd="@+id/txtListaOrcTitulo"
+            android:layout_below="@+id/txtListaOrcTitulo"
+            android:layout_marginTop="17dp"
             android:text="TextView" />
 
+        <TextView
+            android:id="@+id/txtListaOrcValor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/txtListaOrcTitulo"
+            android:layout_marginEnd="55dp"
+            android:text="TextView" />
     </RelativeLayout>
 
     <ImageView

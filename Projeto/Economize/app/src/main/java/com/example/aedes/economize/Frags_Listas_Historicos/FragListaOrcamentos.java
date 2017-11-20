@@ -15,11 +15,11 @@ import com.example.aedes.economize.R;
 import java.util.ArrayList;
 
 
-public class FragHistoricoOrcamentos extends Fragment {
+public class FragListaOrcamentos extends Fragment {
 
     private ArrayList<Orcamento> orcamentos;
     private ListView listaOrcamentos;
-    private Lista_Orcamentos_ArrayAdapter hoad;
+    private Lista_Orcamentos_ArrayAdapter load;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,8 +29,8 @@ public class FragHistoricoOrcamentos extends Fragment {
         orcamentos = new ArrayList<>();
         OrcamentoDbHandler odbh = new OrcamentoDbHandler(this.getContext(),null,null,1);
         orcamentos = odbh.getListaOrcamentos();
-        hoad = new Lista_Orcamentos_ArrayAdapter(this.getContext(),orcamentos);
-        listaOrcamentos.setAdapter(hoad);
+        load = new Lista_Orcamentos_ArrayAdapter(this.getContext(),orcamentos);
+        listaOrcamentos.setAdapter(load);
         return view;
     }
 

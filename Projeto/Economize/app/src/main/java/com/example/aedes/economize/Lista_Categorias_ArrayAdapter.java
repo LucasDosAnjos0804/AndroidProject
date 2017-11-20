@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.aedes.economize.Classes_Modelo.Orcamento;
+import com.example.aedes.economize.Classes_Modelo.Categoria;
 
 import java.util.ArrayList;
 
@@ -18,11 +18,11 @@ import java.util.ArrayList;
  * histórico de transações
  */
 
-public class Lista_Categorias_ArrayAdapter extends ArrayAdapter<Orcamento> {
+public class Lista_Categorias_ArrayAdapter extends ArrayAdapter<Categoria> {
 
-    private TextView txtHistOrcValor, txtHistOrcTitulo, txtHistOrcAbrangencia;
+    private TextView txtListaCatNome;
 
-    public Lista_Categorias_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Orcamento> objects) {
+    public Lista_Categorias_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Categoria> objects) {
         super(context, R.layout.item_lista_orcamentos, objects);
     }
 
@@ -31,18 +31,14 @@ public class Lista_Categorias_ArrayAdapter extends ArrayAdapter<Orcamento> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater histTransInflater;
         histTransInflater = LayoutInflater.from(getContext());
-        View view = histTransInflater.inflate(R.layout.item_lista_orcamentos, parent, false);
-        Orcamento o = getItem(position);
+        View view = histTransInflater.inflate(R.layout.item_lista_categorias, parent, false);
+         Categoria cat = getItem(position);
         instanciarCampos(view);
-        txtHistOrcTitulo.setText(o.getNome());
-        txtHistOrcValor.setText(String.valueOf(o.getValor()));
-        txtHistOrcAbrangencia.setText(o.getAbrangencia());
+        txtListaCatNome.setText(cat.getNome().toString());
         return view;
     }
 
     public void instanciarCampos(View v) {
-        txtHistOrcTitulo = (TextView) v.findViewById(R.id.txtHistOrcTitulo);
-        txtHistOrcValor = (TextView) v.findViewById(R.id.txtHistOrcValor);
-        txtHistOrcAbrangencia = (TextView) v.findViewById(R.id.txtHistOrcAbrangencia);
+        txtListaCatNome = (TextView)v.findViewById(R.id.txtListCatNome);
     }
 }

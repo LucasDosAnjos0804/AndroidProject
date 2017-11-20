@@ -3,13 +3,14 @@ package com.example.aedes.economize.DbHandlers;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.aedes.economize.Classes_Modelo.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.example.aedes.economize.Classes_Modelo.Usuario;
 
 /**
  * Created by Eu II on 04/11/2017.
@@ -28,7 +29,7 @@ public class UsuarioDbHandler extends SQLiteOpenHelper{
     }
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabela + " ("+ colNome + " TEXT, " + colEmail + " TEXT, " + colSenha + " TEXT);";
+        String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabela + " ("+ colNome + " TEXT, " + colEmail + " TEXT PRIMARY KEY, " + colSenha + " TEXT);";
         sqLiteDatabase.execSQL(sql);
     }
 
@@ -37,13 +38,15 @@ public class UsuarioDbHandler extends SQLiteOpenHelper{
 
     }
 
-    public void adicionarAoBd(Usuario usuario){
-        ContentValues valores = new ContentValues();
-        valores.put(colNome,usuario.getNome());
-        valores.put(colEmail,usuario.getEmail());
-        valores.put(colSenha,usuario.getSenha());
-        SQLiteDatabase db = getWritableDatabase();
-        db.insert(nomeTabela,null,valores);
+public void adicionarAoBd(Usuario usuario) throws SQLiteConstraintException{
+
+           ContentValues valores = new ContentValues();
+           valores.put(colNome, usuario.getNome());
+           valores.put(colEmail, usuario.getEmail());
+           valores.put(colSenha, usuario.getSenha());
+           SQLiteDatabase db = getWritableDatabase();
+           db.insertOrThrow(nomeTabela, null, valores);
+
     }
 
     public void removerDoBd(Usuario usuario){

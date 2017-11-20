@@ -5,22 +5,35 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.ListView;
 
+import com.example.aedes.economize.Classes_Modelo.Categoria;
+import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
+import com.example.aedes.economize.Lista_Categorias_ArrayAdapter;
 import com.example.aedes.economize.R;
+
+import java.util.ArrayList;
 
 public class FragListaCategorias extends Fragment {
 
 
-    private EditText txt_listaCatNome;
+    private ListView listViewCategorias;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frag_lista_categorias, container, false);
+        instanciarCampos(view);
         return view;
     }
 
-    public void instanciarCampos(){
+    public void instanciarCampos(View v){
 
+        CategoriaDbHandler cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
+        ArrayList<Categoria> categorias= new ArrayList<>();
+        categorias = cdbh.getListaCategorias();
+        Lista_Categorias_ArrayAdapter lcad = new Lista_Categorias_ArrayAdapter(this.getContext(),categorias);
+
+        listViewCategorias = (ListView)v.findViewById(R.id.listv_lista_categorias);
+        listViewCategorias.setAdapter(lcad);
     }
 }

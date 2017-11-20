@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Lista_Orcamentos_ArrayAdapter extends ArrayAdapter<Orcamento> {
 
-    private TextView txtHistOrcValor, txtHistOrcTitulo, txtHistOrcAbrangencia;
+    private TextView txtListaOrcValor, txtListaOrcTitulo, txtListaOrcAbrangencia;
 
     public Lista_Orcamentos_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Orcamento> objects) {
         super(context, R.layout.item_lista_orcamentos, objects);
@@ -34,15 +34,15 @@ public class Lista_Orcamentos_ArrayAdapter extends ArrayAdapter<Orcamento> {
         View view = histTransInflater.inflate(R.layout.item_lista_orcamentos, parent, false);
         Orcamento o = getItem(position);
         instanciarCampos(view);
-        txtHistOrcTitulo.setText(o.getNome());
-        txtHistOrcValor.setText(String.valueOf(o.getValor()));
-        txtHistOrcAbrangencia.setText(o.getAbrangencia());
+        txtListaOrcTitulo.setText(o.getNome());
+        txtListaOrcValor.setText(String.valueOf(o.getValor()));
+        txtListaOrcAbrangencia.setText(o.getAbrangencia());
         return view;
     }
 
     public void instanciarCampos(View v) {
-        txtHistOrcTitulo = (TextView) v.findViewById(R.id.txtHistOrcTitulo);
-        txtHistOrcValor = (TextView) v.findViewById(R.id.txtHistOrcValor);
-        txtHistOrcAbrangencia = (TextView) v.findViewById(R.id.txtHistOrcAbrangencia);
+        txtListaOrcTitulo= (TextView) v.findViewById(R.id.txtListaOrcTitulo);
+        txtListaOrcValor = (TextView) v.findViewById(R.id.txtListaOrcValor);
+        txtListaOrcAbrangencia= (TextView) v.findViewById(R.id.txtListaOrcAbrangencia);
     }
 }
