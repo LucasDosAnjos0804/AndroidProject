@@ -59,7 +59,7 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
     }
 
     public void mostrarNumeroCategoriasNoNome(){
-        et_nome.setText(String.valueOf(cdbh.getListaCategorias().size()));
+        et_nome.setText(String.valueOf(cdbh.getWritableDatabase().rawQuery("SELECT * FROM Categoria",null).getCount()));
     }
 
     public void instanciarCampos(View v) {

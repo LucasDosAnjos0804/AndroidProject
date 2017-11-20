@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.example.aedes.economize.Classes_Modelo.Orcamento;
 
@@ -30,7 +29,6 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sql = ("CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+colNome+" TEXT, "+colDescricao+" TEXT, "+colAbrangencia+" TEXT, "+ colValor+" DOUBLE, "+colUsuEmail+" TEXT, "+colCategoria+" INT); ");
         sqLiteDatabase.execSQL(sql);
-        Log.w("LETAGLETAGLETAG",sql);
     }
 
     @Override

@@ -6,16 +6,18 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.aedes.economize.R;
-
 import com.example.aedes.economize.Classes_Modelo.Transacao;
 import com.example.aedes.economize.DbHandlers.TransacaoDbHandler;
+import com.example.aedes.economize.R;
+
+import java.util.ArrayList;
 
 
 public class FragNovaTransacao extends Fragment{
@@ -23,8 +25,11 @@ public class FragNovaTransacao extends Fragment{
     private EditText et_valor, et_titulo, et_dtInicio,et_dtFim, et_descricao;
     private RadioButton rd_ganho,rd_despesa;
     private CheckBox chb_recorrente;
-    private Spinner spn_ocorrencia;
+    private Spinner spnn_ocorrencia,spnn_categoria;
     private FloatingActionButton fltb_adicionar, fltb_cancelar;
+    private ArrayList<String> valCategoria;
+    private TransacaoDbHandler tdbh;
+    private ArrayAdapter<String> spinnersAdapter;
     Transacao transacao;
 
 
@@ -37,6 +42,16 @@ public class FragNovaTransacao extends Fragment{
     }
 
     public void instanciarCampos(View view){
+        spnn_categoria = (Spinner)view.findViewById(R.id.spnn_transCategoria);
+        valCategoria= new ArrayList<>();
+        tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
+        for(Transacao t : tdbh.getListaTransacoes()){
+            valCategoria.add(t.getTitulo());
+        }
+        spinnersAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valCategoria);
+        spinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spnn_categoria.setAdapter(spinnersAdapter);
+
         et_titulo = (EditText)view.findViewById(R.id.et_transTitulo);
         et_valor= (EditText)view.findViewById(R.id.et_transValor);
         et_dtInicio = (EditText)view.findViewById(R.id.et_transDtInicio);
@@ -45,7 +60,7 @@ public class FragNovaTransacao extends Fragment{
         rd_ganho= (RadioButton) view.findViewById(R.id.rd_transLucro);
         rd_despesa= (RadioButton) view.findViewById(R.id.rd_transDespesa);
         chb_recorrente = (CheckBox)view.findViewById(R.id.chb_trans_paga_recorrente);
-        spn_ocorrencia = (Spinner)view.findViewById(R.id.spnn_transOcorrencia);
+        spnn_ocorrencia = (Spinner)view.findViewById(R.id.spnn_transOcorrencia);
         fltb_adicionar = (FloatingActionButton)view.findViewById(R.id.fltb_adicionar);
         fltb_cancelar = (FloatingActionButton)view.findViewById(R.id.fltb_deletar);
         fltb_adicionar.setOnClickListener(new View.OnClickListener(){

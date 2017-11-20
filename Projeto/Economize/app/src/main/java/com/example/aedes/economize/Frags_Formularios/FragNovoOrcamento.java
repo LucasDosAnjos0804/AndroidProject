@@ -11,46 +11,56 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.aedes.economize.Classes_Modelo.Categoria;
 import com.example.aedes.economize.Classes_Modelo.Orcamento;
+import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
 import com.example.aedes.economize.DbHandlers.OrcamentoDbHandler;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class FragNovoOrcamento extends Fragment implements View.OnClickListener {
-
-
-    private Spinner spnn_abrangencia;
+    private Spinner spnn_abrangencia,spnn_categoria;
     private EditText et_nome, et_valor, et_descricao;
-    FloatingActionButton fltAdd,fltDel;
-    List<String> valAbrangencia = new ArrayList<String>();
+    FloatingActionButton fltAdd, fltDel;
+    ArrayList<String> valAbrangencia, valCategoria;
+    CategoriaDbHandler cdbh;
+    ArrayAdapter<String> listasSpinnersAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_frag_novo_orcamento, container, false);
         instanciarCampos(v);
         return v;
     }
 
     public void instanciarCampos(View v) {
+        valCategoria = new ArrayList<>();
+        valAbrangencia = new ArrayList<>();
+        cdbh = new CategoriaDbHandler(v.getContext(), null, null, 1);
+
         valAbrangencia.add("Mensal");
         valAbrangencia.add("Anual");
         valAbrangencia.add("Personalizado");
         spnn_abrangencia = (Spinner) v.findViewById(R.id.spnn_OrcAbrangencia);
-        ArrayAdapter<String> listaAbrangencia = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_spinner_item, valAbrangencia);
-        listaAbrangencia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnn_abrangencia.setAdapter(listaAbrangencia);
+        listasSpinnersAdapter = new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_spinner_item, valAbrangencia);
+        listasSpinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnn_abrangencia.setAdapter(listasSpinnersAdapter);
+
+        for (Categoria cat : cdbh.getListaCategorias()) {
+            valCategoria.add(cat.getNome());
+        }
+        spnn_categoria = (Spinner)v.findViewById(R.id.spnn_OrcCategoria);
+        listasSpinnersAdapter = new ArrayAdapter<String>(v.getContext(),android.R.layout.simple_spinner_item,valCategoria);
+        listasSpinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnn_categoria.setAdapter(listasSpinnersAdapter);
 
         et_nome = (EditText) v.findViewById(R.id.et_OrcNome);
         et_descricao = (EditText) v.findViewById(R.id.et_OrcDescricao);
         et_valor = (EditText) v.findViewById(R.id.et_OrcValor);
-        fltAdd = (FloatingActionButton)v.findViewById(R.id.fltb_adicionar);
-        fltDel = (FloatingActionButton)v.findViewById(R.id.fltb_deletar);
+        fltAdd = (FloatingActionButton) v.findViewById(R.id.fltb_adicionar);
+        fltDel = (FloatingActionButton) v.findViewById(R.id.fltb_deletar);
         fltAdd.setOnClickListener(this);
         fltDel.setOnClickListener(this);
     }
@@ -73,10 +83,10 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.fltb_adicionar:
                 cadastrarOrcamento();
-            case R.id.fltb_cancelar:
-                Toast.makeText(view.getContext(),"Função ainda não implementada",Toast.LENGTH_SHORT).show();
+            case R.id.fltb_deletar:
+                Toast.makeText(view.getContext(), "Função ainda não implementada", Toast.LENGTH_SHORT).show();
             default:
-                Toast.makeText(view.getContext(),"Você clicou em um botão flutuante. :)",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Você clicou em um botão flutuante. :)", Toast.LENGTH_SHORT).show();
         }
     }
 }
