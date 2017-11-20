@@ -16,21 +16,35 @@ import java.util.List;
  * Created by Eu II on 04/11/2017.
  */
 
-public class UsuarioDbHandler extends SQLiteOpenHelper{
+public class UsuarioDbHandler extends SQLiteOpenHelper {
     private static final int db_version = 1;
     private static final String db_name = "EconomizeDB.db";
     private static final String nomeTabela = "Usuario";
-    private static final String colNome="nome" ,colEmail="email",colSenha="senha";
-
+    private static final String colNome = "nome", colEmail = "email", colSenha = "senha";
 
 
     public UsuarioDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context,db_name, factory, db_version);
+        super(context, db_name, factory, db_version);
+        onCreate(getWritableDatabase());
     }
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabela + " ("+ colNome + " TEXT, " + colEmail + " TEXT PRIMARY KEY, " + colSenha + " TEXT);";
+        getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
+        String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabela + " (" + colNome + " TEXT, " + colEmail + " TEXT PRIMARY KEY, " + colSenha + " TEXT);";
         sqLiteDatabase.execSQL(sql);
+        inserirAdmin(sqLiteDatabase);
+
+    }
+
+    public void inserirAdmin(SQLiteDatabase db) {
+        if (db.rawQuery("SELECT * FROM Usuario", null).getCount() < 1) {
+            Usuario admin = new Usuario("admin", "admin", "admin");
+            ContentValues valores = new ContentValues();
+            valores.put(colNome, admin.getNome());
+            valores.put(colEmail, admin.getEmail());
+            valores.put(colSenha, admin.getSenha());
+            db.insertOrThrow(nomeTabela, null, valores);
+        }
     }
 
     @Override
@@ -38,29 +52,28 @@ public class UsuarioDbHandler extends SQLiteOpenHelper{
 
     }
 
-public void adicionarAoBd(Usuario usuario) throws SQLiteConstraintException{
-
-           ContentValues valores = new ContentValues();
-           valores.put(colNome, usuario.getNome());
-           valores.put(colEmail, usuario.getEmail());
-           valores.put(colSenha, usuario.getSenha());
-           SQLiteDatabase db = getWritableDatabase();
-           db.insertOrThrow(nomeTabela, null, valores);
-
-    }
-
-    public void removerDoBd(Usuario usuario){
+    public void adicionarAoBd(Usuario usuario) throws SQLiteConstraintException {
+        getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
+        ContentValues valores = new ContentValues();
+        valores.put(colNome, usuario.getNome());
+        valores.put(colEmail, usuario.getEmail());
+        valores.put(colSenha, usuario.getSenha());
+        getWritableDatabase().insertOrThrow(nomeTabela, null, valores);
 
     }
 
-    public void alterarNoBD(){
+    public void removerDoBd(Usuario usuario) {
 
     }
 
-    public List<Usuario> getListaUsuarios(){
-        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM " + nomeTabela + ";",null);
+    public void alterarNoBD() {
+
+    }
+
+    public List<Usuario> getListaUsuarios() {
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM " + nomeTabela + ";", null);
         List<Usuario> usuarios = new ArrayList<>();
-        while(c.moveToNext()){
+        while (c.moveToNext()) {
             Usuario u = new Usuario();
             u.setEmail(c.getString(c.getColumnIndex("email")));
             u.setNome(c.getString(c.getColumnIndex("nome")));

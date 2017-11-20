@@ -1,6 +1,7 @@
 package com.example.aedes.economize.Frags_Formularios;
 
 import android.app.Fragment;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
@@ -33,33 +34,37 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frag_nova_categoria, container, false);
         instanciarCampos(view);
-        cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
+        cdbh = new CategoriaDbHandler(this.getContext(), null, null, 1);
         mostrarNumeroCategoriasNoNome();
         return view;
     }
 
     public void cadastrarCategoria() {
-        if (novaCatRg.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this.getContext(), "Tipo de operação Lucro/Despesa n]ao selecionado.", Toast.LENGTH_SHORT).show();
-            return;
+        try {
+            if (novaCatRg.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this.getContext(), "Tipo de operação Lucro/Despesa n]ao selecionado.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            checkedRb = (RadioButton) novaCatRg.findViewById(novaCatRg.getCheckedRadioButtonId());
+            Categoria cat = new Categoria();
+            cat.setNome(et_nome.getText().toString());
+            cat.setDescricao(et_descricao.getText().toString());
+            cat.setNomeCatMae("LELEELELELEELL");
+            cat.setEmail_criador(apl.getUsuarioAtual());
+            if (checkedRb.getText().toString().equals("Lucro")) {
+                cat.setTipoOperacao(1);
+            } else {
+                cat.setTipoOperacao(-1);
+            }
+            cdbh.adicionarAoBd(cat);
+            mostrarNumeroCategoriasNoNome();
+        } catch (SQLiteConstraintException e) {
+            Toast.makeText(this.getContext(),"Já existe uma categoria criada com este nome",Toast.LENGTH_SHORT).show();
         }
-        checkedRb = (RadioButton) novaCatRg.findViewById(novaCatRg.getCheckedRadioButtonId());
-        Categoria cat = new Categoria();
-        cat.setNome(et_nome.getText().toString());
-        cat.setDescricao(et_descricao.getText().toString());
-        cat.setNomeCatMae("LELEELELELEELL");
-        cat.setEmail_criador(apl.getUsuarioAtual());
-        if (checkedRb.getText().toString().equals("Lucro")) {
-            cat.setTipoOperacao(1);
-        } else {
-            cat.setTipoOperacao(-1);
-        }
-        cdbh.adicionarAoBd(cat);
-        mostrarNumeroCategoriasNoNome();
     }
 
-    public void mostrarNumeroCategoriasNoNome(){
-        et_nome.setText(String.valueOf(cdbh.getWritableDatabase().rawQuery("SELECT * FROM Categoria",null).getCount()));
+    public void mostrarNumeroCategoriasNoNome() {
+        et_nome.setText(String.valueOf(cdbh.getWritableDatabase().rawQuery("SELECT * FROM Categoria", null).getCount()));
     }
 
     public void instanciarCampos(View v) {

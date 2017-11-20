@@ -44,6 +44,7 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
         valores.put(colAbrangencia,o.getAbrangencia());
         valores.put(colUsuEmail,o.getUsuEmail());
         valores.put(colCategoria,o.getCatId());
+        getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
         getWritableDatabase().insert(TABLE_NAME,null,valores);
     }
 

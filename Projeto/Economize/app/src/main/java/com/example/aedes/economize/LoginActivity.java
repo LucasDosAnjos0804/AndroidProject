@@ -23,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        udb = new UsuarioDbHandler(this,null,null,1);
+
         etEmailLogin = (EditText) findViewById(R.id.et_email_login);
         etSenhaLogin = (EditText) findViewById(R.id.et_senha_login);
         etEntrar = (TextView) findViewById(R.id.entrar_login);
@@ -32,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public String getNomesCadastrados(){
         String s = "";
-        List<Usuario> l = new UsuarioDbHandler(this, null, null, 1).getListaUsuarios();
+        List<Usuario> l = udb.getListaUsuarios();
         for(Usuario u : l){
             s += u.getNome() + "\n";
         }
@@ -46,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void logar(View v) {
         boolean usuarioExiste = false;
-        udb = new UsuarioDbHandler(this, null, null, 1);
         List<Usuario> usuarios = udb.getListaUsuarios();
 
         for(Usuario u : usuarios){
@@ -59,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
                 break;
             }
         }
-
 
         if (usuarioExiste == false) {
             Toast.makeText(this, "E-mail ou senha incorretos", Toast.LENGTH_SHORT).show();

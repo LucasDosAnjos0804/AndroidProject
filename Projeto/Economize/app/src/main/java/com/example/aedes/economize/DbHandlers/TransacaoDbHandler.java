@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-
 import com.example.aedes.economize.Classes_Modelo.Transacao;
+
+import java.util.ArrayList;
 
 /**
  * Created by Eu II on 02/11/2017.
@@ -51,8 +51,9 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
         valores.put("usuEmail",transacao.getUsuEmail());
         valores.put("recorrente",transacao.isRecorrente());
         valores.put("frequencia",transacao.getFrequencia());
-        SQLiteDatabase db = getWritableDatabase();
-        db.insert(TABLE_NAME,null,valores);
+
+        getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
+        getWritableDatabase().insert(TABLE_NAME,null,valores);
 
     }
 
