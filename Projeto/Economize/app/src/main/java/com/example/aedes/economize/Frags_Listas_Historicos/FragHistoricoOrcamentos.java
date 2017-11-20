@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.example.aedes.economize.Classes_Modelo.Orcamento;
 import com.example.aedes.economize.DbHandlers.OrcamentoDbHandler;
-import com.example.aedes.economize.Historico_Orcamentos_ArrayAdapter;
+import com.example.aedes.economize.Lista_Orcamentos_ArrayAdapter;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class FragHistoricoOrcamentos extends Fragment {
 
     private ArrayList<Orcamento> orcamentos;
     private ListView listaOrcamentos;
-    private Historico_Orcamentos_ArrayAdapter hoad;
+    private Lista_Orcamentos_ArrayAdapter hoad;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class FragHistoricoOrcamentos extends Fragment {
         orcamentos = new ArrayList<>();
         OrcamentoDbHandler odbh = new OrcamentoDbHandler(this.getContext(),null,null,1);
         orcamentos = odbh.getListaOrcamentos();
-        hoad = new Historico_Orcamentos_ArrayAdapter(this.getContext(),orcamentos);
+        hoad = new Lista_Orcamentos_ArrayAdapter(this.getContext(),orcamentos);
         listaOrcamentos.setAdapter(hoad);
         return view;
     }

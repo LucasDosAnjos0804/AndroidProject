@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.example.aedes.economize.Classes_Modelo.Categoria;
 
@@ -33,7 +32,22 @@ public class CategoriaDbHandler extends SQLiteOpenHelper {
         sql+=colTipoOperacao+" TEXT, ";
         sql+=colEmail_criador+" TEXT); ";
         sqLiteDatabase.execSQL(sql);
-        Log.w("CATEGORY-LA_CRIACIÓN",sql);
+
+        Categoria transportes = new Categoria ("Transporte",null,0, "Categoria relacionada a gsstos com transportes.", "admin");
+        Categoria alimentacao = new Categoria("Alimentação",null,0,"Despesas com suprimentos e nutrição","admin");
+        Categoria entretenimento = new Categoria("Entretenimento",null,0,"Despesase e ganhos com diferentes formas de entretenimento (festas,cinema,jogos,apostas,etc.)","admin");
+        Categoria domesticos = new Categoria ("Domésticos", null, 0, "Despesas relacionadas ao ambiente doméstico, como gastos com eletricidade, gás, televisão, aquecimento, refrigeração, etc.","admin");
+        Categoria roupas = new Categoria ("Roupas",null,0,"Representa despesas com vestimentas em geral", "admin");
+        Categoria saude = new Categoria("Saúde", null,0,"Categoria reservada para transações relacionadas á saúde, como planos, medicamentos e cosméticos","admin");
+        Categoria  trabalhoEstudos = new Categoria("Trabalho_Estudos",null,0,"Ganhos e despesas relativas a trabalho e studos, como mensalidade escolar ,salário, bônus, etc.","admin");
+
+        adicionarAoBd(transportes);
+        adicionarAoBd(alimentacao);
+        adicionarAoBd(entretenimento);
+        adicionarAoBd(domesticos);
+        adicionarAoBd(roupas);
+        adicionarAoBd(saude);
+        adicionarAoBd(trabalhoEstudos);
 
     }
 

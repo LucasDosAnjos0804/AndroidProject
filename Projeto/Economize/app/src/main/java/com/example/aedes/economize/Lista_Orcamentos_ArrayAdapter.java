@@ -18,11 +18,11 @@ import java.util.ArrayList;
  * histórico de transações
  */
 
-public class Historico_Orcamentos_ArrayAdapter extends ArrayAdapter<Orcamento> {
+public class Lista_Orcamentos_ArrayAdapter extends ArrayAdapter<Orcamento> {
 
     private TextView txtHistOrcValor, txtHistOrcTitulo, txtHistOrcAbrangencia;
 
-    public Historico_Orcamentos_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Orcamento> objects) {
+    public Lista_Orcamentos_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Orcamento> objects) {
         super(context, R.layout.item_lista_orcamentos, objects);
     }
 
