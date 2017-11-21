@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.aedes.economize.Activity_pos_logagem;
 import com.example.aedes.economize.Classes_Modelo.Categoria;
 import com.example.aedes.economize.Classes_Modelo.Orcamento;
 import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class FragNovoOrcamento extends Fragment implements View.OnClickListener {
     private Spinner spnn_abrangencia,spnn_categoria;
     private EditText et_nome, et_valor, et_descricao;
+    private Activity_pos_logagem apl;
     FloatingActionButton fltAdd, fltDel;
     ArrayList<String> valAbrangencia, valCategoria;
     CategoriaDbHandler cdbh;
@@ -36,6 +38,7 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
     }
 
     public void instanciarCampos(View v) {
+        apl =  (Activity_pos_logagem) getActivity();
         valCategoria = new ArrayList<>();
         valAbrangencia = new ArrayList<>();
         cdbh = new CategoriaDbHandler(v.getContext(), null, null, 1);
@@ -71,8 +74,8 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
         o.setValor(Double.parseDouble(et_valor.getText().toString()));
         o.setAbrangencia(spnn_abrangencia.getSelectedItem().toString());
         o.setDescricao(et_descricao.getText().toString());
-        o.setUsuEmail("none");
-        o.setCatId(0);
+        o.setUsuEmail(apl.getUsuarioAtual());
+        o.setCatNome(spnn_categoria.getSelectedItem().toString());
         OrcamentoDbHandler odbh = new OrcamentoDbHandler(this.getContext(), null, null, 1);
         odbh.adicionarAoBd(o);
         Toast.makeText(this.getContext(), "Orcamento cadastrado com sucesso!", Toast.LENGTH_SHORT).show();

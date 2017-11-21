@@ -6,18 +6,18 @@ package com.example.aedes.economize.Classes_Modelo;
 
 public class Orcamento {
     private String nome, descricao, abrangencia, usuEmail;
-    private int catId;
+    private String catNome;
     private double valor;
 
     public Orcamento(){
     }
 
-    public Orcamento(String nome, String descricao, String abrangencia, String usuEmail, int catId, double valor) {
+    public Orcamento(String nome, String descricao, String abrangencia, String usuEmail, String catNome, double valor) {
         this.nome = nome;
         this.descricao = descricao;
         this.abrangencia = abrangencia;
         this.usuEmail = usuEmail;
-        this.catId = catId;
+        this.catNome= catNome;
         this.valor = valor;
     }
 
@@ -53,12 +53,12 @@ public class Orcamento {
         this.usuEmail = usuEmail;
     }
 
-    public int getCatId() {
-        return catId;
+    public String getCatNome() {
+        return catNome;
     }
 
-    public void setCatId(int catId) {
-        this.catId = catId;
+    public void setCatNome(String catNome) {
+        this.catNome = catNome;
     }
 
     public double getValor() {

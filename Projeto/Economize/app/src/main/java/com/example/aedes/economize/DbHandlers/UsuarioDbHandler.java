@@ -29,7 +29,7 @@ public class UsuarioDbHandler extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
+        sqLiteDatabase.execSQL("PRAGMA foreign_keys = 1");
         String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabela + " (" + colNome + " TEXT, " + colEmail + " TEXT PRIMARY KEY, " + colSenha + " TEXT);";
         sqLiteDatabase.execSQL(sql);
         inserirAdmin(sqLiteDatabase);

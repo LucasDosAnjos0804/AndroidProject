@@ -67,7 +67,6 @@ public class CategoriaDbHandler extends SQLiteOpenHelper {
     }
 
     public void adicionarAoBd(Categoria c){
-
         ContentValues valores = new ContentValues();
         valores.put(colNome,c.getNome());
         valores.put(colNomeCatMae,c.getNomeCatMae());
