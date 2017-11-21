@@ -1,4 +1,4 @@
-package com.example.aedes.economize.Frags_Formularios;
+package com.example.aedes.economize.frags_formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.aedes.economize.Classes_Modelo.Transacao;
-import com.example.aedes.economize.DbHandlers.TransacaoDbHandler;
+import com.example.aedes.economize.classes_modelo.Transacao;
+import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;

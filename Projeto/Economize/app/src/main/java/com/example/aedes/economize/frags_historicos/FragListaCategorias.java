@@ -1,4 +1,4 @@
-package com.example.aedes.economize.Frags_Listas_Historicos;
+package com.example.aedes.economize.frags_historicos;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.aedes.economize.Classes_Modelo.Categoria;
-import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
+import com.example.aedes.economize.classes_modelo.Categoria;
+import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
 import com.example.aedes.economize.Lista_Categorias_ArrayAdapter;
 import com.example.aedes.economize.R;
 

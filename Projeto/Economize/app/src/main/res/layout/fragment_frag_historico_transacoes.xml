@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aedes.economize.Frags_Listas_Historicos.FragHistoricoTransacoes">
+    tools:context="com.example.aedes.economize.frags_historicos.FragHistoricoTransacoes">
 
     <!-- TODO: Update blank fragment layout -->
 

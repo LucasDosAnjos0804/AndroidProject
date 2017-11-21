@@ -1,4 +1,4 @@
-package com.example.aedes.economize.Frags_Formularios;
+package com.example.aedes.economize.frags_formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.aedes.economize.Classes_Modelo.Categoria;
-import com.example.aedes.economize.Classes_Modelo.Orcamento;
-import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
-import com.example.aedes.economize.DbHandlers.OrcamentoDbHandler;
+import com.example.aedes.economize.classes_modelo.Categoria;
+import com.example.aedes.economize.classes_modelo.Orcamento;
+import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
+import com.example.aedes.economize.bdhandlers.OrcamentoDbHandler;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;

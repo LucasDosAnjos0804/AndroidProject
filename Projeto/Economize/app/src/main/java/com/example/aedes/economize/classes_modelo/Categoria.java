@@ -1,4 +1,4 @@
-package com.example.aedes.economize.Classes_Modelo;
+package com.example.aedes.economize.classes_modelo;
 
 /**
  * Created by Eu II on 18/11/2017.

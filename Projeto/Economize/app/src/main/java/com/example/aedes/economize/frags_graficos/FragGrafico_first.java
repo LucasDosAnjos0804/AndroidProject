@@ -1,8 +1,6 @@
-package com.example.aedes.economize.Frags_Graficos;
+package com.example.aedes.economize.frags_graficos;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;

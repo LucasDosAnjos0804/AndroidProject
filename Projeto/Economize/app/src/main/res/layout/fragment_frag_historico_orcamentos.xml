@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aedes.economize.Frags_Listas_Historicos.FragListaOrcamentos">
+    tools:context="com.example.aedes.economize.frags_historicos.FragListaOrcamentos">
 
     <!-- TODO: Update blank fragment layout -->
 
     <ListView
         android:id="@+id/listv_his_orcamentos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
 </FrameLayout>

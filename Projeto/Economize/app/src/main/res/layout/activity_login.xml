@@ -11,15 +11,14 @@
         android:id="@+id/imageView2"
         android:layout_width="140dp"
         android:layout_height="158dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/entrar_login"
         app:layout_constraintEnd_toEndOf="@+id/entrar_login"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnvoltar"
         app:layout_constraintStart_toStartOf="@+id/entrar_login"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo_economize"
-        tools:ignore="ContentDescription"/>
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/entrar_login"
@@ -30,23 +29,52 @@
         android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout15"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout15"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout15"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/entrar_login">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/title_usrs"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spnn_usuarios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="262dp"
+            tools:layout_editor_absoluteY="243dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
-        app:layout_constraintTop_toBottomOf="@+id/entrar_login">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout15">
 
         <TextView
             android:id="@+id/textView11"
@@ -71,6 +99,7 @@
             android:labelFor="@+id/textView12"
             android:textAlignment="center"
             android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
             tools:layout_editor_absoluteX="135dp"
             tools:layout_editor_absoluteY="271dp" />
     </LinearLayout>
@@ -79,8 +108,6 @@
         android:id="@+id/linearLayout6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_entrar"
         app:layout_constraintEnd_toEndOf="@+id/btn_entrar"
@@ -117,14 +144,13 @@
         android:id="@+id/btn_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:background="@drawable/mybotao"
         android:onClick="logar"
         android:text="@string/btn_login_action"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
 

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.aedes.economize.Classes_Modelo.Transacao;
+import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.util.ArrayList;
 

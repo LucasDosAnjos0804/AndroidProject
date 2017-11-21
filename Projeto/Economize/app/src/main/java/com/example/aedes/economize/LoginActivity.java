@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.aedes.economize.Classes_Modelo.Usuario;
-import com.example.aedes.economize.DbHandlers.UsuarioDbHandler;
+import com.example.aedes.economize.classes_modelo.Usuario;
+import com.example.aedes.economize.bdhandlers.UsuarioDbHandler;
 
 import java.util.List;
 
