@@ -8,6 +8,7 @@ public class Orcamento {
     private String nome, descricao, abrangencia, usuEmail;
     private String catNome;
     private double valor;
+    private int id;
 
     public Orcamento(){
     }
@@ -68,4 +69,8 @@ public class Orcamento {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+    public void setId(int id){this.id = id;}
+
+    public int getId(){return id;}
 }

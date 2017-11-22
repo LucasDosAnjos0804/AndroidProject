@@ -37,7 +37,7 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
         txtTitulo.setText(t.getTitulo());
         txtValor.setText(String.valueOf(t.getValor()));
         txtData.setText(t.getDtInicio());
-        txtCat.setText(String.valueOf(t.getCatId()));
+        txtCat.setText(t.getCatNome());
         return view;
     }
 
@@ -45,6 +45,6 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
         txtTitulo =(TextView)v.findViewById(R.id.txtHistTituloTrans);
         txtValor=(TextView)v.findViewById(R.id.txtHistValorTrans);
         txtData=(TextView)v.findViewById(R.id.txtHistDataTrans);
-        txtCat=(TextView)v.findViewById(R.id.txtHIstCatTrans);
+        txtCat=(TextView)v.findViewById(R.id.txtHistCatTrans);
     }
 }

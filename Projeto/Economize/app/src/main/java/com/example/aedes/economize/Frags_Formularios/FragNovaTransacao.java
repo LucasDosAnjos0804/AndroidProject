@@ -13,7 +13,10 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.aedes.economize.Activity_pos_logagem;
+import com.example.aedes.economize.Classes_Modelo.Categoria;
 import com.example.aedes.economize.Classes_Modelo.Transacao;
+import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
 import com.example.aedes.economize.DbHandlers.TransacaoDbHandler;
 import com.example.aedes.economize.R;
 
@@ -29,8 +32,10 @@ public class FragNovaTransacao extends Fragment{
     private FloatingActionButton fltb_adicionar, fltb_cancelar;
     private ArrayList<String> valCategoria;
     private TransacaoDbHandler tdbh;
+    private CategoriaDbHandler cdbh;
     private ArrayAdapter<String> spinnersAdapter;
-    Transacao transacao;
+    private Transacao transacao;
+    private Activity_pos_logagem apl;
 
 
     @Override
@@ -42,11 +47,12 @@ public class FragNovaTransacao extends Fragment{
     }
 
     public void instanciarCampos(View view){
+        apl = (Activity_pos_logagem)getActivity();
         spnn_categoria = (Spinner)view.findViewById(R.id.spnn_transCategoria);
         valCategoria= new ArrayList<>();
-        tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
-        for(Transacao t : tdbh.getListaTransacoes()){
-            valCategoria.add(t.getTitulo());
+        cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
+        for(Categoria cat : cdbh.getListaCategorias()){
+            valCategoria.add(cat.getNome());
         }
         spinnersAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valCategoria);
         spinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -91,12 +97,12 @@ public class FragNovaTransacao extends Fragment{
             transacao.setValor((Double.parseDouble(et_valor.getText().toString())*i));
             transacao.setDescricao(et_descricao.getText().toString());
             transacao.setTipoOperacao(i);
-            transacao.setCatId(1);
+            transacao.setCatNome(spnn_categoria.getSelectedItem().toString());
             transacao.setDtInicio(et_dtInicio.getText().toString());
             transacao.setDtFim(null);
             transacao.setFrequencia(null);
             transacao.setRecorrente(0);
-            transacao.setUsuEmail(null);
+            transacao.setUsuEmail(apl.getUsuarioAtual());
             cadastrarTransacao(transacao);
             Toast.makeText(this.getContext(),"Transacao adicionada com sucesso!",Toast.LENGTH_SHORT).show();
         }

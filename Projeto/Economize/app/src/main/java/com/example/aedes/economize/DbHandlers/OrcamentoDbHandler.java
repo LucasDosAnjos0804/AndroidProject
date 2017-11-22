@@ -20,7 +20,7 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "Orcamento";
 
     private static final String colNome = "nome", colDescricao= "descricao", colAbrangencia= "abrangencia", colValor = "valor",colUsuEmail = "email_criador", colCategoria = "categoria";
-    private static final String usuEmail="email",catNome="nome";
+    private static final String usuEmail="email",catNome="nome", id = "id";
     public OrcamentoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_name, factory, db_version);
         onCreate(getWritableDatabase());
@@ -29,6 +29,7 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sql = ("CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+colNome+" TEXT, "+colDescricao+" TEXT, "+colAbrangencia+" TEXT, "+ colValor+" DOUBLE, "+colUsuEmail+" TEXT, "+colCategoria+" TEXT, ");
+        sql+=id+" INTEGER PRIMARY KEY AUTOINCREMENT, ";
         sql+="FOREIGN KEY("+colUsuEmail+") REFERENCES Usuario("+usuEmail+"), ";
         sql+="FOREIGN KEY("+colCategoria+") REFERENCES Categoria("+catNome+"));";
         sqLiteDatabase.execSQL("PRAGMA foreign_keys=1");
@@ -72,6 +73,7 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
             o.setUsuEmail(c.getString(c.getColumnIndex("email_criador")));
             o.setValor(c.getDouble(c.getColumnIndex("valor")));
             o.setCatNome(c.getString(c.getColumnIndex("categoria")));
+            o.setId(c.getInt(c.getColumnIndex("id")));
             orcamentos.add(o);
 
         }

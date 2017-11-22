@@ -7,16 +7,16 @@ package com.example.aedes.economize.Classes_Modelo;
 public class Transacao {
     private Double valor = 0.0;
     private boolean recorrente;
-    private int catId,tipoOperacao; // 0 pra despesa e 1 pra ganho
-    private String dtInicio,dtFim, titulo, usuEmail, descricao, frequencia;
+    private int id,tipoOperacao; // 0 pra despesa e 1 pra ganho
+    private String catNome,dtInicio,dtFim, titulo, usuEmail, descricao, frequencia;
 
     public Transacao() {
     }
 
-    public Transacao(Double valor, boolean recorrente, int catId, int tipoOperacao, String dtInicio, String dtFim, String titulo, String usuEmail, String descricao, String frequencia) {
+    public Transacao(Double valor, boolean recorrente, String catNome, int tipoOperacao, String dtInicio, String dtFim, String titulo, String usuEmail, String descricao, String frequencia) {
         this.valor = valor;
         this.recorrente = recorrente;
-        this.catId = catId;
+        this.catNome = catNome;
         this.tipoOperacao = tipoOperacao;
         this.dtInicio = dtInicio;
         this.dtFim = dtFim;
@@ -24,6 +24,14 @@ public class Transacao {
         this.usuEmail = usuEmail;
         this.descricao = descricao;
         this.frequencia = frequencia;
+    }
+
+    public String getCatNome() {
+        return catNome;
+    }
+
+    public void setCatNome(String catNome) {
+        this.catNome = catNome;
     }
 
     public Double getValor() {
@@ -40,14 +48,6 @@ public class Transacao {
 
     public void setRecorrente(int recorrente) {
         this.recorrente = recorrente>0;
-    }
-
-    public int getCatId() {
-        return catId;
-    }
-
-    public void setCatId(int catId) {
-        this.catId = catId;
     }
 
     public int getTipoOperacao() {
@@ -105,6 +105,10 @@ public class Transacao {
     public void setFrequencia(String frequencia) {
         this.frequencia = frequencia;
     }
+
+    public void setId(int id){this.id = id;}
+
+    public int getId(){return id;}
 
 
 }

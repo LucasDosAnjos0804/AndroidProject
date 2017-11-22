@@ -36,7 +36,7 @@ public class Lista_Orcamentos_ArrayAdapter extends ArrayAdapter<Orcamento> {
         instanciarCampos(view);
         txtListaOrcTitulo.setText(o.getNome());
         txtListaOrcValor.setText(String.valueOf(o.getValor()));
-        txtListaOrcAbrangencia.setText(o.getAbrangencia());
+        txtListaOrcAbrangencia.setText(o.getCatNome());
         return view;
     }
 
