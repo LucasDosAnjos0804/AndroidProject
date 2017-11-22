@@ -23,6 +23,7 @@
     <string name="pr_nome">Nome</string>
     <string name="pr_senha">Senha</string>
     <string name="pr_senha_exemplo">*****</string>
+    <string name="title_usrs">Usuarios cadastrados</string>
 
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="ac_cadastrese">Cadastre-se</string>

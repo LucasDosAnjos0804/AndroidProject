@@ -11,13 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.aedes.economize.Frags_Formularios.FragNovaCategoria;
-import com.example.aedes.economize.Frags_Formularios.FragNovaTransacao;
-import com.example.aedes.economize.Frags_Formularios.FragNovoOrcamento;
-import com.example.aedes.economize.Frags_Graficos.FragGrafico_first;
-import com.example.aedes.economize.Frags_Listas_Historicos.FragListaOrcamentos;
-import com.example.aedes.economize.Frags_Listas_Historicos.FragHistoricoTransacoes;
-import com.example.aedes.economize.Frags_Listas_Historicos.FragListaCategorias;
+import com.example.aedes.economize.frags_formularios.FragNovaCategoria;
+import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
+import com.example.aedes.economize.frags_formularios.FragNovoOrcamento;
+import com.example.aedes.economize.frags_graficos.FragGrafico_first;
+import com.example.aedes.economize.frags_historicos.FragListaOrcamentos;
+import com.example.aedes.economize.frags_historicos.FragHistoricoTransacoes;
+import com.example.aedes.economize.frags_historicos.FragListaCategorias;
 
 public class Activity_pos_logagem extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

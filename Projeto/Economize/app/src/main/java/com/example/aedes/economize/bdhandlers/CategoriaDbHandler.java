@@ -1,4 +1,4 @@
-package com.example.aedes.economize.DbHandlers;
+package com.example.aedes.economize.bdhandlers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.aedes.economize.Classes_Modelo.Categoria;
+import com.example.aedes.economize.classes_modelo.Categoria;
 
 import java.util.ArrayList;
 

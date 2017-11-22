@@ -1,4 +1,4 @@
-package com.example.aedes.economize.Frags_Formularios;
+package com.example.aedes.economize.frags_formularios;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.aedes.economize.Activity_pos_logagem;
-import com.example.aedes.economize.Classes_Modelo.Categoria;
-import com.example.aedes.economize.Classes_Modelo.Transacao;
-import com.example.aedes.economize.DbHandlers.CategoriaDbHandler;
-import com.example.aedes.economize.DbHandlers.TransacaoDbHandler;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
+import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
+import com.example.aedes.economize.classes_modelo.Categoria;
+import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class FragNovaTransacao extends Fragment{
     private Spinner spnn_ocorrencia,spnn_categoria;
     private FloatingActionButton fltb_adicionar, fltb_cancelar;
     private ArrayList<String> valCategoria;
-    private TransacaoDbHandler tdbh;
+    private com.example.aedes.economize.bdhandlers.TransacaoDbHandler tdbh;
     private CategoriaDbHandler cdbh;
     private ArrayAdapter<String> spinnersAdapter;
     private Transacao transacao;
@@ -109,7 +109,7 @@ public class FragNovaTransacao extends Fragment{
     }
 
     public void cadastrarTransacao(Transacao t){
-        TransacaoDbHandler tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
+       TransacaoDbHandler tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
         tdbh.adicionarAoBd(t);
 
     }

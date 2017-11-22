@@ -1,4 +1,4 @@
-package com.example.aedes.economize.DbHandlers;
+package com.example.aedes.economize.bdhandlers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.aedes.economize.Classes_Modelo.Usuario;
+import com.example.aedes.economize.classes_modelo.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
