@@ -137,22 +137,23 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="@string/chb_tipo_de_pagamento"
-            app:layout_constraintBottom_toTopOf="@+id/include_tr_tnr"
-            app:layout_constraintEnd_toEndOf="@+id/include_tr_tnr"
+            app:layout_constraintBottom_toTopOf="@+id/framelayout_datarec_datanaorec"
+            app:layout_constraintEnd_toEndOf="@+id/framelayout_datarec_datanaorec"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/include_tr_tnr"
+            app:layout_constraintStart_toStartOf="@+id/framelayout_datarec_datanaorec"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout23" />
 
-        <include
-            android:id="@+id/include_tr_tnr"
-            layout="@layout/fragment_nt_recorente"
+        <FrameLayout
+            android:id="@+id/framelayout_datarec_datanaorec"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente" />
+            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente">
+
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -163,7 +164,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include_tr_tnr">
+            app:layout_constraintTop_toBottomOf="@+id/framelayout_datarec_datanaorec">
 
             <TextView
                 android:id="@+id/textView10"

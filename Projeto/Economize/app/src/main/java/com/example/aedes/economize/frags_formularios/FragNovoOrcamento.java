@@ -17,7 +17,6 @@ import com.example.aedes.economize.classes_modelo.Categoria;
 import com.example.aedes.economize.classes_modelo.Orcamento;
 import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
 import com.example.aedes.economize.bdhandlers.OrcamentoDbHandler;
-
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;
@@ -27,6 +26,7 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
     private Spinner spnn_abrangencia,spnn_categoria;
     private EditText et_nome, et_valor, et_descricao;
     private Activity_pos_logagem apl;
+
     FloatingActionButton fltAdd, fltDel;
     ArrayList<String> valAbrangencia, valCategoria;
     CategoriaDbHandler cdbh;

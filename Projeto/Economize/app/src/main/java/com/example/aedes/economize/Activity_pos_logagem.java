@@ -80,7 +80,7 @@ public class Activity_pos_logagem extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fm = getFragmentManager();
        if (id == R.id.nav_addtrans) {
-           fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
+            fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
         } else if (id == R.id.nav_addcat) {
            fm.beginTransaction().replace(R.id.content_frame, new FragNovaCategoria()).commit();
         }else if (id == R.id.nav_orc) {

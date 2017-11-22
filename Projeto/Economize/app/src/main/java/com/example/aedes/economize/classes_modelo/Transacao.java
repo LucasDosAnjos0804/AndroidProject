@@ -7,7 +7,7 @@ package com.example.aedes.economize.classes_modelo;
 public class Transacao {
     private Double valor = 0.0;
     private boolean recorrente;
-    private int id,tipoOperacao; // 0 pra despesa e 1 pra ganho
+    private int catId,tipoOperacao; // 0 pra despesa e 1 pra ganho
     private String catNome,dtInicio,dtFim, titulo, usuEmail, descricao, frequencia;
 
     public Transacao() {
@@ -106,9 +106,13 @@ public class Transacao {
         this.frequencia = frequencia;
     }
 
-    public void setId(int id){this.id = id;}
+    public int getCatId() {
+        return catId;
+    }
 
-    public int getId(){return id;}
+    public void setCatId(int catId) {
+        this.catId = catId;
+    }
 
 
 }
