@@ -1,8 +1,8 @@
 package com.example.aedes.economize.frags_graficos;
 
+import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +16,13 @@ import com.echo.holographlibrary.LinePoint;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
+import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.util.ArrayList;
 
 public class FragGrafico_first extends Fragment {
-
+    private TransacaoDbHandler tdbh;
     /* TODO: ########## APENAS UM TESTE DOS GRÁFICOS */
 
     @Override
@@ -28,6 +30,7 @@ public class FragGrafico_first extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_frag_grafico_first, container, false);
         //fazer os gráficos
+        tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
         makeLineGraph(v);
         makeBarGraph(v);
         makePieGraph(v);
@@ -85,9 +88,20 @@ public class FragGrafico_first extends Fragment {
     }
 
     private void makePieGraph(View v){
+        ArrayList<Transacao> transacoes = new ArrayList<>();
+        double gastos=0,lucros=0;
+        transacoes = tdbh.getListaTransacoes();
+        for(Transacao t : transacoes){
+            if(t.getValor()<0){
+                gastos+=t.getValor();
+            }else{
+                lucros+=t.getValor();
+            }
+        }
+
         PieGraph pg = (PieGraph)v.findViewById(R.id.pie_graph);
-        PieSlice slice = new PieSlice();
-        slice.setColor(Color.parseColor("#99CC00"));
+       /* PieSlice slice = new PieSlice();
+        slice.setColor(Color.parseColor("#000000"));
         slice.setValue(2);
         pg.addSlice(slice);
         slice = new PieSlice();
@@ -97,7 +111,19 @@ public class FragGrafico_first extends Fragment {
         slice = new PieSlice();
         slice.setColor(Color.parseColor("#AA66CC"));
         slice.setValue(8);
-        pg.addSlice(slice);
+        pg.addSlice(slice);*/
+
+      PieSlice sliceGastos  = new PieSlice();
+      PieSlice sliceLucros = new PieSlice();
+
+      sliceGastos.setColor(Color.RED);
+      sliceLucros.setColor(Color.GREEN);
+
+      sliceGastos.setValue((float)gastos);
+      sliceLucros.setValue((float)lucros);
+
+      pg.addSlice(sliceGastos);
+      pg.addSlice(sliceLucros);
 
         //Animação do gráfico de pizza
         for (PieSlice s : pg.getSlices())
