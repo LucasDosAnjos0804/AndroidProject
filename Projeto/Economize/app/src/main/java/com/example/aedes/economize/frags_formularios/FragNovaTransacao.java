@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 
 public class FragNovaTransacao extends Fragment{
 
+    private LinearLayout linearLayoutDt, linearLayoutDtInicio, linearLayoutDtFim;
     private EditText et_valor, et_titulo, et_dtInicio,et_dtFim, et_descricao;
     private RadioButton rd_ganho,rd_despesa;
     private CheckBox chb_recorrente;
@@ -54,6 +56,10 @@ public class FragNovaTransacao extends Fragment{
         for(Categoria cat : cdbh.getListaCategorias()){
             valCategoria.add(cat.getNome());
         }
+
+        linearLayoutDt = (LinearLayout)view.findViewById(R.id.linearLayoutDT);
+        linearLayoutDtInicio = (LinearLayout)view.findViewById(R.id.linearLayoutDtInicio);
+        linearLayoutDtFim = (LinearLayout)view.findViewById(R.id.linearLayoutDtFim);
         spinnersAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valCategoria);
         spinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spnn_categoria.setAdapter(spinnersAdapter);
@@ -76,12 +82,12 @@ public class FragNovaTransacao extends Fragment{
                 criarTransacao();
             }
         });
-        /*chb_recorrente.setOnClickListener(new View.OnClickListener() {
+        chb_recorrente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chbClicked(view);
+                chbClicked(view,linearLayoutDt,linearLayoutDtInicio,linearLayoutDtFim);
             }
-        });*/
+        });
     }
 
     public void criarTransacao(){
@@ -119,27 +125,17 @@ public class FragNovaTransacao extends Fragment{
         tdbh.adicionarAoBd(t);
 
     }
-
-/*    public void chbClicked(View v){//todo OnClick do checkbox -Pagamento Recorrente- isso deve ficar na activity
+    public void chbClicked(View v, LinearLayout linearLayoutDt, LinearLayout linearLayoutDtInicio, LinearLayout linearLayoutDtFim){
         boolean checked =((CheckBox) v).isChecked();
-        LayoutInflater layoutInflater = (LayoutInflater) v.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        FragmentManager fragmentManager = getFragmentManager();
-        switch (v.getId()){
-            case R.id.chb_trans_paga_recorrente:
-                if (checked){//quando um orçamento é recorrente
-                    fragmentManager.beginTransaction().replace(R.id.framelayout_datarec_datanaorec, new T_recorrente()).commit();//uma outra forma de fazer isso!!
-                    //View filho = layoutInflater != null ? layoutInflater.inflate(R.layout.fragment_t_recorrente,
-                      //      (ViewGroup) v.findViewById(R.id.frag_id_t_recorrente)) : null;
-                    //linearLayoutTrTnr.addView(filho);
-                }else{
-                    fragmentManager.beginTransaction().replace(R.id.framelayout_datarec_datanaorec, new NT_recorente()).commit();
-                    //View filho = layoutInflater != null ? layoutInflater.inflate(R.layout.fragment_nt_recorente,
-                      //      (ViewGroup) v.findViewById(R.id.frag_id_nt_recorrente)) : null;
-                    //linearLayoutTrTnr.addView(filho);
-                }
-                break;
+
+        if (checked){//quando um orçamento é recorrente
+            linearLayoutDt.setVisibility(View.GONE);
+            linearLayoutDtInicio.setVisibility(View.VISIBLE);
+            linearLayoutDtFim.setVisibility(View.VISIBLE);
+        }else{
+            linearLayoutDt.setVisibility(View.VISIBLE);
+            linearLayoutDtInicio.setVisibility(View.GONE);
+            linearLayoutDtFim.setVisibility(View.GONE);
         }
-    }*/
-
-
+    }
 }

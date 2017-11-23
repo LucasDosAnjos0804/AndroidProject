@@ -137,22 +137,138 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="@string/chb_tipo_de_pagamento"
-            app:layout_constraintBottom_toTopOf="@+id/include_tr_tnr"
-            app:layout_constraintEnd_toEndOf="@+id/include_tr_tnr"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutDT"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutDT"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/include_tr_tnr"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutDT"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout23" />
 
-        <include
-            android:id="@+id/include_tr_tnr"
-            layout="@layout/fragment_nt_recorente"
+        <LinearLayout
+            android:id="@+id/linearLayoutDT"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutDtInicio"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutDtInicio"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutDtInicio"
+            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dt_ocorrencia"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="238dp" />
+
+            <EditText
+                android:id="@+id/et_transDt"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/dt_exemplo"
+                android:inputType="date"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="161dp"
+                tools:layout_editor_absoluteY="233dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDtInicio"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutOcorrencia"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutOcorrencia"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutOcorrencia"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutDT">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dt_inicio" />
+
+            <EditText
+                android:id="@+id/et_transDtInicio"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/dt_exemplo"
+                android:inputType="date"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutOcorrencia"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutDtFim"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutDtFim"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutDtFim"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutDtInicio">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/spnn_ocorrencia" />
+
+            <Spinner
+                android:id="@+id/spnn_transOcorrencia"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDtFim"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutOcorrencia">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dt_fim" />
+
+            <EditText
+                android:id="@+id/et_transDtFim"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/dt_exemplo"
+                android:inputType="date"
+                android:textAlignment="center" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -163,7 +279,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include_tr_tnr">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutDtFim">
 
             <TextView
                 android:id="@+id/textView10"
