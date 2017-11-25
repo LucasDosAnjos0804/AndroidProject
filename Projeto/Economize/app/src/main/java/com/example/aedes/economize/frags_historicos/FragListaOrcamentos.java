@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.example.aedes.economize.classes_modelo.Orcamento;
 import com.example.aedes.economize.bdhandlers.OrcamentoDbHandler;
-import com.example.aedes.economize.Lista_Orcamentos_ArrayAdapter;
+import com.example.aedes.economize.adapters_historicos.Lista_Orcamentos_ArrayAdapter;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;

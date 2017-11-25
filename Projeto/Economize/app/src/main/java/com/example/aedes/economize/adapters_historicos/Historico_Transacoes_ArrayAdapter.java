@@ -1,4 +1,4 @@
-package com.example.aedes.economize;
+package com.example.aedes.economize.adapters_historicos;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.aedes.economize.R;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.util.ArrayList;

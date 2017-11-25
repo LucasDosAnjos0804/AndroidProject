@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,9 +15,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.aedes.economize.Activity_pos_logagem;
-import com.example.aedes.economize.classes_modelo.Categoria;
-import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
+import com.example.aedes.economize.classes_modelo.Categoria;
+
+import java.util.ArrayList;
 
 
 public class FragNovaCategoria extends Fragment implements View.OnClickListener {
@@ -28,6 +31,7 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
     private RadioButton checkedRb;
     private FloatingActionButton fb_adicionar, fb_deletar;
     private CategoriaDbHandler cdbh;
+    private ArrayList<String> valCatMae;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,11 +50,12 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
                 return;
             }
             checkedRb = (RadioButton) novaCatRg.findViewById(novaCatRg.getCheckedRadioButtonId());
+
             Categoria cat = new Categoria();
             cat.setNome(et_nome.getText().toString());
             cat.setDescricao(et_descricao.getText().toString());
-            cat.setNomeCatMae("LELEELELELEELL");
             cat.setEmail_criador(apl.getUsuarioAtual());
+            cat.setNomeCatMae(spnn_cat.getSelectedItem().toString());
             if (checkedRb.getText().toString().equals("Lucro")) {
                 cat.setTipoOperacao(1);
             } else {
@@ -68,15 +73,28 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
     }
 
     public void instanciarCampos(View v) {
+        spnn_cat = (Spinner) v.findViewById(R.id.spnn_CatCategoria);
         apl = (Activity_pos_logagem) getActivity();
         fb_adicionar = (FloatingActionButton) v.findViewById(R.id.fltb_adicionar);
         fb_deletar = (FloatingActionButton) v.findViewById(R.id.fltb_deletar);
         et_nome = (EditText) v.findViewById(R.id.et_CatNome);
         et_descricao = (EditText) v.findViewById(R.id.et_CatDescricao);
         novaCatRg = (RadioGroup) v.findViewById(R.id.novaCatRadioGroup);
-        spnn_cat = (Spinner) v.findViewById(R.id.spnn_CatCategoria);
+        valCatMae = new ArrayList<>();
+
         fb_adicionar.setOnClickListener(this);
         fb_deletar.setOnClickListener(this);
+
+        cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
+        for(Categoria cat : cdbh.getListaCategorias()){
+            if(cat.getEmail_criador().equals(apl.getUsuarioAtual()) && cat.getEmail_criador().equals("admin")){
+                valCatMae.add(cat.getNome());
+            }
+        }
+        ArrayAdapter<String> spnn_catAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valCatMae);
+        spnn_catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnn_cat.setAdapter(spnn_catAdapter);
+
     }
 
     @Override

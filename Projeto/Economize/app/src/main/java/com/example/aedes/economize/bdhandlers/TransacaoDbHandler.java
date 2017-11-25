@@ -72,10 +72,11 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
             trans.setDescricao(c.getString(c.getColumnIndex("descricao")));
             trans.setValor(c.getDouble(c.getColumnIndex("valor")));
             trans.setTipoOperacao(c.getInt(c.getColumnIndex("tipoOperacao")));
-            trans.setRecorrente(c.getInt(c.getColumnIndex("titulo")));
+            trans.setRecorrente(c.getInt(c.getColumnIndex("recorrente"))>0);
             trans.setDtInicio(c.getString(c.getColumnIndex("dtInicio")));
             trans.setCatNome(c.getString(c.getColumnIndex("catNome")));
             trans.setId(c.getInt(c.getColumnIndex("id")));
+            trans.setDtFim(c.getString(c.getColumnIndex("dtFim")));
             transacoes.add(trans);
         }
         return transacoes;

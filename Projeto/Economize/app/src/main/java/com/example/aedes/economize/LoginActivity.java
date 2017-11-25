@@ -4,17 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.aedes.economize.classes_modelo.Usuario;
 import com.example.aedes.economize.bdhandlers.UsuarioDbHandler;
+import com.example.aedes.economize.classes_modelo.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     EditText etEmailLogin, etSenhaLogin;
+    Spinner spnn_usuariosCadastrados;
     TextView etEntrar;
     UsuarioDbHandler udb;
 
@@ -25,18 +29,22 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         udb = new UsuarioDbHandler(this,null,null,1);
 
+        spnn_usuariosCadastrados = (Spinner)findViewById(R.id.spnn_usuariosCadastrados);
         etEmailLogin = (EditText) findViewById(R.id.et_email_login);
         etSenhaLogin = (EditText) findViewById(R.id.et_senha_login);
         etEntrar = (TextView) findViewById(R.id.entrar_login);
-        String s = getNomesCadastrados();
-        etEntrar.setText(s);
+        ArrayList<String> s = getNomesCadastrados();
+
+        ArrayAdapter<String> usuariosArrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,s);
+        usuariosArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnn_usuariosCadastrados.setAdapter(usuariosArrayAdapter);
     }
 
-    public String getNomesCadastrados(){
-        String s = "";
+    public ArrayList<String> getNomesCadastrados(){
+        ArrayList s = new ArrayList();
         List<Usuario> l = udb.getListaUsuarios();
         for(Usuario u : l){
-            s += u.getNome() + "\n";
+            s.add(u.getNome());
         }
         return s;
     }
