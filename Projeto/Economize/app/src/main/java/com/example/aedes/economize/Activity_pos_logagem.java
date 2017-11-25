@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import com.example.aedes.economize.frags_formularios.FragNovaCategoria;
 import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
 import com.example.aedes.economize.frags_formularios.FragNovoOrcamento;
+import com.example.aedes.economize.frags_graficos.FragGrafGanho;
+import com.example.aedes.economize.frags_graficos.FragGrafPerda;
 import com.example.aedes.economize.frags_graficos.FragGrafico_first;
 import com.example.aedes.economize.frags_historicos.FragListaOrcamentos;
 import com.example.aedes.economize.frags_historicos.FragHistoricoTransacoes;
@@ -93,6 +95,10 @@ public class Activity_pos_logagem extends AppCompatActivity
            fm.beginTransaction().replace(R.id.content_frame,new FragListaOrcamentos()).commit();
        }else if (id == R.id.nav_graph_first){
            fm.beginTransaction().replace(R.id.content_frame,new FragGrafico_first()).commit();
+       }else if (id == R.id.nav_graf_lucro){
+           fm.beginTransaction().replace(R.id.content_frame,new FragGrafGanho()).commit();
+       }else if (id == R.id.nav_graf_despesas){
+           fm.beginTransaction().replace(R.id.content_frame,new FragGrafPerda()).commit();
        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
