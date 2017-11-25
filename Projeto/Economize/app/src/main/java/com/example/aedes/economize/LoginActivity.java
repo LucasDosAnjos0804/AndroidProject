@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         ArrayList s = new ArrayList();
         List<Usuario> l = udb.getListaUsuarios();
         for(Usuario u : l){
+            if(!u.getNome().equals("admin"))
             s.add(u.getNome());
         }
         return s;
