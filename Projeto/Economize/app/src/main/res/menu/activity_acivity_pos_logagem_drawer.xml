@@ -43,6 +43,14 @@
             android:id="@+id/nav_graph_first"
             android:icon="@drawable/graphs"
             android:title="@string/drw_title_grafico_primeiro" />
+        <item
+            android:id="@+id/nav_graf_lucro"
+            android:icon="@drawable/graphs"
+            android:title="@string/drw_title_graf_lucros" />
+        <item
+            android:id="@+id/nav_graf_despesas"
+            android:icon="@drawable/graphs"
+            android:title="@string/drw_title_graf_despesas" />
     </group>
 
 </menu>

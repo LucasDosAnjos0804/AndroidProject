@@ -46,6 +46,9 @@
     <string name="drw_title_orcamentos">Orçamentos</string>
     <string name="drw_title_transacoes">Transações</string>
     <string name="drw_title_grafico_primeiro">Primeiro gráfico</string>
+    <string name="drw_title_graf_lucros">Gráficos de Lucros</string>
+    <string name="drw_title_graf_despesas">Gráficos de Despesas</string>
+    <string name="drw_title_graf_orcamentos">Gráficos de Orçamentos</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
