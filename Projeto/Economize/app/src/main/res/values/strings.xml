@@ -77,7 +77,7 @@
     <!-- view sing-up -->
     <string name="pr_email">Email</string>
     <string name="pr_email_ex">email@exemplo.com</string>
-    <string name="pr_repita_senha">reipita a senha</string>
+    <string name="pr_repita_senha">Repita a senha</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

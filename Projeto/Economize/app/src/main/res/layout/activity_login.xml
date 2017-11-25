@@ -46,18 +46,8 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
         app:layout_constraintTop_toBottomOf="@+id/entrar_login">
 
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/title_usrs"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
         <Spinner
-            android:id="@+id/spnn_usuarios"
+            android:id="@+id/spnn_usuariosCadastrados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

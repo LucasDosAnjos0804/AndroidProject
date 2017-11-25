@@ -114,7 +114,6 @@ public class FragNovaTransacao extends Fragment{
             transacao.setDtInicio(et_dtInicio.getText().toString());
             transacao.setFrequencia(null);
             transacao.setUsuEmail(apl.getUsuarioAtual());
-            transacao.setDtFim("24/11/2017");
             if(chb_recorrente.isChecked()){
                 transacao.setRecorrente(true);
             }else{
