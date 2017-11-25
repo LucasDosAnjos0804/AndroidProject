@@ -85,7 +85,7 @@
                 android:layout_width="167dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Categoria" />
+                android:text="@string/spnn_categoria" />
 
             <Spinner
                 android:id="@+id/spnn_OrcCategoria"
