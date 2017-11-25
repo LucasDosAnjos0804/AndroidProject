@@ -13,7 +13,7 @@ import com.example.aedes.economize.R;
  * A simple {@link Fragment} subclass.
  */
 public class FragGrafPerda extends Fragment {
-// todo umm pequeno teste
+
 
     public FragGrafPerda() {
         // Required empty public constructor
