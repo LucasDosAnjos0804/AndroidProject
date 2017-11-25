@@ -60,6 +60,7 @@ public class FragNovaTransacao extends Fragment{
         linearLayoutDt = (LinearLayout)view.findViewById(R.id.linearLayoutDT);
         linearLayoutDtInicio = (LinearLayout)view.findViewById(R.id.linearLayoutDtInicio);
         linearLayoutDtFim = (LinearLayout)view.findViewById(R.id.linearLayoutDtFim);
+
         spinnersAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valCategoria);
         spinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spnn_categoria.setAdapter(spinnersAdapter);
@@ -111,10 +112,20 @@ public class FragNovaTransacao extends Fragment{
             transacao.setTipoOperacao(i);
             transacao.setCatNome(spnn_categoria.getSelectedItem().toString());
             transacao.setDtInicio(et_dtInicio.getText().toString());
-            transacao.setDtFim(null);
             transacao.setFrequencia(null);
-            transacao.setRecorrente(0);
             transacao.setUsuEmail(apl.getUsuarioAtual());
+            transacao.setDtFim("24/11/2017");
+            if(chb_recorrente.isChecked()){
+                transacao.setRecorrente(true);
+            }else{
+                transacao.setRecorrente(false);
+            }
+            if(et_dtFim.getText().toString().equals("")){
+                transacao.setDtFim(null);
+            }else{
+                transacao.setDtFim(et_dtFim.getText().toString());
+            }
+
             cadastrarTransacao(transacao);
             Toast.makeText(this.getContext(),"Transacao adicionada com sucesso!",Toast.LENGTH_SHORT).show();
         }

@@ -42,12 +42,12 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public boolean isRecorrente() {
-        return recorrente;
+    public int isRecorrente() {
+        if(recorrente){return 1;}else{return 0;}
     }
 
-    public void setRecorrente(int recorrente) {
-        this.recorrente = recorrente>0;
+    public void setRecorrente(boolean recorrente) {
+        this.recorrente = recorrente;
     }
 
     public int getTipoOperacao() {
