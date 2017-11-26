@@ -11,33 +11,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.echo.holographlibrary.BarGraph
-            android:id="@+id/bar_graph_ganhos"
+        <LinearLayout
+            android:id="@+id/linearLayout13"
             android:layout_width="0dp"
-            android:layout_height="165dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/holo_orange_dark"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/pie_graph_ganhos"
-            app:layout_constraintEnd_toEndOf="@+id/pie_graph_ganhos"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/pie_graph_ganhos"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/imgbtn_anterior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/backkk"
+                tools:ignore="ContentDescription" />
+
+            <Spinner
+                android:id="@+id/spnn_anos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_proximo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/forwarddd"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
 
         <com.echo.holographlibrary.PieGraph
             android:id="@+id/pie_graph_ganhos"
             android:layout_width="0dp"
-            android:layout_height="165dp"
+            android:layout_height="182dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             android:background="@android:color/holo_orange_dark"
             app:layout_constraintBottom_toTopOf="@+id/listv_ganhos"
-            app:layout_constraintEnd_toEndOf="@+id/listv_ganhos"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/listv_ganhos"
-            app:layout_constraintTop_toBottomOf="@+id/bar_graph_ganhos" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout13" />
 
         <ListView
             android:id="@+id/listv_ganhos"
             android:layout_width="0dp"
-            android:layout_height="165dp"
+            android:layout_height="250dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
