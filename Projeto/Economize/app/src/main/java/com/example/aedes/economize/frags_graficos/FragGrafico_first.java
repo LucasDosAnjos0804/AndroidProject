@@ -72,6 +72,11 @@ public class FragGrafico_first extends Fragment {
         d2.setValue(20);
         points.add(d);
         points.add(d2);
+        Bar d3 = new Bar();
+        d3.setColor(Color.GRAY);
+        d3.setName("D3bitch");
+        d3.setValue(30);
+        points.add(d3);
 
         BarGraph g = (BarGraph)v.findViewById(R.id.bar_graph);
         g.setBars(points);
@@ -89,7 +94,7 @@ public class FragGrafico_first extends Fragment {
 
     private void makePieGraph(View v){
         ArrayList<Transacao> transacoes = new ArrayList<>();
-        double gastos=0,lucros=0;
+        float gastos=0,lucros=0;
         transacoes = tdbh.getListaTransacoes();
         for(Transacao t : transacoes){
             if(t.getValor()<0){
@@ -119,15 +124,13 @@ public class FragGrafico_first extends Fragment {
       sliceGastos.setColor(Color.RED);
       sliceLucros.setColor(Color.GREEN);
 
-      sliceGastos.setValue((float)gastos);
-      sliceLucros.setValue((float)lucros);
-
+      sliceGastos.setValue(gastos);
+      sliceLucros.setValue(lucros);
+      sliceGastos.getTitle();
       pg.addSlice(sliceGastos);
       pg.addSlice(sliceLucros);
 
         //Animação do gráfico de pizza
-        for (PieSlice s : pg.getSlices())
-            s.setGoalValue((float)Math.random() * 10);
         pg.setDuration(1000);//default if unspecified is 300 ms
         pg.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         //pg.setAnimationListener(getAnimationListener());//optional
