@@ -78,6 +78,7 @@ public class FragGrafico_first extends Fragment {
         d3.setValue(30);
         points.add(d3);
 
+
         BarGraph g = (BarGraph)v.findViewById(R.id.bar_graph);
         g.setBars(points);
 
