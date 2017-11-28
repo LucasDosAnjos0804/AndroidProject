@@ -36,9 +36,9 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
         Transacao t = getItem(position);
         instanciarCampos(view);
         txtTitulo.setText(t.getTitulo());
-        txtValor.setText(String.valueOf(t.getValor()));
         txtData.setText(t.getDtInicio());
         txtCat.setText(t.getCatNome());
+        txtValor.setText(String.valueOf(t.getValor()*t.getTipoOperacao()));
         return view;
     }
 

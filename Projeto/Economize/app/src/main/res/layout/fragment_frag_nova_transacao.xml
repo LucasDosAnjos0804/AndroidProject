@@ -166,7 +166,7 @@
                 tools:layout_editor_absoluteY="238dp" />
 
             <EditText
-                android:id="@+id/et_transDt"
+                android:id="@+id/et_transDtInicio"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

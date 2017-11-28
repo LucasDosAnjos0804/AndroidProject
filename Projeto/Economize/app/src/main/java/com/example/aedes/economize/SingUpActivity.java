@@ -61,7 +61,7 @@ public class SingUpActivity extends AppCompatActivity {
             if (erroNoBd) {
                 Toast.makeText(this, "O E-mail informado já está cadastrado", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Cadastro feito com sucesso!", Toast.LENGTH_SHORT).show();
             }
         }
 

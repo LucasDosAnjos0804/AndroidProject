@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 
 import com.echo.holographlibrary.Bar;
 import com.echo.holographlibrary.BarGraph;
-import com.echo.holographlibrary.Line;
-import com.echo.holographlibrary.LineGraph;
-import com.echo.holographlibrary.LinePoint;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
@@ -23,44 +23,46 @@ import java.util.ArrayList;
 
 public class FragGrafico_first extends Fragment {
     private TransacaoDbHandler tdbh;
-    /* TODO: ########## APENAS UM TESTE DOS GRÁFICOS */
+    private ImageButton imgBtnAnterior, imgBtnProx;
+    private Spinner spnn_grafAnos;
+    private ArrayList<String> valAnos;
+    private ArrayAdapter<String> spnn_anosArrayAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_frag_grafico_first, container, false);
         //fazer os gráficos
-        tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
-        makeLineGraph(v);
+        instanciarCampos(v);
         makeBarGraph(v);
         makePieGraph(v);
 
         return v;
     }
 
-    private void makeLineGraph(View v){
-        Line l = new Line();
-        LinePoint p = new LinePoint();
-        p.setX(0);
-        p.setY(5);
-        l.addPoint(p);
-        p = new LinePoint();
-        p.setX(8);
-        p.setY(8);
-        l.addPoint(p);
-        p = new LinePoint();
-        p.setX(10);
-        p.setY(4);
-        l.addPoint(p);
-        l.setColor(Color.parseColor("#FFBB33"));
+    public void instanciarCampos(View v) {
+        imgBtnAnterior = (ImageButton) v.findViewById(R.id.imgbtn_anterior21);
+        imgBtnProx = (ImageButton) v.findViewById(R.id.imgbtn_proximo21);
+        spnn_grafAnos = (Spinner) v.findViewById(R.id.spnn_anos21);
+        valAnos = new ArrayList<>();
+        tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
 
-        LineGraph li = (LineGraph)v.findViewById(R.id.line_graph);
-        li.addLine(l);
-        li.setRangeY(0, 10);
-        li.setLineToFill(0);
+        for(Transacao t : tdbh.getListaTransacoes()){
+            String ano =t.getDtInicio().substring(t.getDtInicio().length()-4);
+            if(!valAnos.contains(ano)){
+                valAnos.add(ano);
+            }
+        }
+
+        spnn_anosArrayAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valAnos);
+        spnn_anosArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnn_grafAnos.setAdapter(spnn_anosArrayAdapter);
+
+
     }
 
-    private void makeBarGraph(View v){
+
+    private void makeBarGraph(View v) {
         ArrayList<Bar> points = new ArrayList<Bar>();
         Bar d = new Bar();
         d.setColor(Color.parseColor("#99CC00"));
@@ -79,7 +81,7 @@ public class FragGrafico_first extends Fragment {
         points.add(d3);
 
 
-        BarGraph g = (BarGraph)v.findViewById(R.id.bar_graph);
+        BarGraph g = (BarGraph) v.findViewById(R.id.bar_graph);
         g.setBars(points);
 
         // Animação do gráfico de barras
@@ -93,19 +95,20 @@ public class FragGrafico_first extends Fragment {
         g.animateToGoalValues();
     }
 
-    private void makePieGraph(View v){
+    private void makePieGraph(View v) {
+        tdbh.getListaTransacoes();
         ArrayList<Transacao> transacoes = new ArrayList<>();
-        float gastos=0,lucros=0;
+        float gastos = 0, lucros = 0;
         transacoes = tdbh.getListaTransacoes();
-        for(Transacao t : transacoes){
-            if(t.getValor()<0){
-                gastos+=t.getValor();
-            }else{
-                lucros+=t.getValor();
+        for (Transacao t : transacoes) {
+            if (t.getValor() < 0) {
+                gastos += t.getValor();
+            } else {
+                lucros += t.getValor();
             }
         }
 
-        PieGraph pg = (PieGraph)v.findViewById(R.id.pie_graph);
+        PieGraph pg = (PieGraph) v.findViewById(R.id.pie_graph);
        /* PieSlice slice = new PieSlice();
         slice.setColor(Color.parseColor("#000000"));
         slice.setValue(2);
@@ -119,18 +122,25 @@ public class FragGrafico_first extends Fragment {
         slice.setValue(8);
         pg.addSlice(slice);*/
 
-      PieSlice sliceGastos  = new PieSlice();
-      PieSlice sliceLucros = new PieSlice();
+        PieSlice sliceGastos = new PieSlice();
+        PieSlice sliceLucros = new PieSlice();
 
-      sliceGastos.setColor(Color.RED);
-      sliceLucros.setColor(Color.GREEN);
+        sliceGastos.setColor(Color.RED);
+        sliceLucros.setColor(Color.GREEN);
 
-      sliceGastos.setValue(gastos);
-      sliceLucros.setValue(lucros);
-      sliceGastos.getTitle();
-      pg.addSlice(sliceGastos);
-      pg.addSlice(sliceLucros);
+        sliceGastos.setValue(gastos);
+        sliceLucros.setValue(lucros);
 
+
+        pg.addSlice(sliceGastos);
+        pg.addSlice(sliceLucros);
+
+        if(gastos==0 && lucros ==0){
+            PieSlice neutro = new PieSlice();
+            neutro.setColor(Color.GRAY);
+            neutro.setGoalValue(1);
+            pg.addSlice(neutro);
+        }
         //Animação do gráfico de pizza
         pg.setDuration(1000);//default if unspecified is 300 ms
         pg.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed

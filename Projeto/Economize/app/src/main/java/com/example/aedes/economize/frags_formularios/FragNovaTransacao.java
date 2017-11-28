@@ -107,7 +107,7 @@ public class FragNovaTransacao extends Fragment{
         }else{
             transacao = new Transacao();
             transacao.setTitulo(et_titulo.getText().toString());
-            transacao.setValor((Double.parseDouble(et_valor.getText().toString())*i));
+            transacao.setValor((Double.parseDouble(et_valor.getText().toString())));
             transacao.setDescricao(et_descricao.getText().toString());
             transacao.setTipoOperacao(i);
             transacao.setCatNome(spnn_categoria.getSelectedItem().toString());
@@ -126,7 +126,7 @@ public class FragNovaTransacao extends Fragment{
             }
 
             cadastrarTransacao(transacao);
-            Toast.makeText(this.getContext(),"Transacao adicionada com sucesso!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(),"Transação adicionada com sucesso!",Toast.LENGTH_SHORT).show();
         }
     }
 
