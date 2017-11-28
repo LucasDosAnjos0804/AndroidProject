@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/pie_graph_perdas"
+            app:layout_constraintBottom_toTopOf="@+id/imgbtn_graf_anterior"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,18 +46,55 @@
                 tools:ignore="ContentDescription" />
         </LinearLayout>
 
-        <com.echo.holographlibrary.PieGraph
-            android:id="@+id/pie_graph_perdas"
-            android:layout_width="0dp"
+        <ImageButton
+            android:id="@+id/imgbtn_graf_anterior"
+            android:layout_width="28dp"
             android:layout_height="182dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginStart="4dp"
-            android:background="@android:color/holo_orange_dark"
-            app:layout_constraintBottom_toTopOf="@+id/listv_perdas"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/left_arrow"
+            tools:ignore="ContentDescription"
+            app:layout_constraintBottom_toBottomOf="@+id/linear_lay_graficos"
+            app:layout_constraintEnd_toStartOf="@+id/linear_lay_graficos"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout13" />
+            app:layout_constraintTop_toTopOf="@+id/linear_lay_graficos" />
+
+        <LinearLayout
+            android:id="@+id/linear_lay_graficos"
+            android:layout_width="320dp"
+            android:layout_height="182dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/listv_perdas"
+            app:layout_constraintEnd_toStartOf="@+id/imgbtn_graf_sucessor"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imgbtn_graf_anterior"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
+
+            <com.echo.holographlibrary.BarGraph
+                android:id="@+id/bar_graph_perdas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <com.echo.holographlibrary.PieGraph
+                android:id="@+id/pie_graph_perdas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="189dp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imgbtn_graf_sucessor"
+            android:layout_width="28dp"
+            android:layout_height="182dp"
+            android:src="@drawable/right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/linear_lay_graficos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linear_lay_graficos"
+            app:layout_constraintTop_toTopOf="@+id/linear_lay_graficos"
+            tools:ignore="ContentDescription" />
 
         <ListView
             android:id="@+id/listv_perdas"
@@ -67,7 +104,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pie_graph_perdas" />
+            app:layout_constraintTop_toBottomOf="@+id/imgbtn_graf_sucessor" />
+
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
