@@ -27,6 +27,7 @@ public class FragGrafico_first extends Fragment {
     private Spinner spnn_grafAnos;
     private ArrayList<String> valAnos;
     private ArrayAdapter<String> spnn_anosArrayAdapter;
+    private String[] meses;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,31 +65,36 @@ public class FragGrafico_first extends Fragment {
 
     private void makeBarGraph(View v) {
         ArrayList<Bar> points = new ArrayList<Bar>();
+
+        for(String s : getResources().getStringArray(R.array.mesesinhos)){
+
+        }
+
+
+       /*
         Bar d = new Bar();
         d.setColor(Color.parseColor("#99CC00"));
         d.setName("Test1");
         d.setValue(10);
+        d.setGoalValue(0);
         Bar d2 = new Bar();
         d2.setColor(Color.parseColor("#FFBB33"));
         d2.setName("Test2");
-        d2.setValue(20);
+        d2.setGoalValue(20);
         points.add(d);
         points.add(d2);
         Bar d3 = new Bar();
         d3.setColor(Color.GRAY);
         d3.setName("D3bitch");
-        d3.setValue(30);
+        d3.setGoalValue(30);
         points.add(d3);
-
+*/
 
         BarGraph g = (BarGraph) v.findViewById(R.id.bar_graph);
         g.setBars(points);
 
         // Animação do gráfico de barras
-        for (Bar b : g.getBars()) {
-            b.setGoalValue((float) Math.random() * 1000);
-            b.setValuePrefix("$");//display the prefix throughout the animation
-        }
+
         g.setDuration(1200);//default if unspecified is 300 ms
         g.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
         g.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
@@ -108,7 +114,7 @@ public class FragGrafico_first extends Fragment {
             }
         }
 
-        PieGraph pg = (PieGraph) v.findViewById(R.id.pie_graph);
+        PieGraph pg = v.findViewById(R.id.pie_graph);
        /* PieSlice slice = new PieSlice();
         slice.setColor(Color.parseColor("#000000"));
         slice.setValue(2);
