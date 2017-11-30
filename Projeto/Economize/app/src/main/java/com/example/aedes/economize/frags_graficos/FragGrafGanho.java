@@ -10,26 +10,20 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.echo.holographlibrary.Bar;
 import com.echo.holographlibrary.BarGraph;
-import com.echo.holographlibrary.LineGraph;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,10 +58,10 @@ public class FragGrafGanho extends Fragment {
 
     public void instanciarCampos(View view){
         tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
-        btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior);
-        btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo);
-        btnGrafAnterior = (ImageButton) view.findViewById(R.id.imgbtn_grafico_anterior);
-        btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor);
+        btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior_ganhos);
+        btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo_ganhos);
+        btnGrafAnterior = (ImageButton) view.findViewById(R.id.imgbtn_grafico_anterior_ganhos);
+        btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor_ganhos);
         pieGraph = (PieGraph) view.findViewById(R.id.pie_graph_ganhos);
         barGraph = (BarGraph) view.findViewById(R.id.bar_graph_ganhos);
 
@@ -90,9 +84,11 @@ public class FragGrafGanho extends Fragment {
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
 
         for(Transacao t : tdbh.getListaTransacoes()){
-            String ano =t.getDtInicio().substring(t.getDtInicio().length()-4);
-            if(!valAnosInt.contains(Integer.valueOf(ano))){
-                valAnosInt.add(Integer.valueOf(ano));
+            if(t.getTipoOperacao()==1) {
+                String ano = t.getDtInicio().substring(t.getDtInicio().length() - 4);
+                if (!valAnosInt.contains(Integer.valueOf(ano))) {
+                    valAnosInt.add(Integer.valueOf(ano));
+                }
             }
         }
 

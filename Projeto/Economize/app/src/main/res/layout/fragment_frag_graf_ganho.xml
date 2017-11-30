@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/imgbtn_grafico_anterior"
+            app:layout_constraintBottom_toTopOf="@+id/imgbtn_grafico_anterior_ganhos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
-                android:id="@+id/imgbtn_ano_anterior"
+                android:id="@+id/imgbtn_ano_anterior_ganhos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -38,7 +38,7 @@
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/imgbtn_ano_proximo"
+                android:id="@+id/imgbtn_ano_proximo_ganhos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,7 +48,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imgbtn_grafico_anterior"
+            android:id="@+id/imgbtn_grafico_anterior_ganhos"
             android:layout_width="28dp"
             android:layout_height="182dp"
             android:layout_weight="1"
@@ -66,9 +66,9 @@
             android:layout_height="182dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/listv_ganhos"
-            app:layout_constraintEnd_toStartOf="@+id/imgbtn_grafico_sucessor"
+            app:layout_constraintEnd_toStartOf="@+id/imgbtn_grafico_sucessor_ganhos"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imgbtn_grafico_anterior"
+            app:layout_constraintStart_toEndOf="@+id/imgbtn_grafico_anterior_ganhos"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
             <com.echo.holographlibrary.BarGraph
@@ -89,7 +89,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imgbtn_grafico_sucessor"
+            android:id="@+id/imgbtn_grafico_sucessor_ganhos"
             android:layout_width="28dp"
             android:layout_height="182dp"
             android:src="@drawable/right_arrow"
@@ -108,7 +108,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgbtn_grafico_anterior" />
+            app:layout_constraintTop_toBottomOf="@+id/imgbtn_grafico_anterior_ganhos" />
 
     </android.support.constraint.ConstraintLayout>
 

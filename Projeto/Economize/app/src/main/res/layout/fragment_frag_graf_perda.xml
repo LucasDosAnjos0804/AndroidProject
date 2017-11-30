@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/imgbtn_graf_anterior"
+            app:layout_constraintBottom_toTopOf="@+id/imgbtn_grafico_anterior_perdas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
-                android:id="@+id/imgbtn_anterior"
+                android:id="@+id/imgbtn_ano_anterior_perdas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -32,13 +32,13 @@
                 tools:ignore="ContentDescription" />
 
             <Spinner
-                android:id="@+id/spnn_anos"
+                android:id="@+id/spnn_anos_perdas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
             <ImageButton
-                android:id="@+id/imgbtn_proximo"
+                android:id="@+id/imgbtn_ano_proximo_perdas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,7 +47,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imgbtn_graf_anterior"
+            android:id="@+id/imgbtn_grafico_anterior_perdas"
             android:layout_width="28dp"
             android:layout_height="182dp"
             android:src="@drawable/left_arrow"
@@ -64,9 +64,9 @@
             android:layout_height="182dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/listv_perdas"
-            app:layout_constraintEnd_toStartOf="@+id/imgbtn_graf_sucessor"
+            app:layout_constraintEnd_toStartOf="@+id/imgbtn_grafico_sucessor_perdas"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imgbtn_graf_anterior"
+            app:layout_constraintStart_toEndOf="@+id/imgbtn_grafico_anterior_perdas"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
             <com.echo.holographlibrary.BarGraph
@@ -85,7 +85,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imgbtn_graf_sucessor"
+            android:id="@+id/imgbtn_grafico_sucessor_perdas"
             android:layout_width="28dp"
             android:layout_height="182dp"
             android:src="@drawable/right_arrow"
@@ -104,7 +104,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgbtn_graf_sucessor" />
+            app:layout_constraintTop_toBottomOf="@+id/imgbtn_grafico_sucessor_perdas" />
 
     </android.support.constraint.ConstraintLayout>
 
