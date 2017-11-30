@@ -4,5 +4,5 @@ package com.example.aedes.economize;
 
 /* This stub is only used by the IDE. It is NOT the BuildConfig class actually packed into the APK */
 public final class BuildConfig {
-  public final static boolean DEBUG = Boolean.parseBoolean(null);
+  public final static boolean DEBUG = boolean.parseBoolean(null);
 }

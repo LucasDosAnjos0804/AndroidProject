@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class FragNovaTransacao extends Fragment{
 
     private LinearLayout linearLayoutDt, linearLayoutDtInicio, linearLayoutDtFim;
-    private EditText et_valor, et_titulo, et_dtInicio,et_dtFim, et_descricao;
+    private EditText et_valor, et_titulo, et_dtInicio, et_dtInicioRecorrente,et_dtFim, et_descricao;
     private RadioButton rd_ganho,rd_despesa;
     private CheckBox chb_recorrente;
     private Spinner spnn_ocorrencia,spnn_categoria;
@@ -68,6 +68,7 @@ public class FragNovaTransacao extends Fragment{
         et_titulo = (EditText)view.findViewById(R.id.et_transTitulo);
         et_valor= (EditText)view.findViewById(R.id.et_transValor);
         et_dtInicio = (EditText)view.findViewById(R.id.et_transDtInicio);
+        et_dtInicioRecorrente = (EditText)view.findViewById(R.id.et_transDtInicioRecorrente);
         et_dtFim = (EditText)view.findViewById(R.id.et_transDtFim);
         et_descricao= (EditText)view.findViewById(R.id.et_transDescricao);
         rd_ganho= (RadioButton) view.findViewById(R.id.rd_transLucro);
@@ -114,15 +115,15 @@ public class FragNovaTransacao extends Fragment{
             transacao.setDtInicio(et_dtInicio.getText().toString());
             transacao.setFrequencia(null);
             transacao.setUsuEmail(apl.getUsuarioAtual());
+
             if(chb_recorrente.isChecked()){
                 transacao.setRecorrente(true);
+                transacao.setDtInicio(et_dtInicioRecorrente.getText().toString());
+                transacao.setDtFim(et_dtFim.getText().toString());
             }else{
                 transacao.setRecorrente(false);
-            }
-            if(et_dtFim.getText().toString().equals("")){
+                transacao.setDtInicio(et_dtInicio.getText().toString());
                 transacao.setDtFim(null);
-            }else{
-                transacao.setDtFim(et_dtFim.getText().toString());
             }
 
             cadastrarTransacao(transacao);

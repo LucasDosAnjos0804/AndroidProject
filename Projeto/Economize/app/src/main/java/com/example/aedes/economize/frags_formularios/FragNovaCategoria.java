@@ -39,7 +39,6 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
         View view = inflater.inflate(R.layout.fragment_frag_nova_categoria, container, false);
         instanciarCampos(view);
         cdbh = new CategoriaDbHandler(this.getContext(), null, null, 1);
-        mostrarNumeroCategoriasNoNome();
         return view;
     }
 
@@ -62,15 +61,11 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
                 cat.setTipoOperacao(-1);
             }
             cdbh.adicionarAoBd(cat);
-            mostrarNumeroCategoriasNoNome();
         } catch (SQLiteConstraintException e) {
             Toast.makeText(this.getContext(),"Já existe uma categoria criada com este nome",Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void mostrarNumeroCategoriasNoNome() {
-        et_nome.setText(String.valueOf(cdbh.getWritableDatabase().rawQuery("SELECT * FROM Categoria", null).getCount()));
-    }
 
     public void instanciarCampos(View v) {
         spnn_cat = (Spinner) v.findViewById(R.id.spnn_CatCategoria);

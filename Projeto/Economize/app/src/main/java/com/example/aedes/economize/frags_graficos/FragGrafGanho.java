@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.echo.holographlibrary.Bar;
 import com.echo.holographlibrary.BarGraph;
@@ -25,6 +27,9 @@ import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.security.PrivateKey;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -81,24 +86,47 @@ public class FragGrafGanho extends Fragment {
 
         spnn_grafGanhoAnos = (Spinner) view.findViewById(R.id.spnn_anos_ganhos);
         valAnos = new ArrayList<>();
+        ArrayList<Integer> valAnosInt = new ArrayList<>();
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
 
         for(Transacao t : tdbh.getListaTransacoes()){
             String ano =t.getDtInicio().substring(t.getDtInicio().length()-4);
-            if(!valAnos.contains(ano)){
-                valAnos.add(ano);
+            if(!valAnosInt.contains(Integer.valueOf(ano))){
+                valAnosInt.add(Integer.valueOf(ano));
             }
+        }
+
+        Collections.sort(valAnosInt);
+        for(int i : valAnosInt){
+            valAnos.add(String.valueOf(i));
         }
 
         spnn_anosArrayAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valAnos);
         spnn_anosArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnn_grafGanhoAnos.setAdapter(spnn_anosArrayAdapter);
+        spnn_grafGanhoAnos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spinnerClickLiester();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+
+    public void spinnerClickLiester(){
+        makeBarGraph(this.getView());
     }
 
     public void mudarGrafico(View view){
         if (pieGraph.getVisibility() == view.VISIBLE){
             pieGraph.setVisibility(view.GONE);
             barGraph.setVisibility(view.VISIBLE);
+            makeBarGraph(this.getView());
 
         }else {
             barGraph.setVisibility(view.GONE);
@@ -108,24 +136,31 @@ public class FragGrafGanho extends Fragment {
 
     public void makeBarGraph(View v){
         ArrayList<Bar> points = new ArrayList<Bar>();
-        Bar d = new Bar();
-        d.setColor(Color.parseColor("#99CC00"));
-        d.setName("Test1");
-        d.setValue(10);
-        Bar d2 = new Bar();
-        d2.setColor(Color.parseColor("#FFBB33"));
-        d2.setName("Test2");
-        d2.setValue(20);
-        points.add(d);
-        points.add(d2);
+        String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
+        String meses[] = getResources().getStringArray(R.array.mesesinhos);
+        float gastosMeses[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
-        BarGraph g = (BarGraph)v.findViewById(R.id.bar_graph_ganhos);
+        for(Transacao t : tdbh.getListaTransacoes()){
+           String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length()-4);
+           String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length()-7,t.getDtInicio().length()-5);
+
+            if( t.getTipoOperacao()==1 && anoTransacao.equals(anoSelecionado)){
+
+                gastosMeses[Integer.valueOf(mesTransacao)-1]+=t.getValor();
+           }
+        }
+
+        for(int i =0;i<meses.length;i++){
+            Bar mes = new Bar();
+            mes.setColor(Color.BLUE);
+            mes.setName(meses[i]);
+            mes.setGoalValue(gastosMeses[i]);
+            points.add(mes);
+        }
+
+        BarGraph g = v.findViewById(R.id.bar_graph_ganhos);
         g.setBars(points);
 
-        for (Bar b : barGraph.getBars()) {
-            b.setGoalValue((float) Math.random() * 1000);
-            b.setValuePrefix("$");//display the prefix throughout the animation
-        }
         barGraph.setDuration(1200);//default if unspecified is 300 ms
         barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
         barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
