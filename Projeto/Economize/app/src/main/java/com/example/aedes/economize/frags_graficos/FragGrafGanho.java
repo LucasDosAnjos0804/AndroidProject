@@ -134,7 +134,7 @@ public class FragGrafGanho extends Fragment {
         ArrayList<Bar> points = new ArrayList<Bar>();
         String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
         String meses[] = getResources().getStringArray(R.array.mesesinhos);
-        float gastosMeses[] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        float ganhosMeses[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
         for(Transacao t : tdbh.getListaTransacoes()){
            String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length()-4);
@@ -142,15 +142,16 @@ public class FragGrafGanho extends Fragment {
 
             if( t.getTipoOperacao()==1 && anoTransacao.equals(anoSelecionado)){
 
-                gastosMeses[Integer.valueOf(mesTransacao)-1]+=t.getValor();
+                ganhosMeses[Integer.valueOf(mesTransacao)-1]+=t.getValor();
            }
         }
 
+        int cores[] = getResources().getIntArray(R.array.coresMeses);
         for(int i =0;i<meses.length;i++){
             Bar mes = new Bar();
-            mes.setColor(Color.BLUE);
+            mes.setColor(cores[i]);;
             mes.setName(meses[i]);
-            mes.setGoalValue(gastosMeses[i]);
+            mes.setGoalValue(ganhosMeses[i]);
             points.add(mes);
         }
 

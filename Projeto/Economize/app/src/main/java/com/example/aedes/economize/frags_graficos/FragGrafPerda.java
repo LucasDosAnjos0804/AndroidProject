@@ -121,24 +121,33 @@ public class FragGrafPerda extends Fragment {
 
 public void makeBarGraph(View v){
     ArrayList<Bar> points = new ArrayList<Bar>();
-    Bar d = new Bar();
-    d.setColor(Color.parseColor("#99CC00"));
-    d.setName("Test1");
-    d.setValue(10);
-    Bar d2 = new Bar();
-    d2.setColor(Color.parseColor("#FFBB33"));
-    d2.setName("Test2");
-    d2.setValue(20);
-    points.add(d);
-    points.add(d2);
+    String anoSelecionado = spnn_grafPerdaAnos.getSelectedItem().toString();
+    String meses[] = getResources().getStringArray(R.array.mesesinhos);
+    float gastosMeses[] = {0,0,0,0,0,0,0,0,0,0,0,0};
+
+    for(Transacao t : tdbh.getListaTransacoes()){
+        String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length()-4);
+        String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length()-7,t.getDtInicio().length()-5);
+
+        if( t.getTipoOperacao()==-1 && anoTransacao.equals(anoSelecionado)){
+
+            gastosMeses[Integer.valueOf(mesTransacao)-1]+=t.getValor();
+        }
+    }
+
+    int cores[] = getResources().getIntArray(R.array.coresMeses);
+    for(int i =0;i<meses.length;i++){
+        Bar mes = new Bar();
+        mes.setColor(cores[i]);;
+        mes.setName(meses[i]);
+        mes.setGoalValue(gastosMeses[i]);
+        points.add(mes);
+    }
+
 
     BarGraph g = (BarGraph)v.findViewById(R.id.bar_graph_perdas);
     g.setBars(points);
 
-    for (Bar b : barGraph.getBars()) {
-        b.setGoalValue((float) Math.random() * 1000);
-        b.setValuePrefix("$");//display the prefix throughout the animation
-    }
     barGraph.setDuration(1200);//default if unspecified is 300 ms
     barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
     barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
