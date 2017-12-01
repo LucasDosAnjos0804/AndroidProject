@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.echo.holographlibrary.Bar;
 import com.echo.holographlibrary.BarGraph;
@@ -24,6 +25,7 @@ import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,8 +58,8 @@ public class FragGrafGanho extends Fragment {
         return view;
     }
 
-    public void instanciarCampos(View view){
-        tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
+    public void instanciarCampos(View view) {
+        tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
         btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior_ganhos);
         btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo_ganhos);
         btnGrafAnterior = (ImageButton) view.findViewById(R.id.imgbtn_grafico_anterior_ganhos);
@@ -83,8 +85,8 @@ public class FragGrafGanho extends Fragment {
         ArrayList<Integer> valAnosInt = new ArrayList<>();
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
 
-        for(Transacao t : tdbh.getListaTransacoes()){
-            if(t.getTipoOperacao()==1) {
+        for (Transacao t : tdbh.getListaTransacoes()) {
+            if (t.getTipoOperacao() == 1) {
                 String ano = t.getDtInicio().substring(t.getDtInicio().length() - 4);
                 if (!valAnosInt.contains(Integer.valueOf(ano))) {
                     valAnosInt.add(Integer.valueOf(ano));
@@ -93,11 +95,11 @@ public class FragGrafGanho extends Fragment {
         }
 
         Collections.sort(valAnosInt);
-        for(int i : valAnosInt){
+        for (int i : valAnosInt) {
             valAnos.add(String.valueOf(i));
         }
 
-        spnn_anosArrayAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valAnos);
+        spnn_anosArrayAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, valAnos);
         spnn_anosArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnn_grafGanhoAnos.setAdapter(spnn_anosArrayAdapter);
         spnn_grafGanhoAnos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -114,42 +116,44 @@ public class FragGrafGanho extends Fragment {
 
     }
 
-    public void spinnerClickLiester(){
+    public void spinnerClickLiester() {
         makeBarGraph(this.getView());
     }
 
-    public void mudarGrafico(View view){
-        if (pieGraph.getVisibility() == view.VISIBLE){
+    public void mudarGrafico(View view) {
+        if (pieGraph.getVisibility() == view.VISIBLE) {
             pieGraph.setVisibility(view.GONE);
             barGraph.setVisibility(view.VISIBLE);
-            makeBarGraph(this.getView());
 
-        }else {
+
+        } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
+
         }
     }
 
-    public void makeBarGraph(View v){
+    public void makeBarGraph(View v) {
         ArrayList<Bar> points = new ArrayList<Bar>();
         String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
         String meses[] = getResources().getStringArray(R.array.mesesinhos);
-        float ganhosMeses[] = {0,0,0,0,0,0,0,0,0,0,0,0};
+        float ganhosMeses[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        for(Transacao t : tdbh.getListaTransacoes()){
-           String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length()-4);
-           String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length()-7,t.getDtInicio().length()-5);
+        for (Transacao t : tdbh.getListaTransacoes()) {
+            String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
+            String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 7, t.getDtInicio().length() - 5);
 
-            if( t.getTipoOperacao()==1 && anoTransacao.equals(anoSelecionado)){
+            if (t.getTipoOperacao() == 1 && anoTransacao.equals(anoSelecionado)) {
 
-                ganhosMeses[Integer.valueOf(mesTransacao)-1]+=t.getValor();
-           }
+                ganhosMeses[Integer.valueOf(mesTransacao) - 1] += t.getValor();
+            }
         }
 
         int cores[] = getResources().getIntArray(R.array.coresMeses);
-        for(int i =0;i<meses.length;i++){
+        for (int i = 0; i < meses.length; i++) {
             Bar mes = new Bar();
-            mes.setColor(cores[i]);;
+            mes.setColor(cores[i]);
+            ;
             mes.setName(meses[i]);
             mes.setGoalValue(ganhosMeses[i]);
             points.add(mes);
@@ -165,23 +169,60 @@ public class FragGrafGanho extends Fragment {
 
     }
 
-    public void makePieGraph(View v){
-        PieGraph pg = (PieGraph)v.findViewById(R.id.pie_graph_ganhos);
-        PieSlice slice = new PieSlice();
-        slice.setColor(Color.parseColor("#99CC00"));
-        slice.setValue(2);
-        pg.addSlice(slice);
-        slice = new PieSlice();
-        slice.setColor(Color.parseColor("#FFBB33"));
-        slice.setValue(3);
-        pg.addSlice(slice);
-        slice = new PieSlice();
-        slice.setColor(Color.parseColor("#AA66CC"));
-        slice.setValue(8);
-        pg.addSlice(slice);
-        //Animação do gráfico de pizza
-        for (PieSlice s : pg.getSlices())
-            s.setGoalValue((float)Math.random() * 10);
+    public void makePieGraph(View v) {
+        PieGraph pg = (PieGraph) v.findViewById(R.id.pie_graph_ganhos);
+        ArrayList<Transacao> transacoes = new ArrayList<>();
+        transacoes = tdbh.getListaTransacoes();
+        ArrayList<String> categoriasNomes = new ArrayList<>();
+        ArrayList<Float> categoriasGanhos = new ArrayList<>();
+        ArrayList<Float> ganhosPorCategoria = new ArrayList<>();
+        ArrayList<Integer> coresDoGrafico = new ArrayList<>();
+        PieSlice sliceDessaCategoria;
+
+        if (transacoes.isEmpty()) {
+            PieSlice vazio = new PieSlice();
+            vazio.setTitle("vazio");
+            vazio.setGoalValue(1);
+            vazio.setColor(Color.GRAY);
+            pg.addSlice(vazio);
+        } else {
+            for (Transacao t : transacoes) {
+                if (!categoriasNomes.contains(t.getCatNome())) {
+                    categoriasNomes.add(t.getCatNome());
+                }
+            }
+            Toast.makeText(this.getContext(),String.valueOf(categoriasNomes.size()),Toast.LENGTH_SHORT).show();
+
+            for (String s : categoriasNomes) {
+                 sliceDessaCategoria = new PieSlice();
+                float ganhosNaCategoria = 0;
+                for (Transacao t : transacoes) {
+                    if (t.getCatNome().equals(s) && t.getTipoOperacao() == 1) {
+                        ganhosNaCategoria += t.getValor();
+                    }
+                }
+
+                do{
+                    int cor = Color.argb(255, new Random().nextInt(256), new Random().nextInt(256), new Random().nextInt(256));
+                    if (!coresDoGrafico.contains(cor)) {
+                        coresDoGrafico.add(cor);
+                        sliceDessaCategoria.setColor(cor);
+                        break;
+                    }
+                }while(true);
+                sliceDessaCategoria.setGoalValue(ganhosNaCategoria);
+                pg.addSlice(sliceDessaCategoria);
+            }
+
+        /* for(String s : categoriasNomes){
+             for(Transacao t : transacoes){
+                 if(t.equals(s)){
+                     ca
+                 }
+             }
+         }*/
+        }
+
         pg.setDuration(1000);//default if unspecified is 300 ms
         pg.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pg.animateToGoalValues();
