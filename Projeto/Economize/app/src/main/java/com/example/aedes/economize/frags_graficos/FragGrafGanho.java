@@ -41,7 +41,8 @@ public class FragGrafGanho extends Fragment {
     private Spinner spnn_grafGanhoAnos;
     private ArrayList<String> valAnos;
     private ArrayAdapter<String> spnn_anosArrayAdapter;
-
+    private PieGraph pg;
+    private BarGraph g;
 
     public FragGrafGanho() {
         // Required empty public constructor
@@ -114,10 +115,13 @@ public class FragGrafGanho extends Fragment {
             }
         });
 
+        pg = view.findViewById(R.id.pie_graph_ganhos);
+        g = view.findViewById(R.id.bar_graph_ganhos);
     }
 
     public void spinnerClickLiester() {
         makeBarGraph(this.getView());
+        makePieGraph(this.getView());
     }
 
     public void mudarGrafico(View view) {
@@ -134,6 +138,7 @@ public class FragGrafGanho extends Fragment {
     }
 
     public void makeBarGraph(View v) {
+
         ArrayList<Bar> points = new ArrayList<Bar>();
         String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
         String meses[] = getResources().getStringArray(R.array.mesesinhos);
@@ -159,7 +164,7 @@ public class FragGrafGanho extends Fragment {
             points.add(mes);
         }
 
-        BarGraph g = v.findViewById(R.id.bar_graph_ganhos);
+
         g.setBars(points);
 
         barGraph.setDuration(1200);//default if unspecified is 300 ms
@@ -170,7 +175,8 @@ public class FragGrafGanho extends Fragment {
     }
 
     public void makePieGraph(View v) {
-        PieGraph pg = (PieGraph) v.findViewById(R.id.pie_graph_ganhos);
+
+        ArrayList<PieSlice> pedacos = new ArrayList<>();
         ArrayList<Transacao> transacoes = new ArrayList<>();
         transacoes = tdbh.getListaTransacoes();
         ArrayList<String> categoriasNomes = new ArrayList<>();
@@ -178,6 +184,7 @@ public class FragGrafGanho extends Fragment {
         ArrayList<Float> ganhosPorCategoria = new ArrayList<>();
         ArrayList<Integer> coresDoGrafico = new ArrayList<>();
         PieSlice sliceDessaCategoria;
+        int anoSelecionado = Integer.valueOf(spnn_grafGanhoAnos.getSelectedItem().toString());
 
         if (transacoes.isEmpty()) {
             PieSlice vazio = new PieSlice();
@@ -187,40 +194,42 @@ public class FragGrafGanho extends Fragment {
             pg.addSlice(vazio);
         } else {
             for (Transacao t : transacoes) {
-                if (!categoriasNomes.contains(t.getCatNome())) {
+                String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
+                if (!categoriasNomes.contains(t.getCatNome()) && Integer.valueOf(anoTransacao) == anoSelecionado) {
                     categoriasNomes.add(t.getCatNome());
                 }
             }
-            Toast.makeText(this.getContext(),String.valueOf(categoriasNomes.size()),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getContext(), String.valueOf(categoriasNomes.size()), Toast.LENGTH_SHORT).show();
 
             for (String s : categoriasNomes) {
-                 sliceDessaCategoria = new PieSlice();
+                sliceDessaCategoria = new PieSlice();
                 float ganhosNaCategoria = 0;
                 for (Transacao t : transacoes) {
-                    if (t.getCatNome().equals(s) && t.getTipoOperacao() == 1) {
+                    String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
+                    if (t.getCatNome().equals(s) && t.getTipoOperacao() == 1 && Integer.valueOf(anoTransacao) == anoSelecionado) {
                         ganhosNaCategoria += t.getValor();
                     }
                 }
 
-                do{
+                do {
                     int cor = Color.argb(255, new Random().nextInt(256), new Random().nextInt(256), new Random().nextInt(256));
                     if (!coresDoGrafico.contains(cor)) {
                         coresDoGrafico.add(cor);
                         sliceDessaCategoria.setColor(cor);
                         break;
                     }
-                }while(true);
+                } while (true);
+                sliceDessaCategoria.setTitle(s);
                 sliceDessaCategoria.setGoalValue(ganhosNaCategoria);
-                pg.addSlice(sliceDessaCategoria);
+                pedacos.add(sliceDessaCategoria);
             }
 
-        /* for(String s : categoriasNomes){
-             for(Transacao t : transacoes){
-                 if(t.equals(s)){
-                     ca
-                 }
-             }
-         }*/
+            pg.removeSlices();
+            for (PieSlice p : pedacos) {
+                pg.addSlice(p);
+            }
+
+
         }
 
         pg.setDuration(1000);//default if unspecified is 300 ms
