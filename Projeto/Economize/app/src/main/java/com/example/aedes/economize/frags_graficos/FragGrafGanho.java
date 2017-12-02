@@ -20,6 +20,8 @@ import com.echo.holographlibrary.BarGraph;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_BarGraf_ArrayAdapter;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
@@ -33,8 +35,7 @@ import java.util.Random;
 public class FragGrafGanho extends Fragment {
 
     private ImageButton btnAnoAnterior, btnAnoSucessor, btnGrafAnterior, btnGrafSucessor;
-    private Spinner spnnAnos;
-    private ListView lvListaCategorias;
+    private ListView lista;
     private PieGraph pieGraph;
     private BarGraph barGraph;
     private TransacaoDbHandler tdbh;
@@ -55,10 +56,12 @@ public class FragGrafGanho extends Fragment {
         instanciarCampos(view);
         makeBarGraph(view);
         makePieGraph(view);
+        setPieAdapter();
         return view;
     }
 
     public void instanciarCampos(View view) {
+
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
         btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior_ganhos);
         btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo_ganhos);
@@ -66,6 +69,7 @@ public class FragGrafGanho extends Fragment {
         btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor_ganhos);
         pieGraph = (PieGraph) view.findViewById(R.id.pie_graph_ganhos);
         barGraph = (BarGraph) view.findViewById(R.id.bar_graph_ganhos);
+        lista = view.findViewById(R.id.listv_ganhos);
 
         btnGrafSucessor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,23 +123,27 @@ public class FragGrafGanho extends Fragment {
     public void spinnerClickListener() {
         makeBarGraph(this.getView());
         makePieGraph(this.getView());
+
+        if(pieGraph.getVisibility()== getView().VISIBLE){
+            setPieAdapter();
+        }else{
+            setBarAdapter();
+        }
     }
 
     public void mudarGrafico(View view) {
         if (pieGraph.getVisibility() == view.VISIBLE) {
             pieGraph.setVisibility(view.GONE);
             barGraph.setVisibility(view.VISIBLE);
-
-
+            setBarAdapter();
         } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
-
+            setPieAdapter();
         }
     }
 
     public void makeBarGraph(View v) {
-
         ArrayList<Bar> points = new ArrayList<Bar>();
         String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
         String meses[] = getResources().getStringArray(R.array.mesesinhos);
@@ -160,10 +168,7 @@ public class FragGrafGanho extends Fragment {
             mes.setGoalValue(ganhosMeses[i]);
             points.add(mes);
         }
-
-
         barGraph.setBars(points);
-
         barGraph.setDuration(1200);//default if unspecified is 300 ms
         barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
         barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
@@ -171,8 +176,15 @@ public class FragGrafGanho extends Fragment {
 
     }
 
-    public void makePieGraph(View v) {
+    public void setBarAdapter(){
+        lista.setAdapter(new Lista_BarGraf_ArrayAdapter(this.getContext(),barGraph.getBars()));
+    }
 
+    public void setPieAdapter(){
+        lista.setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
+    }
+
+    public void makePieGraph(View v) {
         ArrayList<PieSlice> pedacos = new ArrayList<>();
         ArrayList<Transacao> transacoes = new ArrayList<>();
         transacoes = tdbh.getListaTransacoes();
@@ -223,14 +235,11 @@ public class FragGrafGanho extends Fragment {
             for (PieSlice p : pedacos) {
                 pieGraph.addSlice(p);
             }
-
-
         }
-
         pieGraph.setDuration(1000);//default if unspecified is 300 ms
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
 
-
     }
+
 }

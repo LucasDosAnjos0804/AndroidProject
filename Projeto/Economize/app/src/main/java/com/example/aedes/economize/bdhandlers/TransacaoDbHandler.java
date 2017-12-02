@@ -18,7 +18,7 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
     SQLiteDatabase db;
     private static final int db_version = 1;
     private static final String db_name = "EconomizeDB.db";
-    private static final String TABLE_NAME = "Transacao";
+    private static final String nome_tabela = "Transacao";
 
     private static final String  EmailUsuario = "email",id = "id",catNome = "catNome", tipoOperacao = "tipoOperacao",valor = "valor",recorrente="recorrente";
     private static final String categoriaNome = "nome", dtInicio="dtInicio",dtFim="dtFim", titulo="titulo", usuEmail="usuEmail", descricao="descricao", frequencia="frequencia";
@@ -30,7 +30,7 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
 
 
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" + id + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ titulo +" TEXT, " + descricao + " TEXT, " + valor + " DOUBLE, " + tipoOperacao +" INT, " + catNome + " TEXT, " + dtInicio + " DATE, " + dtFim + " DATE, " + usuEmail + " TEXT, " + recorrente + " INT, " + frequencia + " INT, ";
+        String sql = "CREATE TABLE IF NOT EXISTS " + nome_tabela + "(" + id + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ titulo +" TEXT, " + descricao + " TEXT, " + valor + " DOUBLE, " + tipoOperacao +" INT, " + catNome + " TEXT, " + dtInicio + " DATE, " + dtFim + " DATE, " + usuEmail + " TEXT, " + recorrente + " INT, " + frequencia + " INT, ";
         sql+= "FOREIGN KEY("+usuEmail+") REFERENCES Usuario("+EmailUsuario+"), ";
         sql+= "FOREIGN KEY("+catNome+") REFERENCES Categoria("+categoriaNome+")); ";
         db.execSQL("PRAGMA foreign_keys=1;");
@@ -56,11 +56,14 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
         valores.put("frequencia",transacao.getFrequencia());
 
         getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
-        getWritableDatabase().insert(TABLE_NAME,null,valores);
+        getWritableDatabase().insert(nome_tabela,null,valores);
 
     }
 
-    public void removerDoBd(){}
+    public void removerDoBd(Transacao t){
+        getWritableDatabase().delete(nome_tabela,String.valueOf(t.getId())+"="+id,null);
+    }
+
     public void alterarNoBd(){}
 
     public ArrayList<Transacao> getListaTransacoes(){

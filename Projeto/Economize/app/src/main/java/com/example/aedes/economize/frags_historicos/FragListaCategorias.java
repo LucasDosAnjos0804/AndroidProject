@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.example.aedes.economize.classes_modelo.Categoria;
 import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
-import com.example.aedes.economize.adapters_historicos.Lista_Categorias_ArrayAdapter;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_Categorias_ArrayAdapter;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;

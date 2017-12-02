@@ -20,6 +20,7 @@ import com.echo.holographlibrary.BarGraph;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
@@ -32,15 +33,14 @@ import java.util.Random;
  */
 public class FragGrafPerda extends Fragment {
 
-    private ImageButton btnAnoAnterior, btnAnoSucessor, btnGrafAnterior, btnGrafSucessor;
-    private Spinner spnnAnos;
-    private ListView lvListaCategorias;
+    private ImageButton btnAnoAnterior, btnAnoSucessor, btnGrafAnterior, btnGrafSucessor;;
     private PieGraph pieGraph;
     private BarGraph barGraph;
     private TransacaoDbHandler tdbh;
     private Spinner spnn_grafPerdaAnos;
     private ArrayList<String> valAnos;
     private ArrayAdapter<String> spnn_anosArrayAdapter;
+    private ListView listPerdas;
 
     public FragGrafPerda() {
         // Required empty public constructor
@@ -67,6 +67,7 @@ public class FragGrafPerda extends Fragment {
         btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor_perdas);
         pieGraph = (PieGraph) view.findViewById(R.id.pie_graph_perdas);
         barGraph = (BarGraph) view.findViewById(R.id.bar_graph_perdas);
+        listPerdas = view.findViewById(R.id.listv_perdas);
 
         btnGrafSucessor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +127,6 @@ public class FragGrafPerda extends Fragment {
         } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
-
         }
     }
     public void spinnerClickListener() {
@@ -226,7 +226,7 @@ public class FragGrafPerda extends Fragment {
         pieGraph.setDuration(1000);//default if unspecified is 300 ms
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
-
+        listPerdas.setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
 
     }
 
