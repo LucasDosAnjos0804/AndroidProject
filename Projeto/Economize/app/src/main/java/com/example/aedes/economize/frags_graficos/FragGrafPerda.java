@@ -126,7 +126,6 @@ public class FragGrafPerda extends Fragment {
         } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
-
         }
     }
     public void spinnerClickListener() {

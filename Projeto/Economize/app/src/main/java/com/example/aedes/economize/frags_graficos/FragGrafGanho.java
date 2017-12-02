@@ -20,6 +20,7 @@ import com.echo.holographlibrary.BarGraph;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_Perdas_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
@@ -33,8 +34,7 @@ import java.util.Random;
 public class FragGrafGanho extends Fragment {
 
     private ImageButton btnAnoAnterior, btnAnoSucessor, btnGrafAnterior, btnGrafSucessor;
-    private Spinner spnnAnos;
-    private ListView lvListaCategorias;
+    private ListView listaGanhos;
     private PieGraph pieGraph;
     private BarGraph barGraph;
     private TransacaoDbHandler tdbh;
@@ -59,6 +59,7 @@ public class FragGrafGanho extends Fragment {
     }
 
     public void instanciarCampos(View view) {
+
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
         btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior_ganhos);
         btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo_ganhos);
@@ -66,6 +67,7 @@ public class FragGrafGanho extends Fragment {
         btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor_ganhos);
         pieGraph = (PieGraph) view.findViewById(R.id.pie_graph_ganhos);
         barGraph = (BarGraph) view.findViewById(R.id.bar_graph_ganhos);
+        listaGanhos = view.findViewById(R.id.listv_ganhos);
 
         btnGrafSucessor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,6 +233,7 @@ public class FragGrafGanho extends Fragment {
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
 
-
+        listaGanhos .setAdapter(new Lista_PieGraf_Perdas_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
     }
+
 }

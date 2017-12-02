@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.aedes.economize.adapters_historicos.Historico_Transacoes_ArrayAdapter;
+import com.example.aedes.economize.adapters_historicos_graficos.Historico_Transacoes_ArrayAdapter;
 import com.example.aedes.economize.R;
 
 import java.util.ArrayList;

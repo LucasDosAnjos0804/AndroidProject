@@ -1,4 +1,4 @@
-package com.example.aedes.economize.adapters_historicos;
+package com.example.aedes.economize.adapters_historicos_graficos;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -30,9 +30,9 @@ public class Lista_Categorias_ArrayAdapter extends ArrayAdapter<Categoria> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater histTransInflater;
-        histTransInflater = LayoutInflater.from(getContext());
-        View view = histTransInflater.inflate(R.layout.item_lista_categorias, parent, false);
+        LayoutInflater listCatInflater;
+        listCatInflater = LayoutInflater.from(getContext());
+        View view = listCatInflater.inflate(R.layout.item_lista_categorias, parent, false);
          Categoria cat = getItem(position);
         instanciarCampos(view);
         txtListaCatNome.setText(cat.getNome().toString());
