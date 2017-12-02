@@ -136,7 +136,6 @@ public class FragGrafGanho extends Fragment {
             pieGraph.setVisibility(view.GONE);
             barGraph.setVisibility(view.VISIBLE);
             setBarAdapter();
-
         } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
