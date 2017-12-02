@@ -62,7 +62,6 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
 
     }
 
-
     public void deletarTransacao(Transacao t){
         for(Transacao t1 : tdbh.getListaTransacoes()){
             if(t1.getId()==t.getId()){

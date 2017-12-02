@@ -90,10 +90,6 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.fltb_adicionar:
                 cadastrarOrcamento();
-            case R.id.fltb_deletar:
-                Toast.makeText(view.getContext(), "Função ainda não implementada", Toast.LENGTH_SHORT).show();
-            default:
-                Toast.makeText(view.getContext(), "Você clicou em um botão flutuante. :)", Toast.LENGTH_SHORT).show();
         }
     }
 }

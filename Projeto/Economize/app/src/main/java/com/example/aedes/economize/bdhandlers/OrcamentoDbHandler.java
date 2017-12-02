@@ -17,10 +17,11 @@ import java.util.ArrayList;
 public class OrcamentoDbHandler extends SQLiteOpenHelper {
     private static final int db_version = 1;
     private static final String db_name = "EconomizeDB.db";
-    private static final String TABLE_NAME = "Orcamento";
+    private static final String nome_tabela = "Orcamento";
 
-    private static final String colNome = "nome", colDescricao= "descricao", colAbrangencia= "abrangencia", colValor = "valor",colUsuEmail = "email_criador", colCategoria = "categoria";
-    private static final String usuEmail="email",catNome="nome", id = "id";
+    private static final String colNome = "nome", colDescricao = "descricao", colAbrangencia = "abrangencia", colValor = "valor", colUsuEmail = "email_criador", colCategoria = "categoria";
+    private static final String usuEmail = "email", catNome = "nome", id = "id";
+
     public OrcamentoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_name, factory, db_version);
         onCreate(getWritableDatabase());
@@ -28,10 +29,10 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = ("CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+colNome+" TEXT, "+colDescricao+" TEXT, "+colAbrangencia+" TEXT, "+ colValor+" DOUBLE, "+colUsuEmail+" TEXT, "+colCategoria+" TEXT, ");
-        sql+=id+" INTEGER PRIMARY KEY AUTOINCREMENT, ";
-        sql+="FOREIGN KEY("+colUsuEmail+") REFERENCES Usuario("+usuEmail+"), ";
-        sql+="FOREIGN KEY("+colCategoria+") REFERENCES Categoria("+catNome+"));";
+        String sql = ("CREATE TABLE IF NOT EXISTS " + nome_tabela + " (" + colNome + " TEXT, " + colDescricao + " TEXT, " + colAbrangencia + " TEXT, " + colValor + " DOUBLE, " + colUsuEmail + " TEXT, " + colCategoria + " TEXT, ");
+        sql += id + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
+        sql += "FOREIGN KEY(" + colUsuEmail + ") REFERENCES Usuario(" + usuEmail + "), ";
+        sql += "FOREIGN KEY(" + colCategoria + ") REFERENCES Categoria(" + catNome + "));";
         sqLiteDatabase.execSQL("PRAGMA foreign_keys=1");
         sqLiteDatabase.execSQL(sql);
     }
@@ -41,31 +42,31 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
 
     }
 
-    public void adicionarAoBd(Orcamento o){
+    public void adicionarAoBd(Orcamento o) {
         ContentValues valores = new ContentValues();
-        valores.put(colNome,o.getNome());
-        valores.put(colDescricao,o.getDescricao());
-        valores.put(colValor,o.getValor());
-        valores.put(colAbrangencia,o.getAbrangencia());
-        valores.put(colUsuEmail,o.getUsuEmail());
-        valores.put(colCategoria,o.getCatNome());
+        valores.put(colNome, o.getNome());
+        valores.put(colDescricao, o.getDescricao());
+        valores.put(colValor, o.getValor());
+        valores.put(colAbrangencia, o.getAbrangencia());
+        valores.put(colUsuEmail, o.getUsuEmail());
+        valores.put(colCategoria, o.getCatNome());
         getWritableDatabase().execSQL("PRAGMA foreign_keys = 1");
-        getWritableDatabase().insert(TABLE_NAME,null,valores);
+        getWritableDatabase().insert(nome_tabela, null, valores);
     }
 
-    public void removerDoBd(){
+    public void removerDoBd(Orcamento o) {
+        getWritableDatabase().delete(nome_tabela, id + "=" + o.getId(), null);
+    }
+
+    public void alterarNoBd() {
 
     }
 
-    public void alterarNoBd(){
-
-    }
-
-    public ArrayList<Orcamento> getListaOrcamentos(){
-        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM ORCAMENTO;",null);
+    public ArrayList<Orcamento> getListaOrcamentos() {
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM ORCAMENTO;", null);
         ArrayList<Orcamento> orcamentos = new ArrayList<>();
 
-        while(c.moveToNext()){
+        while (c.moveToNext()) {
             Orcamento o = new Orcamento();
             o.setNome(c.getString(c.getColumnIndex("nome")));
             o.setDescricao(c.getString(c.getColumnIndex("descricao")));
