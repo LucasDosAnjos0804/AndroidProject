@@ -48,6 +48,8 @@ public class CategoriaDbHandler extends SQLiteOpenHelper {
 
     public void inserirCategoriasPadrao(SQLiteDatabase db){
         if(db.rawQuery("SELECT * FROM Categoria",null).getCount()<1) {
+
+            Categoria indefinido = new Categoria("Indefinido", null, 0, "Indefinido", "admin");
             Categoria transportes = new Categoria("Transporte", null, 0, "Categoria relacionada a gsstos com transportes.", "admin");
             Categoria alimentacao = new Categoria("Alimentação", null, 0, "Despesas com suprimentos e nutrição", "admin");
             Categoria entretenimento = new Categoria("Entretenimento", null, 0, "Despesase e ganhos com diferentes formas de entretenimento (festas,cinema,jogos,apostas,etc.)", "admin");
@@ -56,6 +58,7 @@ public class CategoriaDbHandler extends SQLiteOpenHelper {
             Categoria saude = new Categoria("Saúde", null, 0, "Categoria reservada para transações relacionadas á saúde, como planos, medicamentos e cosméticos", "admin");
             Categoria trabalhoEstudos = new Categoria("Trabalho/Estudos", null, 0, "Ganhos e despesas relativas a trabalho e studos, como mensalidade escolar ,salário, bônus, etc.", "admin");
 
+            adicionarAoBd(indefinido);
             adicionarAoBd(transportes);
             adicionarAoBd(alimentacao);
             adicionarAoBd(entretenimento);

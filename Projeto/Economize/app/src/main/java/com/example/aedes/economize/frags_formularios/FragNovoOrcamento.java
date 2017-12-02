@@ -53,9 +53,11 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
         listasSpinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnn_abrangencia.setAdapter(listasSpinnersAdapter);
 
+
         for (Categoria cat : cdbh.getListaCategorias()) {
             valCategoria.add(cat.getNome());
         }
+
         spnn_categoria = (Spinner)v.findViewById(R.id.spnn_OrcCategoria);
         listasSpinnersAdapter = new ArrayAdapter<String>(v.getContext(),android.R.layout.simple_spinner_item,valCategoria);
         listasSpinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

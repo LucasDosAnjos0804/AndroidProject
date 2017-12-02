@@ -53,6 +53,8 @@ public class FragNovaTransacao extends Fragment{
         spnn_categoria = (Spinner)view.findViewById(R.id.spnn_transCategoria);
         valCategoria= new ArrayList<>();
         cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
+
+
         for(Categoria cat : cdbh.getListaCategorias()){
             valCategoria.add(cat.getNome());
         }

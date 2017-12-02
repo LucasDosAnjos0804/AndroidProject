@@ -41,8 +41,7 @@ public class FragGrafGanho extends Fragment {
     private Spinner spnn_grafGanhoAnos;
     private ArrayList<String> valAnos;
     private ArrayAdapter<String> spnn_anosArrayAdapter;
-    private PieGraph pg;
-    private BarGraph g;
+
 
     public FragGrafGanho() {
         // Required empty public constructor
@@ -106,7 +105,7 @@ public class FragGrafGanho extends Fragment {
         spnn_grafGanhoAnos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                spinnerClickLiester();
+                spinnerClickListener();
             }
 
             @Override
@@ -115,11 +114,9 @@ public class FragGrafGanho extends Fragment {
             }
         });
 
-        pg = view.findViewById(R.id.pie_graph_ganhos);
-        g = view.findViewById(R.id.bar_graph_ganhos);
     }
 
-    public void spinnerClickLiester() {
+    public void spinnerClickListener() {
         makeBarGraph(this.getView());
         makePieGraph(this.getView());
     }
@@ -165,7 +162,7 @@ public class FragGrafGanho extends Fragment {
         }
 
 
-        g.setBars(points);
+        barGraph.setBars(points);
 
         barGraph.setDuration(1200);//default if unspecified is 300 ms
         barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
@@ -180,8 +177,6 @@ public class FragGrafGanho extends Fragment {
         ArrayList<Transacao> transacoes = new ArrayList<>();
         transacoes = tdbh.getListaTransacoes();
         ArrayList<String> categoriasNomes = new ArrayList<>();
-        ArrayList<Float> categoriasGanhos = new ArrayList<>();
-        ArrayList<Float> ganhosPorCategoria = new ArrayList<>();
         ArrayList<Integer> coresDoGrafico = new ArrayList<>();
         PieSlice sliceDessaCategoria;
         int anoSelecionado = Integer.valueOf(spnn_grafGanhoAnos.getSelectedItem().toString());
@@ -191,11 +186,11 @@ public class FragGrafGanho extends Fragment {
             vazio.setTitle("vazio");
             vazio.setGoalValue(1);
             vazio.setColor(Color.GRAY);
-            pg.addSlice(vazio);
+            pieGraph.addSlice(vazio);
         } else {
             for (Transacao t : transacoes) {
                 String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
-                if (!categoriasNomes.contains(t.getCatNome()) && Integer.valueOf(anoTransacao) == anoSelecionado) {
+                if (!categoriasNomes.contains(t.getCatNome()) && Integer.valueOf(anoTransacao) == anoSelecionado && t.getTipoOperacao()==1) {
                     categoriasNomes.add(t.getCatNome());
                 }
             }
@@ -224,17 +219,17 @@ public class FragGrafGanho extends Fragment {
                 pedacos.add(sliceDessaCategoria);
             }
 
-            pg.removeSlices();
+            pieGraph.removeSlices();
             for (PieSlice p : pedacos) {
-                pg.addSlice(p);
+                pieGraph.addSlice(p);
             }
 
 
         }
 
-        pg.setDuration(1000);//default if unspecified is 300 ms
-        pg.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
-        pg.animateToGoalValues();
+        pieGraph.setDuration(1000);//default if unspecified is 300 ms
+        pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
+        pieGraph.animateToGoalValues();
 
 
     }
