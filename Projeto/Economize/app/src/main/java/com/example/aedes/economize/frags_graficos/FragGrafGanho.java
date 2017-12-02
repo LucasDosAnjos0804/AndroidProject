@@ -20,7 +20,7 @@ import com.echo.holographlibrary.BarGraph;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
-import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_Perdas_ArrayAdapter;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
@@ -233,7 +233,7 @@ public class FragGrafGanho extends Fragment {
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
 
-        listaGanhos .setAdapter(new Lista_PieGraf_Perdas_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
+        listaGanhos .setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
     }
 
 }

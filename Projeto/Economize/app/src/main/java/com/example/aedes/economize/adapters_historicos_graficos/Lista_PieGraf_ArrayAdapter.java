@@ -20,12 +20,12 @@ import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import java.util.ArrayList;
 
 
-public class Lista_PieGraf_Perdas_ArrayAdapter extends ArrayAdapter<PieSlice> {
+public class Lista_PieGraf_ArrayAdapter extends ArrayAdapter<PieSlice> {
     private TextView txtCatNome,txtCatValor;
     private FrameLayout catCor;
     private TransacaoDbHandler tdbh;
 
-    public Lista_PieGraf_Perdas_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<PieSlice> slices) {
+    public Lista_PieGraf_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<PieSlice> slices) {
         super(context, R.layout.item__piegraf__ganhos, slices);
     }
 
