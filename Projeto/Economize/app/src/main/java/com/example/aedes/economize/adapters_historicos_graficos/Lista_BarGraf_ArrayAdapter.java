@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.echo.holographlibrary.Bar;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
@@ -17,33 +18,33 @@ import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import java.util.ArrayList;
 
 
-public class Lista_PieGraf_ArrayAdapter extends ArrayAdapter<PieSlice> {
-    private TextView txtCatNome,txtCatValor;
-    private FrameLayout catCor;
+public class Lista_BarGraf_ArrayAdapter extends ArrayAdapter<Bar> {
+    private TextView txtMes,txtValor;
+    private FrameLayout cor;
     private TransacaoDbHandler tdbh;
 
-    public Lista_PieGraf_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<PieSlice> slices) {
-        super(context, R.layout.item_listview_piegraf, slices);
+    public Lista_BarGraf_ArrayAdapter(@NonNull Context context, @NonNull ArrayList<Bar> bars) {
+        super(context, R.layout.item_listview_bargraf, bars);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater itemPieGraphList = LayoutInflater.from(this.getContext());
-        View v = itemPieGraphList.inflate(R.layout.item_listview_piegraf,parent,false);
-        PieSlice p = getItem(position);
+        View v = itemPieGraphList.inflate(R.layout.item_listview_bargraf,parent,false);
+        Bar b = getItem(position);
         instanciarCampos(v);
-        txtCatNome.setText(p.getTitle());
-        txtCatValor.setText(String.valueOf(p.getGoalValue()));
-        catCor.setBackgroundColor(p.getColor());
+        txtMes.setText(b.getName());
+        txtValor.setText(String.valueOf(b.getGoalValue()));
+        cor.setBackgroundColor(b.getColor());
 
         return v;
     }
 
     public void instanciarCampos(View v){
-        txtCatNome = (TextView) v.findViewById(R.id.txtListPieGrafCatNome);
-        txtCatValor = (TextView) v.findViewById(R.id.txtListPieGrafValor);
-        catCor = (FrameLayout)v.findViewById(R.id.listPieGrafCatCor);
+        txtMes = (TextView) v.findViewById(R.id.txtListViewBargrafMes);
+        txtValor= (TextView) v.findViewById(R.id.txtListViewBarGrafValor);
+        cor = (FrameLayout)v.findViewById(R.id.listBarGrafCor);
     }
 
 
