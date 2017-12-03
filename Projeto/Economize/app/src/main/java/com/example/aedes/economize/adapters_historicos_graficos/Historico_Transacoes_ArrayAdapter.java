@@ -73,6 +73,7 @@ public class Historico_Transacoes_ArrayAdapter extends ArrayAdapter<Transacao> {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 tdbh.removerDoBd(t);
+                remove(t);
             }
         });
 
