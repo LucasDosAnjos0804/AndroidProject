@@ -82,7 +82,7 @@ public class FragNovaCategoria extends Fragment implements View.OnClickListener 
 
         cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
         for(Categoria cat : cdbh.getListaCategorias()){
-            if(cat.getEmail_criador().equals(apl.getUsuarioAtual()) && cat.getEmail_criador().equals("admin")){
+            if(cat.getEmail_criador().equals(apl.getUsuarioAtual()) || cat.getEmail_criador().equals("admin")){
                 valCatMae.add(cat.getNome());
             }
         }

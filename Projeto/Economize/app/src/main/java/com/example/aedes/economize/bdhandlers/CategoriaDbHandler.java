@@ -1,5 +1,6 @@
 package com.example.aedes.economize.bdhandlers;
 
+import android.app.Fragment;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.aedes.economize.Activity_pos_logagem;
 import com.example.aedes.economize.classes_modelo.Categoria;
 
 import java.util.ArrayList;
@@ -15,15 +17,17 @@ import java.util.ArrayList;
  * Created by Eu II on 18/11/2017.
  */
 
-public class CategoriaDbHandler extends SQLiteOpenHelper {
+public class CategoriaDbHandler extends SQLiteOpenHelper{
     private static final String nome_tabela="Categoria", colNome = "nome", colNomeCatMae = "categoria_mae", colTipoOperacao = "tipo_operacao", colDescricao = "descricao", colEmail_criador = "email_criador",colUsuEmail = "email";
     private static final String db_name = "EconomizeDB.db";
     private static final int db_version = 1;
-
+    private static String usuarioLogado;
+    private Activity_pos_logagem apl;
 
     public CategoriaDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_name, factory, db_version);
-        onCreate(getWritableDatabase());
+                onCreate(getWritableDatabase());
+                apl = (Activity_pos_logagem)context;
     }
 
     @Override
@@ -85,7 +89,7 @@ public class CategoriaDbHandler extends SQLiteOpenHelper {
     }
 
     public ArrayList<Categoria> getListaCategorias(){
-        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM " + nome_tabela,null);
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM " + nome_tabela +" WHERE "+colEmail_criador+"= '"+apl.getUsuarioAtual()+"' OR "+colEmail_criador+" = 'admin';",null);
         ArrayList<Categoria> categorias = new ArrayList<>();
         while(c.moveToNext()){
             Categoria cat = new Categoria();

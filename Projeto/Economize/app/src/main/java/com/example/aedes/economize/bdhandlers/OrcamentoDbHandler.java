@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.aedes.economize.Activity_pos_logagem;
 import com.example.aedes.economize.classes_modelo.Orcamento;
 
 import java.util.ArrayList;
@@ -21,10 +22,11 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
 
     private static final String colNome = "nome", colDescricao = "descricao", colAbrangencia = "abrangencia", colValor = "valor", colUsuEmail = "email_criador", colCategoria = "categoria";
     private static final String usuEmail = "email", catNome = "nome", id = "id";
-
+    private Activity_pos_logagem apl;
     public OrcamentoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_name, factory, db_version);
         onCreate(getWritableDatabase());
+        apl = (Activity_pos_logagem)context;
     }
 
     @Override
@@ -63,7 +65,7 @@ public class OrcamentoDbHandler extends SQLiteOpenHelper {
     }
 
     public ArrayList<Orcamento> getListaOrcamentos() {
-        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM ORCAMENTO;", null);
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM ORCAMENTO WHERE "+colUsuEmail+"= '" +apl.getUsuarioAtual()+"' ; ", null);
         ArrayList<Orcamento> orcamentos = new ArrayList<>();
 
         while (c.moveToNext()) {

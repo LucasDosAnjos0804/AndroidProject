@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.aedes.economize.Activity_pos_logagem;
 import com.example.aedes.economize.classes_modelo.Transacao;
 
 import java.util.ArrayList;
@@ -19,12 +20,12 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
     private static final int db_version = 1;
     private static final String db_name = "EconomizeDB.db";
     private static final String nome_tabela = "Transacao";
-
     private static final String  EmailUsuario = "email",id = "id",catNome = "catNome", tipoOperacao = "tipoOperacao",valor = "valor",recorrente="recorrente";
     private static final String categoriaNome = "nome", dtInicio="dtInicio",dtFim="dtFim", titulo="titulo", usuEmail="usuEmail", descricao="descricao", frequencia="frequencia";
-
+    private Activity_pos_logagem apl;
     public TransacaoDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, db_name, factory, db_version);
+        apl = (Activity_pos_logagem)context;
         onCreate(getWritableDatabase());
     }
 
@@ -67,7 +68,7 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
     public void alterarNoBd(){}
 
     public ArrayList<Transacao> getListaTransacoes(){
-        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM Transacao ;", null);
+        Cursor c = getWritableDatabase().rawQuery("SELECT * FROM Transacao WHERE "+ usuEmail +"="+ "'"+apl.getUsuarioAtual()+"'", null);
         ArrayList<Transacao> transacoes = new ArrayList<Transacao>();
         while(c.moveToNext()){
             Transacao trans = new Transacao();

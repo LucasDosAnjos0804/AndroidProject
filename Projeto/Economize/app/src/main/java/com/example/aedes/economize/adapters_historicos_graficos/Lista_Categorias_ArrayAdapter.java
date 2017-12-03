@@ -47,7 +47,7 @@ public class Lista_Categorias_ArrayAdapter extends ArrayAdapter<Categoria> {
         listCatInflater = LayoutInflater.from(getContext());
         View view = listCatInflater.inflate(R.layout.item_lista_categorias, parent, false);
          final Categoria cat = getItem(position);
-        instanciarCampos(view);
+         instanciarCampos(view);
         txtListaCatNome.setText(cat.getNome().toString());
         imgX.setOnClickListener(new View.OnClickListener() {
             @Override
