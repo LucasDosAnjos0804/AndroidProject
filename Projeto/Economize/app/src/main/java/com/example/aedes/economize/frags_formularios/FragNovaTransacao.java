@@ -1,6 +1,9 @@
 package com.example.aedes.economize.frags_formularios;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.aedes.economize.Activity_pos_logagem;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.aedes_tools.Mask;
 import com.example.aedes.economize.bdhandlers.CategoriaDbHandler;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Categoria;
@@ -38,6 +42,7 @@ public class FragNovaTransacao extends Fragment{
     private ArrayAdapter<String> spinnersAdapter;
     private Transacao transacao;
     private Activity_pos_logagem apl;
+    AlertDialog alerta;
 
 
     @Override
@@ -70,8 +75,11 @@ public class FragNovaTransacao extends Fragment{
         et_titulo = (EditText)view.findViewById(R.id.et_transTitulo);
         et_valor= (EditText)view.findViewById(R.id.et_transValor);
         et_dtInicio = (EditText)view.findViewById(R.id.et_transDtInicio);
+        et_dtInicio.addTextChangedListener(Mask.insert("##/##/####",et_dtInicio));
         et_dtInicioRecorrente = (EditText)view.findViewById(R.id.et_transDtInicioRecorrente);
+        et_dtInicioRecorrente.addTextChangedListener(Mask.insert("##/##/####",et_dtInicioRecorrente));
         et_dtFim = (EditText)view.findViewById(R.id.et_transDtFim);
+        et_dtFim.addTextChangedListener(Mask.insert("##/##/####",et_dtFim));
         et_descricao= (EditText)view.findViewById(R.id.et_transDescricao);
         rd_ganho= (RadioButton) view.findViewById(R.id.rd_transLucro);
         rd_despesa= (RadioButton) view.findViewById(R.id.rd_transDespesa);
@@ -83,7 +91,7 @@ public class FragNovaTransacao extends Fragment{
 
             @Override
             public void onClick(View view) {
-                criarTransacao();
+                iniProcCriTra();
             }
         });
         chb_recorrente.setOnClickListener(new View.OnClickListener() {
@@ -136,8 +144,8 @@ public class FragNovaTransacao extends Fragment{
     public void cadastrarTransacao(Transacao t){
         TransacaoDbHandler tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
         tdbh.adicionarAoBd(t);
-
     }
+
     public void chbClicked(View v, LinearLayout linearLayoutDt, LinearLayout linearLayoutDtInicio, LinearLayout linearLayoutDtFim){
         boolean checked =((CheckBox) v).isChecked();
 
@@ -151,4 +159,42 @@ public class FragNovaTransacao extends Fragment{
             linearLayoutDtFim.setVisibility(View.GONE);
         }
     }
+
+    public boolean validarData(final EditText data){// datas no formato DD/MM/AAAA
+        int dia,mes;
+        String dt;
+        dt = data.getText().toString();
+        dia = Integer.parseInt(dt.substring(0,dt.indexOf("/")));
+        mes = Integer.parseInt(dt.substring(dt.indexOf("/")+1,dt.lastIndexOf("/")));
+        boolean rr = true;
+
+        if((mes==2 && dia>29) || mes>12 || ((mes==4 || mes==6 || mes==9
+                || mes==11) && dia>30)){
+            Context context = getContext();
+            AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Erro!!")
+                    .setMessage("Data inexitente!!\nPor favor insira uma Data válida!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            data.requestFocus();
+                        }
+                    });
+            alerta = builder.create();
+            alerta.show();
+            rr = false;
+        }
+        return rr;
+    }
+
+     public void iniProcCriTra(){// INIciar PROCesso de CRIação de TRAnsação
+         if (chb_recorrente.isChecked()){
+             if (validarData(et_dtInicioRecorrente)&&validarData(et_dtFim)){
+                 criarTransacao();
+             }
+         }else{
+             if (validarData(et_dtInicio)){
+                 criarTransacao();
+             }
+         }
+     }
 }
