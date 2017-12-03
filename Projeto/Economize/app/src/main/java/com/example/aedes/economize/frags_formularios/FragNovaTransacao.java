@@ -36,10 +36,10 @@ public class FragNovaTransacao extends Fragment{
     private CheckBox chb_recorrente;
     private Spinner spnn_ocorrencia,spnn_categoria;
     private FloatingActionButton fltb_adicionar, fltb_cancelar;
-    private ArrayList<String> valCategoria;
+    private ArrayList<String> valCategoria, valOcorrencia;
     private TransacaoDbHandler tdbh;
     private CategoriaDbHandler cdbh;
-    private ArrayAdapter<String> spinnersAdapter;
+    private ArrayAdapter<String> spinnersAdapter, spnnAdapterOcorrencia;
     private Transacao transacao;
     private Activity_pos_logagem apl;
     AlertDialog alerta;
@@ -57,8 +57,8 @@ public class FragNovaTransacao extends Fragment{
         apl = (Activity_pos_logagem)getActivity();
         spnn_categoria = (Spinner)view.findViewById(R.id.spnn_transCategoria);
         valCategoria= new ArrayList<>();
-        cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
 
+        cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
 
         for(Categoria cat : cdbh.getListaCategorias()){
             valCategoria.add(cat.getNome());
@@ -84,7 +84,17 @@ public class FragNovaTransacao extends Fragment{
         rd_ganho= (RadioButton) view.findViewById(R.id.rd_transLucro);
         rd_despesa= (RadioButton) view.findViewById(R.id.rd_transDespesa);
         chb_recorrente = (CheckBox)view.findViewById(R.id.chb_trans_paga_recorrente);
+
         spnn_ocorrencia = (Spinner)view.findViewById(R.id.spnn_transOcorrencia);
+        valOcorrencia = new ArrayList<>();
+        valOcorrencia.add("Semanal");
+        valOcorrencia.add("Mensal");
+        valOcorrencia.add("Semenstral");
+        valOcorrencia.add("Anual");
+        spnnAdapterOcorrencia = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_dropdown_item_1line,valOcorrencia);
+        spnnAdapterOcorrencia.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spnn_ocorrencia.setAdapter(spnnAdapterOcorrencia);
+
         fltb_adicionar = (FloatingActionButton)view.findViewById(R.id.fltb_adicionar);
         fltb_cancelar = (FloatingActionButton)view.findViewById(R.id.fltb_deletar);
         fltb_adicionar.setOnClickListener(new View.OnClickListener(){
@@ -153,10 +163,12 @@ public class FragNovaTransacao extends Fragment{
             linearLayoutDt.setVisibility(View.GONE);
             linearLayoutDtInicio.setVisibility(View.VISIBLE);
             linearLayoutDtFim.setVisibility(View.VISIBLE);
+            spnn_ocorrencia.setVisibility(View.VISIBLE);
         }else{
             linearLayoutDt.setVisibility(View.VISIBLE);
             linearLayoutDtInicio.setVisibility(View.GONE);
             linearLayoutDtFim.setVisibility(View.GONE);
+            spnn_ocorrencia.setVisibility(View.GONE);
         }
     }
 

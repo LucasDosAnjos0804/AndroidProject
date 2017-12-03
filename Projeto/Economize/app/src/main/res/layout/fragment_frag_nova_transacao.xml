@@ -288,17 +288,24 @@
                 android:layout_weight="1"
                 android:text="@string/pr_descricao" />
 
-            <EditText
-                android:id="@+id/et_transDescricao"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/pr_descricao"
-                android:inputType="textMultiLine"
-                android:textAlignment="center"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp" />
+                android:layout_height="70dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/et_transDescricao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/pr_descricao"
+                    android:inputType="textMultiLine"
+                    android:textAlignment="center"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp" />
+            </ScrollView>
+
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
