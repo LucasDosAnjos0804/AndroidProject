@@ -1,148 +1,120 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aedes.economize.frags_formularios.FragNovoOrcamento">
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    tools:context="com.example.aedes.economize.frags_edicoes.FragEdicaoCategoria">
 
         <LinearLayout
-            android:id="@+id/linearLayout15"
+            android:id="@+id/linearLayout10"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout14"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout14"
+            app:layout_constraintBottom_toTopOf="@+id/novaCatRadioGroup"
+            app:layout_constraintEnd_toEndOf="@+id/novaCatRadioGroup"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout14"
+            app:layout_constraintStart_toStartOf="@+id/novaCatRadioGroup"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/pr_nome" />
 
             <EditText
-                android:id="@+id/et_OrcNome"
+                android:id="@+id/et_CatNome"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/pr_nome"
                 android:inputType="textPersonName"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="127dp"
+                tools:layout_editor_absoluteY="172dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout14"
+        <RadioGroup
+            android:id="@+id/novaCatRadioGroup"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout11"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout11"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout15">
+            app:layout_constraintStart_toStartOf="@+id/linearLayout11"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
 
-            <TextView
-                android:id="@+id/textView21"
+            <RadioButton
+                android:id="@+id/rbtn_CatDespesa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/pr_valor" />
+                android:text="@string/rdb_despesa" />
 
-            <EditText
-                android:id="@+id/et_OrcValor"
-                android:layout_width="180dp"
+            <RadioButton
+                android:id="@+id/rbtn_CatLucro"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/pr_valor_exemplo"
-                android:inputType="numberDecimal"
-                android:textAlignment="center" />
-        </LinearLayout>
+                android:text="@string/rdb_ganho" />
+        </RadioGroup>
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/linearLayout11"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="21dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout16"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout16"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout12"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout16"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
+            app:layout_constraintStart_toStartOf="@+id/linearLayout12"
+            app:layout_constraintTop_toBottomOf="@+id/novaCatRadioGroup">
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="167dp"
-                android:layout_height="match_parent"
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/spnn_categoria" />
 
             <Spinner
-                android:id="@+id/spnn_OrcCategoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout16"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout17"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout17"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout17"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/spnn_abrangencia" />
-
-            <Spinner
-                android:id="@+id/spnn_OrcAbrangencia"
+                android:id="@+id/spnn_CatCategoria"
                 android:layout_width="139dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout17"
-            android:layout_width="284dp"
+            android:id="@+id/linearLayout12"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/fltb_adicionar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout16">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/pr_descricao" />
 
             <EditText
-                android:id="@+id/et_OrcDescricao"
-                android:layout_width="180dp"
-                android:layout_weight="1"
-                android:layout_height="70dp"
-                android:ems="10"
-                android:hint="@string/pr_descricao_exemplo"
+                android:id="@+id/et_CatDescricao"
                 android:inputType="textMultiLine"
+                android:hint="@string/pr_descricao_exemplo"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:ems="10"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -168,5 +140,4 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

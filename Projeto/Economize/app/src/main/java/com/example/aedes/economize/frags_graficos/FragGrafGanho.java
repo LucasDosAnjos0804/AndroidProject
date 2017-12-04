@@ -49,7 +49,6 @@ public class FragGrafGanho extends Fragment {
     private ArrayAdapter<String> spnn_anosArrayAdapter;
     private AlertDialog alertDialog;
 
-
     public FragGrafGanho() {
         // Required empty public constructor
     }
@@ -60,10 +59,29 @@ public class FragGrafGanho extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frag_graf_ganho, container, false);
         instanciarCampos(view);
-        makeBarGraph(view);
-        makePieGraph(view);
+        shield(view);
         setPieAdapter();
         return view;
+    }
+
+    public void shield(View v){
+        final FragmentManager fm = getFragmentManager();
+        if (spnn_grafGanhoAnos.getSelectedItem() == null){
+            Context context = getContext();
+            AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Alerta!")
+                    .setMessage("Lucro algum foi inserido no sistema.\nInsira um e tente novamente!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
+                        }
+                    });
+            alertDialog = builder.create();
+            alertDialog.show();
+        }else{
+            makeBarGraph(v);
+            makePieGraph(v);
+        }
     }
 
     public void instanciarCampos(View view) {
@@ -151,50 +169,34 @@ public class FragGrafGanho extends Fragment {
 
     public void makeBarGraph(View v) {
         ArrayList<Bar> points = new ArrayList<Bar>();
-        if (spnn_grafGanhoAnos.getSelectedItem().toString()== null){
-            Context context = getContext();
-              AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Alerta!")
-                      .setMessage("Lucro algum foi inserido no sistema.\nInsira um e tente novamente!")
-                      .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                          @Override
-                          public void onClick(DialogInterface dialog, int which) {
-                              FragmentManager fm = getFragmentManager();
-                              fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
-                          }
-                      });
-              alertDialog.create();
-              alertDialog.show();
-        }else{
-            String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
-            String meses[] = getResources().getStringArray(R.array.mesesinhos);
-            float ganhosMeses[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
+        String meses[] = getResources().getStringArray(R.array.mesesinhos);
+        float ganhosMeses[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-            for (Transacao t : tdbh.getListaTransacoes()) {
-                String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
-                String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 7, t.getDtInicio().length() - 5);
+        for (Transacao t : tdbh.getListaTransacoes()) {
+            String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
+            String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 7, t.getDtInicio().length() - 5);
 
-                if (t.getTipoOperacao() == 1 && anoTransacao.equals(anoSelecionado)) {
+            if (t.getTipoOperacao() == 1 && anoTransacao.equals(anoSelecionado)) {
 
-                    ganhosMeses[Integer.valueOf(mesTransacao) - 1] += t.getValor();
-                }
+                ganhosMeses[Integer.valueOf(mesTransacao) - 1] += t.getValor();
             }
-
-            int cores[] = getResources().getIntArray(R.array.coresMeses);
-            for (int i = 0; i < meses.length; i++) {
-                Bar mes = new Bar();
-                mes.setColor(cores[i]);
-                ;
-                mes.setName(meses[i]);
-                mes.setGoalValue(ganhosMeses[i]);
-                points.add(mes);
-            }
-            barGraph.setBars(points);
-            barGraph.setDuration(1200);//default if unspecified is 300 ms
-            barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
-            barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
-            barGraph.animateToGoalValues();
         }
 
+        int cores[] = getResources().getIntArray(R.array.coresMeses);
+        for (int i = 0; i < meses.length; i++) {
+            Bar mes = new Bar();
+            mes.setColor(cores[i]);
+            ;
+            mes.setName(meses[i]);
+            mes.setGoalValue(ganhosMeses[i]);
+            points.add(mes);
+        }
+        barGraph.setBars(points);
+        barGraph.setDuration(1200);//default if unspecified is 300 ms
+        barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
+        barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
+        barGraph.animateToGoalValues();
     }
 
     public void setBarAdapter(){
@@ -260,7 +262,5 @@ public class FragGrafGanho extends Fragment {
         pieGraph.setDuration(1000);//default if unspecified is 300 ms
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
-
     }
-
 }

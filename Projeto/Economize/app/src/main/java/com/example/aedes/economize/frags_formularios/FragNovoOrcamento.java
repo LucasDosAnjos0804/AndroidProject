@@ -52,7 +52,6 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_frag_novo_orcamento, container, false);
         instanciarCampos(v);
-        //customizarTela(cl);
         return v;
     }
 
@@ -93,16 +92,6 @@ public class FragNovoOrcamento extends Fragment implements View.OnClickListener 
 
         fltAdd.setOnClickListener(this);
         fltDel.setOnClickListener(this);
-    }
-
-    public void customizarTela(ConstraintLayout layout){
-        Context context = getContext();
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-
-        int height = display.getHeight();
-
-        layout.setMinHeight(height);
     }
 
     public void cadastrarOrcamento() {

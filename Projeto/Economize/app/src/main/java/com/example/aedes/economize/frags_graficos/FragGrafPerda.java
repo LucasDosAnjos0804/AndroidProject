@@ -1,6 +1,10 @@
 package com.example.aedes.economize.frags_graficos;
 
 
+import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -23,6 +27,7 @@ import com.example.aedes.economize.R;
 import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
+import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,6 +37,8 @@ import java.util.Random;
  * A simple {@link Fragment} subclass.
  */
 public class FragGrafPerda extends Fragment {
+
+    AlertDialog alertDialog;
 
     private ImageButton btnAnoAnterior, btnAnoSucessor, btnGrafAnterior, btnGrafSucessor;;
     private PieGraph pieGraph;
@@ -54,9 +61,28 @@ public class FragGrafPerda extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_frag_graf_perda, container, false);
         instanciarCampos(v);
-        makePieGraph(v);
-        makeBarGraph(v);
+        shield(v);
         return v;
+    }
+
+    private void shield(View v){
+        final FragmentManager fm = getFragmentManager();
+        if (spnn_grafPerdaAnos.getSelectedItem() == null){
+            Context context = getContext();
+            AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Alerta!")
+                    .setMessage("Despesa alguma foi inserida no sistema.\nInsira uma e tente novamente!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
+                        }
+                    });
+            alertDialog = builder.create();
+            alertDialog.show();
+        }else {
+            makeBarGraph(v);
+            makePieGraph(v);
+        }
     }
 
     public void instanciarCampos(View view) {
@@ -115,15 +141,12 @@ public class FragGrafPerda extends Fragment {
 
             }
         });
-
     }
 
     public void mudarGrafico(View view) {
         if (pieGraph.getVisibility() == view.VISIBLE) {
             pieGraph.setVisibility(view.GONE);
             barGraph.setVisibility(view.VISIBLE);
-
-
         } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
@@ -160,7 +183,6 @@ public class FragGrafPerda extends Fragment {
             points.add(mes);
         }
 
-
         barGraph.setBars(points);
 
         barGraph.setDuration(1200);//default if unspecified is 300 ms
@@ -177,6 +199,7 @@ public class FragGrafPerda extends Fragment {
         ArrayList<String> categoriasNomes = new ArrayList<>();
         ArrayList<Integer> coresDoGrafico = new ArrayList<>();
         PieSlice sliceDessaCategoria;
+
         int anoSelecionado = Integer.valueOf(spnn_grafPerdaAnos.getSelectedItem().toString());
 
         if (transacoes.isEmpty()) {
@@ -227,7 +250,5 @@ public class FragGrafPerda extends Fragment {
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
         listPerdas.setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
-
     }
-
 }
