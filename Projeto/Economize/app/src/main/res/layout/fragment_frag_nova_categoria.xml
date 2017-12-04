@@ -97,7 +97,7 @@
         <LinearLayout
             android:id="@+id/linearLayout12"
             android:layout_width="280dp"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/fltb_adicionar"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,12 +114,12 @@
 
             <EditText
                 android:id="@+id/et_CatDescricao"
+                android:inputType="textMultiLine"
+                android:hint="@string/pr_descricao_exemplo"
                 android:layout_width="180dp"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/pr_descricao_exemplo"
-                android:inputType="textMultiLine"
                 android:textAlignment="center" />
         </LinearLayout>
 
