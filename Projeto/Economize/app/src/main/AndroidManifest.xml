@@ -30,7 +30,8 @@
             android:label="ECONOMIZE"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustNothing"
+
             ></activity>
     </application>
 
