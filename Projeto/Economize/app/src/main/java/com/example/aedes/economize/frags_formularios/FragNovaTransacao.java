@@ -67,6 +67,7 @@ public class FragNovaTransacao extends Fragment{
         linearLayoutDt = (LinearLayout)view.findViewById(R.id.linearLayoutDT);
         linearLayoutDtInicio = (LinearLayout)view.findViewById(R.id.linearLayoutDtInicio);
         linearLayoutDtFim = (LinearLayout)view.findViewById(R.id.linearLayoutDtFim);
+        linearLayoutOcorrencia = (LinearLayout) view.findViewById(R.id.linearLayoutOcorrencia);
 
         spinnersAdapter = new ArrayAdapter<String>(this.getContext(),android.R.layout.simple_spinner_item,valCategoria);
         spinnersAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -107,7 +108,7 @@ public class FragNovaTransacao extends Fragment{
         chb_recorrente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chbClicked(view,linearLayoutDt,linearLayoutDtInicio,linearLayoutDtFim);
+                chbClicked(view,linearLayoutDt,linearLayoutDtInicio,linearLayoutDtFim, linearLayoutOcorrencia);
             }
         });
     }
@@ -156,7 +157,7 @@ public class FragNovaTransacao extends Fragment{
         tdbh.adicionarAoBd(t);
     }
 
-    public void chbClicked(View v, LinearLayout linearLayoutDt, LinearLayout linearLayoutDtInicio, LinearLayout linearLayoutDtFim){
+    public void chbClicked(View v, LinearLayout linearLayoutDt, LinearLayout linearLayoutDtInicio, LinearLayout linearLayoutDtFim, LinearLayout linearLayoutOcorrencia){
         boolean checked =((CheckBox) v).isChecked();
 
         if (checked){//quando um orçamento é recorrente
