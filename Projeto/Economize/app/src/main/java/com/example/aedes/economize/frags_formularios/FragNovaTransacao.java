@@ -134,7 +134,7 @@ public class FragNovaTransacao extends Fragment{
             transacao.setTipoOperacao(i);
             transacao.setCatNome(spnn_categoria.getSelectedItem().toString());
             transacao.setDtInicio(et_dtInicio.getText().toString());
-            transacao.setFrequencia(null);
+            transacao.setFrequencia(spnn_ocorrencia.getSelectedItem().toString());
             transacao.setUsuEmail(apl.getUsuarioAtual());
 
             if(chb_recorrente.isChecked()){
