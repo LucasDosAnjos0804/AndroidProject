@@ -2,8 +2,14 @@ package com.example.aedes.economize.frags_historicos;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,13 +24,17 @@ import java.util.ArrayList;
 import com.example.aedes.economize.classes_modelo.Transacao;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.frags_edicoes.FragEdicaoTransacao;
+import com.example.aedes.economize.frags_exibicao.FragExibicaoTransacao;
 import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
 
 
-public class FragHistoricoTransacoes extends Fragment {
+public class FragHistoricoTransacoes extends Fragment{
 
     private Activity_pos_logagem apl;
     private TransacaoDbHandler tdbh;
+    private ListView lista;
+    private MenuItem itemMenuEditar,itemMenuDescricao;
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,14 +44,13 @@ public class FragHistoricoTransacoes extends Fragment {
         TransacaoDbHandler t = new TransacaoDbHandler(getContext(), null, null, 1);
         ArrayList<Transacao> transacoes = t.getListaTransacoes();
         Historico_Transacoes_ArrayAdapter hta = new Historico_Transacoes_ArrayAdapter(getContext(), transacoes);
-        final ListView lista = (ListView) view.findViewById(R.id.listv_his_transacoes);
+        lista = (ListView) view.findViewById(R.id.listv_his_transacoes);
 
         lista.setAdapter(hta);
 
-        lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+       lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                 editarItemSelectionado(i);
                 return true;
             }
@@ -58,8 +67,6 @@ public class FragHistoricoTransacoes extends Fragment {
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new FragEdicaoTransacao()).commit();
     }
-
-
 }
 
 

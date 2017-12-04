@@ -24,6 +24,7 @@ import com.echo.holographlibrary.BarGraph;
 import com.echo.holographlibrary.PieGraph;
 import com.echo.holographlibrary.PieSlice;
 import com.example.aedes.economize.R;
+import com.example.aedes.economize.adapters_historicos_graficos.Lista_BarGraf_ArrayAdapter;
 import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
@@ -47,7 +48,7 @@ public class FragGrafPerda extends Fragment {
     private Spinner spnn_grafPerdaAnos;
     private ArrayList<String> valAnos;
     private ArrayAdapter<String> spnn_anosArrayAdapter;
-    private ListView listPerdas;
+    private ListView lista;
 
     public FragGrafPerda() {
         // Required empty public constructor
@@ -87,13 +88,11 @@ public class FragGrafPerda extends Fragment {
 
     public void instanciarCampos(View view) {
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
-        btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior_perdas);
-        btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo_perdas);
         btnGrafAnterior = (ImageButton) view.findViewById(R.id.imgbtn_grafico_anterior_perdas);
         btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor_perdas);
         pieGraph = (PieGraph) view.findViewById(R.id.pie_graph_perdas);
         barGraph = (BarGraph) view.findViewById(R.id.bar_graph_perdas);
-        listPerdas = view.findViewById(R.id.listv_perdas);
+        lista = view.findViewById(R.id.listv_perdas);
 
         btnGrafSucessor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,14 +146,24 @@ public class FragGrafPerda extends Fragment {
         if (pieGraph.getVisibility() == view.VISIBLE) {
             pieGraph.setVisibility(view.GONE);
             barGraph.setVisibility(view.VISIBLE);
+            setBarAdapter();
         } else {
             barGraph.setVisibility(view.GONE);
             pieGraph.setVisibility(view.VISIBLE);
+            setPieAdapter();
         }
     }
     public void spinnerClickListener() {
         makeBarGraph(this.getView());
         makePieGraph(this.getView());
+    }
+
+    public void setBarAdapter(){
+        lista.setAdapter(new Lista_BarGraf_ArrayAdapter(this.getContext(),barGraph.getBars()));
+    }
+
+    public void setPieAdapter(){
+        lista.setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
     }
 
     public void makeBarGraph(View v) {
@@ -249,6 +258,6 @@ public class FragGrafPerda extends Fragment {
         pieGraph.setDuration(1000);//default if unspecified is 300 ms
         pieGraph.setInterpolator(new AccelerateDecelerateInterpolator());//default if unspecified is linear; constant speed
         pieGraph.animateToGoalValues();
-        listPerdas.setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
+        lista.setAdapter(new Lista_PieGraf_ArrayAdapter(this.getContext(),pieGraph.getSlices()));
     }
 }

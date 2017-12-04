@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.aedes.economize.classes_modelo.Transacao;
+import com.example.aedes.economize.frags_exibicao.FragExibicaoInicio;
 import com.example.aedes.economize.frags_formularios.FragNovaCategoria;
 import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
 import com.example.aedes.economize.frags_formularios.FragNovoOrcamento;
@@ -43,6 +44,10 @@ public class Activity_pos_logagem extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.content_frame,new FragExibicaoInicio()).commit();
+
     }
 
     @Override
@@ -93,8 +98,6 @@ public class Activity_pos_logagem extends AppCompatActivity
             fm.beginTransaction().replace(R.id.content_frame, new FragHistoricoTransacoes()).commit();
         }else if (id == R.id.nav_listaOrc) {
             fm.beginTransaction().replace(R.id.content_frame,new FragListaOrcamentos()).commit();
-        }else if (id == R.id.nav_graph_first){
-            fm.beginTransaction().replace(R.id.content_frame,new FragGrafico_first()).commit();
         }else if (id == R.id.nav_graf_lucro){
             fm.beginTransaction().replace(R.id.content_frame,new FragGrafGanho()).commit();
         }else if (id == R.id.nav_graf_despesas){

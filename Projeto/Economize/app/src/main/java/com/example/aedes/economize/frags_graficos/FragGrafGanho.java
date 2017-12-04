@@ -87,8 +87,6 @@ public class FragGrafGanho extends Fragment {
     public void instanciarCampos(View view) {
 
         tdbh = new TransacaoDbHandler(this.getContext(), null, null, 1);
-        btnAnoAnterior = (ImageButton) view.findViewById(R.id.imgbtn_ano_anterior_ganhos);
-        btnAnoSucessor = (ImageButton) view.findViewById(R.id.imgbtn_ano_proximo_ganhos);
         btnGrafAnterior = (ImageButton) view.findViewById(R.id.imgbtn_grafico_anterior_ganhos);
         btnGrafSucessor = (ImageButton) view.findViewById(R.id.imgbtn_grafico_sucessor_ganhos);
         pieGraph = (PieGraph) view.findViewById(R.id.pie_graph_ganhos);

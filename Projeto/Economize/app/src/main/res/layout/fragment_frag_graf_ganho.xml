@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout13"
-            android:layout_width="384dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
@@ -23,27 +23,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
-                android:id="@+id/imgbtn_ano_anterior_ganhos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/backkk"
-                tools:ignore="ContentDescription" />
-
             <Spinner
                 android:id="@+id/spnn_anos_ganhos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-
-            <ImageButton
-                android:id="@+id/imgbtn_ano_proximo_ganhos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/forwarddd"
-                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 
