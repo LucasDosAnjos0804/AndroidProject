@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:1-4:12
-INJECTED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:1-4:12
-INJECTED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:1-4:12
+ADDED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:1-4:12
+INJECTED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:1-4:12
+INJECTED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:1-4:12
 	package
-		ADDED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:2:5-40
-		INJECTED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml
-		INJECTED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml
+		ADDED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:2:5-40
+		INJECTED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml
+		INJECTED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\VANIA\Desktop\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\Aedes\Documents\GitHub\AndroidProject\Projeto\Economize\HoloGraphLibrary\AndroidManifest.xml:1:11-69

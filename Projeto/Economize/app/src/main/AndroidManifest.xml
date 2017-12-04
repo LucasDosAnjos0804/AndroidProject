@@ -29,7 +29,9 @@
             android:name=".Activity_pos_logagem"
             android:label="ECONOMIZE"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" ></activity>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
     </application>
 
 </manifest>

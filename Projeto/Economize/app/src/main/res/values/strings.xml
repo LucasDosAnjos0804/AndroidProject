@@ -99,6 +99,9 @@
         <item>Dezembro</item>
     </string-array>
 
+    <string name="pr_grupo">Grupo</string>
+    <string name="transacao_recorrente">Transação recorrente:</string>
+
     <string-array name="cores">
         <item name="bright_pink">FF007F</item>
         <item name="red">FF0000</item>

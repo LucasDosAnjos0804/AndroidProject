@@ -1,0 +1,153 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aedes.economize.frags_exibicao.FragExibicaoOrcamento">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout27"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout27"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_nome"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <TextView
+            android:id="@+id/tvexiborc_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout29"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout29"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout28">
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_valor"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="164dp" />
+
+        <TextView
+            android:id="@+id/tvexiborc_valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="126dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout30"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout30"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout27">
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spnn_categoria"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="273dp" />
+
+        <TextView
+            android:id="@+id/tvexiborc_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="245dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout31"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout31"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout29">
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spnn_abrangencia"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="375dp" />
+
+        <TextView
+            android:id="@+id/tcexiborc_abrangencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="340dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout30">
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_descricao"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="456dp" />
+
+        <TextView
+            android:id="@+id/tvexiborc_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="420dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

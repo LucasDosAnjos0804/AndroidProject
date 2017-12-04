@@ -1,6 +1,10 @@
 package com.example.aedes.economize.frags_graficos;
 
 
+import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -24,6 +28,7 @@ import com.example.aedes.economize.adapters_historicos_graficos.Lista_BarGraf_Ar
 import com.example.aedes.economize.adapters_historicos_graficos.Lista_PieGraf_ArrayAdapter;
 import com.example.aedes.economize.bdhandlers.TransacaoDbHandler;
 import com.example.aedes.economize.classes_modelo.Transacao;
+import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,6 +47,7 @@ public class FragGrafGanho extends Fragment {
     private Spinner spnn_grafGanhoAnos;
     private ArrayList<String> valAnos;
     private ArrayAdapter<String> spnn_anosArrayAdapter;
+    private AlertDialog alertDialog;
 
 
     public FragGrafGanho() {
@@ -145,34 +151,49 @@ public class FragGrafGanho extends Fragment {
 
     public void makeBarGraph(View v) {
         ArrayList<Bar> points = new ArrayList<Bar>();
-        String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
-        String meses[] = getResources().getStringArray(R.array.mesesinhos);
-        float ganhosMeses[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        if (spnn_grafGanhoAnos.getSelectedItem().toString()== null){
+            Context context = getContext();
+              AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle("Alerta!")
+                      .setMessage("Lucro algum foi inserido no sistema.\nInsira um e tente novamente!")
+                      .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface dialog, int which) {
+                              FragmentManager fm = getFragmentManager();
+                              fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
+                          }
+                      });
+              alertDialog.create();
+              alertDialog.show();
+        }else{
+            String anoSelecionado = spnn_grafGanhoAnos.getSelectedItem().toString();
+            String meses[] = getResources().getStringArray(R.array.mesesinhos);
+            float ganhosMeses[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        for (Transacao t : tdbh.getListaTransacoes()) {
-            String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
-            String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 7, t.getDtInicio().length() - 5);
+            for (Transacao t : tdbh.getListaTransacoes()) {
+                String anoTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 4);
+                String mesTransacao = t.getDtInicio().substring(t.getDtInicio().length() - 7, t.getDtInicio().length() - 5);
 
-            if (t.getTipoOperacao() == 1 && anoTransacao.equals(anoSelecionado)) {
+                if (t.getTipoOperacao() == 1 && anoTransacao.equals(anoSelecionado)) {
 
-                ganhosMeses[Integer.valueOf(mesTransacao) - 1] += t.getValor();
+                    ganhosMeses[Integer.valueOf(mesTransacao) - 1] += t.getValor();
+                }
             }
-        }
 
-        int cores[] = getResources().getIntArray(R.array.coresMeses);
-        for (int i = 0; i < meses.length; i++) {
-            Bar mes = new Bar();
-            mes.setColor(cores[i]);
-            ;
-            mes.setName(meses[i]);
-            mes.setGoalValue(ganhosMeses[i]);
-            points.add(mes);
+            int cores[] = getResources().getIntArray(R.array.coresMeses);
+            for (int i = 0; i < meses.length; i++) {
+                Bar mes = new Bar();
+                mes.setColor(cores[i]);
+                ;
+                mes.setName(meses[i]);
+                mes.setGoalValue(ganhosMeses[i]);
+                points.add(mes);
+            }
+            barGraph.setBars(points);
+            barGraph.setDuration(1200);//default if unspecified is 300 ms
+            barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
+            barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
+            barGraph.animateToGoalValues();
         }
-        barGraph.setBars(points);
-        barGraph.setDuration(1200);//default if unspecified is 300 ms
-        barGraph.setInterpolator(new AccelerateDecelerateInterpolator());//Only use over/undershoot  when not inserting/deleting
-        barGraph.setValueStringPrecision(1); //1 decimal place. 0 by default for integers.
-        barGraph.animateToGoalValues();
 
     }
 

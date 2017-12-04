@@ -1,0 +1,247 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aedes.economize.frags_exibicao.FragExibicaoTransacao">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout38"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout38"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvexibtran_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_nome"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="43dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout36"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout36"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout40">
+
+        <TextView
+            android:id="@+id/tvexibtran_valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_valor"
+            tools:layout_editor_absoluteX="111dp"
+            tools:layout_editor_absoluteY="74dp" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="111dp"
+            tools:layout_editor_absoluteY="100dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout39"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout39"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout38">
+
+        <TextView
+            android:id="@+id/tvexibtran_grupo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_grupo"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="132dp" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="161dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout37"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout37"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout36">
+
+        <TextView
+            android:id="@+id/tvexibtran_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spnn_categoria"
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="189dp" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="215dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout35"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout35"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout39">
+
+        <TextView
+            android:id="@+id/tvexibtran_recorrencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/transacao_recorrente"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="245dp" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="186dp"
+            tools:layout_editor_absoluteY="264dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout33"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout33"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout37">
+
+        <TextView
+            android:id="@+id/tvexibtran_data_ocorrencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dt_ocorrencia"
+            tools:layout_editor_absoluteX="128dp"
+            tools:layout_editor_absoluteY="296dp" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="128dp"
+            tools:layout_editor_absoluteY="326dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout32"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout32"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout35">
+
+        <TextView
+            android:id="@+id/tvexibtran_data_inicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dt_inicio"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="352dp" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="384dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout34"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout34"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout33">
+
+        <TextView
+            android:id="@+id/tvexibtran_data_fin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dt_fim"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="411dp" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="430dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout32">
+
+        <TextView
+            android:id="@+id/tvexibtran_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pr_descricao"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="449dp" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="476dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
