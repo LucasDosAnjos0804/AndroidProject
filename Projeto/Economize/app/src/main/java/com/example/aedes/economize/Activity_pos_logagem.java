@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.aedes.economize.classes_modelo.Transacao;
 import com.example.aedes.economize.frags_formularios.FragNovaCategoria;
 import com.example.aedes.economize.frags_formularios.FragNovaTransacao;
 import com.example.aedes.economize.frags_formularios.FragNovoOrcamento;
@@ -25,6 +26,7 @@ public class Activity_pos_logagem extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private String usuarioAtual;
+    private Transacao tParaEdicao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,25 +81,25 @@ public class Activity_pos_logagem extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         FragmentManager fm = getFragmentManager();
-       if (id == R.id.nav_addtrans) {
+        if (id == R.id.nav_addtrans) {
             fm.beginTransaction().replace(R.id.content_frame, new FragNovaTransacao()).commit();
         } else if (id == R.id.nav_addcat) {
-           fm.beginTransaction().replace(R.id.content_frame, new FragNovaCategoria()).commit();
+            fm.beginTransaction().replace(R.id.content_frame, new FragNovaCategoria()).commit();
         }else if (id == R.id.nav_orc) {
-           fm.beginTransaction().replace(R.id.content_frame, new FragNovoOrcamento()).commit();
-       }else if (id == R.id.nav_listaCat) {
-           fm.beginTransaction().replace(R.id.content_frame, new FragListaCategorias()).commit();
-       }else if (id == R.id.nav_listaTrans) {
-           fm.beginTransaction().replace(R.id.content_frame, new FragHistoricoTransacoes()).commit();
-       }else if (id == R.id.nav_listaOrc) {
-           fm.beginTransaction().replace(R.id.content_frame,new FragListaOrcamentos()).commit();
-       }else if (id == R.id.nav_graph_first){
-           fm.beginTransaction().replace(R.id.content_frame,new FragGrafico_first()).commit();
-       }else if (id == R.id.nav_graf_lucro){
-           fm.beginTransaction().replace(R.id.content_frame,new FragGrafGanho()).commit();
-       }else if (id == R.id.nav_graf_despesas){
-           fm.beginTransaction().replace(R.id.content_frame,new FragGrafPerda()).commit();
-       }
+            fm.beginTransaction().replace(R.id.content_frame, new FragNovoOrcamento()).commit();
+        }else if (id == R.id.nav_listaCat) {
+            fm.beginTransaction().replace(R.id.content_frame, new FragListaCategorias()).commit();
+        }else if (id == R.id.nav_listaTrans) {
+            fm.beginTransaction().replace(R.id.content_frame, new FragHistoricoTransacoes()).commit();
+        }else if (id == R.id.nav_listaOrc) {
+            fm.beginTransaction().replace(R.id.content_frame,new FragListaOrcamentos()).commit();
+        }else if (id == R.id.nav_graph_first){
+            fm.beginTransaction().replace(R.id.content_frame,new FragGrafico_first()).commit();
+        }else if (id == R.id.nav_graf_lucro){
+            fm.beginTransaction().replace(R.id.content_frame,new FragGrafGanho()).commit();
+        }else if (id == R.id.nav_graf_despesas){
+            fm.beginTransaction().replace(R.id.content_frame,new FragGrafPerda()).commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -106,5 +108,14 @@ public class Activity_pos_logagem extends AppCompatActivity
 
     public String getUsuarioAtual(){
         return usuarioAtual;
+    }
+
+
+    public Transacao gettParaEdicao() {
+        return tParaEdicao;
+    }
+
+    public void settParaEdicao(Transacao tParaEdicao) {
+        this.tParaEdicao = tParaEdicao;
     }
 }
