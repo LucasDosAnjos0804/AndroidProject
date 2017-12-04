@@ -195,8 +195,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout34"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout34"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout41"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout41"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout33">
 
         <TextView
@@ -217,6 +217,28 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout34"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout34"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout32">
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spnn_ocorrencia" />
+
+        <TextView
+            android:id="@+id/tvexibtran_ocorrencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -225,7 +247,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout32">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout41">
 
         <TextView
             android:id="@+id/tvexibtran_descricao"

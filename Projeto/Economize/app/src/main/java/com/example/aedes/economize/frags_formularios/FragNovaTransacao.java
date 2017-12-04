@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class FragNovaTransacao extends Fragment{
 
-    private LinearLayout linearLayoutDt, linearLayoutDtInicio, linearLayoutDtFim;
+    private LinearLayout linearLayoutDt, linearLayoutDtInicio, linearLayoutDtFim, linearLayoutOcorrencia;
     private EditText et_valor, et_titulo, et_dtInicio, et_dtInicioRecorrente,et_dtFim, et_descricao;
     private RadioButton rd_ganho,rd_despesa;
     private CheckBox chb_recorrente;
@@ -163,12 +163,12 @@ public class FragNovaTransacao extends Fragment{
             linearLayoutDt.setVisibility(View.GONE);
             linearLayoutDtInicio.setVisibility(View.VISIBLE);
             linearLayoutDtFim.setVisibility(View.VISIBLE);
-            spnn_ocorrencia.setVisibility(View.VISIBLE);
+            linearLayoutOcorrencia.setVisibility(View.VISIBLE);
         }else{
             linearLayoutDt.setVisibility(View.VISIBLE);
             linearLayoutDtInicio.setVisibility(View.GONE);
             linearLayoutDtFim.setVisibility(View.GONE);
-            spnn_ocorrencia.setVisibility(View.GONE);
+            linearLayoutOcorrencia.setVisibility(View.GONE);
         }
     }
 

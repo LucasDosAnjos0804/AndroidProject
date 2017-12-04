@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.aedes.economize.R;
 
@@ -15,6 +16,7 @@ import com.example.aedes.economize.R;
 public class FragExibicaoTransacao extends Fragment {
 
 
+    private EditText etNome, etValor, etGrupo, etCategoria, etrecorrencia, etDataOcorrencia, etDataInicio, etDataFim, etDescricao;
     public FragExibicaoTransacao() {
         // Required empty public constructor
     }
@@ -25,6 +27,10 @@ public class FragExibicaoTransacao extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_frag_exibicao_transacao, container, false);
+    }
+
+    private void instanciarComponentes(View v){
+
     }
 
 }
