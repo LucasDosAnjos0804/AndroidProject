@@ -90,6 +90,7 @@ public class FragEdicaoTransacao extends Fragment{
 
         spnn_ocorrencia = (Spinner)view.findViewById(R.id.spnn_transOcorrencia);
         valOcorrencia = new ArrayList<>();
+        valOcorrencia.add("Uma vez");
         valOcorrencia.add("Semanal");
         valOcorrencia.add("Mensal");
         valOcorrencia.add("Semenstral");
@@ -132,7 +133,7 @@ public class FragEdicaoTransacao extends Fragment{
 
         if(transSelecionada.isRecorrente()==1){
             chb_recorrente.setChecked(true);
-
+            spnn_ocorrencia.setSelection(0);
         }
 
         et_dtInicio.setText(transSelecionada.getDtInicio());
