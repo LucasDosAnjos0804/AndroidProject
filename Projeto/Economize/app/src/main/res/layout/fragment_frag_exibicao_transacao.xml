@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvexibtran_titulo"
+            android:id="@+id/textView36"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pr_nome"
@@ -26,7 +26,7 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/tvexibtran_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout40">
 
         <TextView
-            android:id="@+id/tvexibtran_valor"
+            android:id="@+id/textView39"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pr_valor"
@@ -52,7 +52,7 @@
             tools:layout_editor_absoluteY="74dp" />
 
         <TextView
-            android:id="@+id/textView39"
+            android:id="@+id/tvexibtran_valor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout38">
 
         <TextView
-            android:id="@+id/tvexibtran_grupo"
+            android:id="@+id/textView41"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pr_grupo"
@@ -78,7 +78,7 @@
             tools:layout_editor_absoluteY="132dp" />
 
         <TextView
-            android:id="@+id/textView41"
+            android:id="@+id/tvexibtran_grupo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout36">
 
         <TextView
-            android:id="@+id/tvexibtran_categoria"
+            android:id="@+id/textView43"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/spnn_categoria"
@@ -104,7 +104,7 @@
             tools:layout_editor_absoluteY="189dp" />
 
         <TextView
-            android:id="@+id/textView43"
+            android:id="@+id/tvexibtran_categoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -122,7 +122,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout39">
 
         <TextView
-            android:id="@+id/tvexibtran_recorrencia"
+            android:id="@+id/textView45"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/transacao_recorrente"
@@ -130,7 +130,7 @@
             tools:layout_editor_absoluteY="245dp" />
 
         <TextView
-            android:id="@+id/textView45"
+            android:id="@+id/tvexibtran_recorrencia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -148,7 +148,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout37">
 
         <TextView
-            android:id="@+id/tvexibtran_data_ocorrencia"
+            android:id="@+id/textView47"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dt_ocorrencia"
@@ -156,7 +156,7 @@
             tools:layout_editor_absoluteY="296dp" />
 
         <TextView
-            android:id="@+id/textView47"
+            android:id="@+id/tvexibtran_data_ocorrencia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -174,7 +174,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout35">
 
         <TextView
-            android:id="@+id/tvexibtran_data_inicio"
+            android:id="@+id/textView49"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dt_inicio"
@@ -182,7 +182,7 @@
             tools:layout_editor_absoluteY="352dp" />
 
         <TextView
-            android:id="@+id/textView49"
+            android:id="@+id/tvexibtran_data_inicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -200,7 +200,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout33">
 
         <TextView
-            android:id="@+id/tvexibtran_data_fin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dt_fim"
@@ -208,7 +207,7 @@
             tools:layout_editor_absoluteY="411dp" />
 
         <TextView
-            android:id="@+id/textView51"
+            android:id="@+id/tvexibtran_data_fin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -226,7 +225,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout32">
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/textView51"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/spnn_ocorrencia" />
@@ -250,7 +249,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout41">
 
         <TextView
-            android:id="@+id/tvexibtran_descricao"
+            android:id="@+id/textView53"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pr_descricao"
@@ -258,7 +257,7 @@
             tools:layout_editor_absoluteY="449dp" />
 
         <TextView
-            android:id="@+id/textView53"
+            android:id="@+id/tvexibtran_descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
