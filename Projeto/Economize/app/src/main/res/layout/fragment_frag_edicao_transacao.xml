@@ -1,0 +1,325 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aedes.economize.frags_edicoes.FragEdicaoTransacao">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pr_titulo" />
+
+            <EditText
+                android:id="@+id/et_transTitulo"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/pr_titulo"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="170dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pr_valor" />
+
+            <EditText
+                android:id="@+id/et_transValor"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/pr_valor_exemplo"
+                android:inputType="numberDecimal"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="16dp" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout23"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout23"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout23"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+            <RadioButton
+                android:id="@+id/rd_transLucro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/rdb_ganho"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="78dp" />
+
+            <RadioButton
+                android:id="@+id/rd_transDespesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:duplicateParentState="false"
+                android:text="@string/rdb_despesa"
+                tools:layout_editor_absoluteX="237dp"
+                tools:layout_editor_absoluteY="78dp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/linearLayout23"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/chb_trans_paga_recorrente"
+            app:layout_constraintEnd_toEndOf="@+id/chb_trans_paga_recorrente"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/chb_trans_paga_recorrente"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/spnn_categoria" />
+
+            <Spinner
+                android:id="@+id/spnn_transCategoria"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/chb_trans_paga_recorrente"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:text="@string/chb_tipo_de_pagamento"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutDT"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutDT"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutDT"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout23" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDT"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutDtInicio"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutDtInicio"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutDtInicio"
+            app:layout_constraintTop_toBottomOf="@+id/chb_trans_paga_recorrente">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dt_ocorrencia"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="238dp" />
+
+            <EditText
+                android:id="@+id/et_transDtInicio"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/dt_exemplo"
+                android:inputType="date"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="161dp"
+                tools:layout_editor_absoluteY="233dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDtInicio"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutOcorrencia"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutOcorrencia"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutOcorrencia"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutDT">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dt_inicio" />
+
+            <EditText
+                android:id="@+id/et_transDtInicioRecorrente"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/dt_exemplo"
+                android:inputType="date"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutOcorrencia"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayoutDtFim"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayoutDtFim"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayoutDtFim"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutDtInicio">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/spnn_ocorrencia" />
+
+            <Spinner
+                android:id="@+id/spnn_transOcorrencia"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDtFim"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutOcorrencia">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dt_fim" />
+
+            <EditText
+                android:id="@+id/et_transDtFim"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/dt_exemplo"
+                android:inputType="date"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/fltb_adicionar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutDtFim">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/pr_descricao" />
+
+            <EditText
+                android:id="@+id/et_transDescricao"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/pr_descricao"
+                android:inputType="textMultiLine"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp" />
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fltb_adicionar"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@android:drawable/ic_input_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fltb_cancelar"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
