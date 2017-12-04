@@ -100,6 +100,12 @@ public class FragEdicaoTransacao extends Fragment{
         spnn_ocorrencia.setAdapter(spnnAdapterOcorrencia);
 
         fltb_adicionar = (FloatingActionButton)view.findViewById(R.id.fltb_adicionar);
+        fltb_adicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editarTransacao();
+            }
+        });
         fltb_cancelar = (FloatingActionButton)view.findViewById(R.id.fltb_deletar);
         chb_recorrente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +117,45 @@ public class FragEdicaoTransacao extends Fragment{
         preencherCampos();
     }
 
+    public void editarTransacao(){
+        int i = 0;
+        if(rd_ganho.isChecked()){
+            i = 1;
+        }
 
+        if(rd_despesa.isChecked()){
+            i = -1;
+        }
+
+        if(i==0){
+            Toast.makeText(this.getContext(),"Tipo de Operação Lucro/Despesa não selecionado.",Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            transacao = new Transacao();
+            transacao.setTitulo(et_titulo.getText().toString());
+            transacao.setValor((Double.parseDouble(et_valor.getText().toString())));
+            transacao.setDescricao(et_descricao.getText().toString());
+            transacao.setTipoOperacao(i);
+            transacao.setCatNome(spnn_categoria.getSelectedItem().toString());
+            transacao.setDtInicio(et_dtInicio.getText().toString());
+            transacao.setFrequencia(spnn_ocorrencia.getSelectedItem().toString());
+            transacao.setUsuEmail(apl.getUsuarioAtual());
+
+            if(chb_recorrente.isChecked()){
+                transacao.setRecorrente(true);
+                transacao.setDtInicio(et_dtInicioRecorrente.getText().toString());
+                transacao.setDtFim(et_dtFim.getText().toString());
+            }else{
+                transacao.setRecorrente(false);
+                transacao.setDtInicio(et_dtInicio.getText().toString());
+                transacao.setDtFim(" ");
+            }
+
+            tdbh = new TransacaoDbHandler(this.getContext(),null,null,1);
+            tdbh.alterarNoBd(transacao);
+            Toast.makeText(this.getContext(),"Transação editada com sucesso!",Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void preencherCampos(){
         Transacao transSelecionada = apl.gettParaEdicao();
@@ -125,9 +169,11 @@ public class FragEdicaoTransacao extends Fragment{
             rd_despesa.setChecked(true);
         }
 
-        for(Categoria cat : cdbh.getListaCategorias()){
-            if(cat.getNome().equals(transSelecionada.getCatNome())){
-                spnn_categoria.setSelection(cdbh.getListaCategorias().indexOf(cat));
+        cdbh = new CategoriaDbHandler(this.getContext(),null,null,1);
+        ArrayList<Categoria> cats = cdbh.getListaCategorias();
+        for(int i =0;i<cdbh.getListaCategorias().size();i++){
+            if(cats.get(i).getNome().equals(transSelecionada.getCatNome())){
+                spnn_categoria.setSelection(i);
             }
         }
 

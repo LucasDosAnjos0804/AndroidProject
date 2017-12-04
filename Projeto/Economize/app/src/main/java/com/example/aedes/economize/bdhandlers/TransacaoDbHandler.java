@@ -65,7 +65,19 @@ public class TransacaoDbHandler extends SQLiteOpenHelper{
         getWritableDatabase().delete(nome_tabela,String.valueOf(t.getId())+"="+id,null);
     }
 
-    public void alterarNoBd(){}
+
+    public void alterarNoBd(Transacao t){
+        String sql = "UPDATE "+nome_tabela;
+        sql+=" set "+titulo+"='"+t.getTitulo()+"', ";
+        sql+=valor+"="+t.getValor()+", ";
+        sql+=tipoOperacao+"="+t.getTipoOperacao()+", ";
+        sql+=catNome+"='"+t.getCatNome()+"', ";
+        sql+=recorrente+"="+t.isRecorrente()+", ";
+        sql+=dtInicio+"='"+t.getDtInicio()+"', ";
+        sql+=dtFim+"='"+t.getDtFim()+"', ";
+        sql+=descricao+"='"+t.getDescricao()+"' WHERE "+id+"="+apl.gettParaEdicao().getId();
+        getWritableDatabase().execSQL(sql);
+    }
 
     public ArrayList<Transacao> getListaTransacoes(){
         Cursor c = getWritableDatabase().rawQuery("SELECT * FROM Transacao WHERE "+ usuEmail +"="+ "'"+apl.getUsuarioAtual()+"'", null);

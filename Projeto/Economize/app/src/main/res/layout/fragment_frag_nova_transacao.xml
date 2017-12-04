@@ -217,7 +217,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/linearLayoutDtFim"
             app:layout_constraintEnd_toEndOf="@+id/linearLayoutDtFim"
             app:layout_constraintHorizontal_bias="0.5"
