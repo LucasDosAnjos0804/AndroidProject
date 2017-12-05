@@ -1,4 +1,3 @@
-# AndroidProject
-Inicio de uma nova vida
-
-ok
+# Economize:
+Aplicativo para controle de Finanças.
+:) :)
